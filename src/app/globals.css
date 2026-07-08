@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Aether Health OS — Design Tokens (from MedicalErpTheme)
+   ============================================================ */
+:root {
+  /* Brand */
+  --brand-teal: #0e8388;
+  --brand-teal-dark: #0a6b70;
+  --brand-teal-deep: #083e45;
+  --brand-clinical-blue: #1b6ec2;
+  --brand-ink: #10303b;
+  --brand-mist: #e6f0f0;
+  --brand-sage: #5bb4a6;
+  --brand-forest: #1e9e63;
+
+  /* Semantic status */
+  --status-success: #1e9e63;
+  --status-warning: #e0912f;
+  --status-danger: #d64545;
+  --status-info: #1b6ec2;
+  --status-critical: #c0362c;
+
+  /* Surfaces — light */
+  --surface: #f3f7f7;
+  --card: #ffffff;
+  --border: rgba(16, 48, 56, 0.1);
+  --text-heading: #10303b;
+  --text-body: #3a4a50;
+  --text-muted: rgba(16, 48, 56, 0.55);
+
+  /* Shape & motion */
+  --radius-control: 14px;
+  --radius-pill: 30px;
+  --radius-card: 16px;
+}
+
+[data-theme="dark"] {
+  --brand-teal: #3fb6b0;
+  --brand-teal-dark: #2fa5a0;
+  --brand-clinical-blue: #6fa8dc;
+  --brand-mist: #14262a;
+
+  --surface: #0c1719;
+  --card: #14262a;
+  --border: rgba(255, 255, 255, 0.12);
+  --text-heading: #ffffff;
+  --text-body: rgba(255, 255, 255, 0.72);
+  --text-muted: rgba(255, 255, 255, 0.55);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--surface);
+  color: var(--text-body);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  color: var(--text-heading);
+}
+
+/* Focus ring — accessibility (W21) */
+:focus-visible {
+  outline: 2px solid var(--brand-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 48, 56, 0.18);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(16, 48, 56, 0.3); background-clip: content-box; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); background-clip: content-box; }
+
+/* Utility layer */
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  .skeleton {
+    @apply relative overflow-hidden rounded-md bg-black/[0.06] dark:bg-white/[0.06];
+  }
+  .skeleton::after {
+    content: "";
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    animation: shimmer 1.5s infinite;
+    transform: translateX(-100%);
+  }
+  [data-theme="dark"] .skeleton::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  }
+  .card-surface {
+    @apply rounded-card border bg-card shadow-soft;
+  }
+  .hairline {
+    @apply border-b border-[var(--border)];
+  }
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Reduced motion (W21 / W25) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Grid pattern for hero backgrounds */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(16, 48, 56, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 48, 56, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+[data-theme="dark"] .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+.text-gradient-teal {
+  background: linear-gradient(120deg, var(--brand-teal), var(--brand-clinical-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
