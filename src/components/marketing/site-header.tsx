@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/brand/logo";
 import { ThemeToggle } from "@/components/marketing/theme-toggle";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -45,23 +45,83 @@ export function SiteHeader() {
                 {item.label}
                 {item.children && <ChevronDown className="h-3.5 w-3.5 opacity-60" />}
               </Link>
-              {item.children && open === item.label && (
-                <div className="absolute left-0 top-full w-[320px] pt-2">
-                  <div className="animate-fade-in rounded-card border bg-card p-2 shadow-pop">
-                    {item.children.map((c) => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        onClick={() => setOpen(null)}
-                        className="block rounded-lg px-3 py-2.5 hover:bg-mist/60 dark:hover:bg-white/[0.05]"
-                      >
-                        <span className="block text-sm font-semibold text-heading">{c.label}</span>
-                        {c.desc && <span className="block text-xs text-muted">{c.desc}</span>}
-                      </Link>
-                    ))}
+              {item.children && open === item.label && (() => {
+                const twoCol = (item.children?.length ?? 0) > 7;
+                const alignRight = item.label === "Security" || item.label === "Resources";
+                const MenuIcon = item.menuIcon;
+                return (
+                  <div className={cn("absolute top-full pt-2.5", alignRight ? "right-0" : "left-0", twoCol ? "w-[640px]" : "w-[400px]")}>
+                    <div className="origin-top animate-fade-in overflow-hidden rounded-2xl border bg-card/95 p-2.5 shadow-pop ring-1 ring-black/[0.03] backdrop-blur-xl dark:ring-white/[0.04]">
+                      {/* Section header */}
+                      <div className="flex items-center gap-2 px-3 pb-2 pt-1">
+                        {MenuIcon && (
+                          <span className="grid h-5 w-5 place-items-center rounded-md bg-teal/10 text-teal">
+                            <MenuIcon className="h-3.5 w-3.5" />
+                          </span>
+                        )}
+                        <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-muted">
+                          {item.menuLabel ?? item.label}
+                        </span>
+                      </div>
+                      <div className="mx-1 mb-1.5 h-px bg-gradient-to-r from-[var(--border)] via-[var(--border)] to-transparent" />
+
+                      {/* Items */}
+                      <div className={cn(twoCol && "grid grid-cols-2 gap-x-1")}>
+                        {item.children.map((c) => {
+                          const Icon = c.icon;
+                          return (
+                            <Link
+                              key={c.href}
+                              href={c.href}
+                              onClick={() => setOpen(null)}
+                              className="group/item flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors duration-micro hover:bg-mist/70 dark:hover:bg-white/[0.05]"
+                            >
+                              {Icon && (
+                                <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-black/[0.045] text-muted shadow-[inset_0_0_0_1px_rgba(16,48,56,0.04)] transition-all duration-micro group-hover/item:bg-teal/10 group-hover/item:text-teal group-hover/item:shadow-[inset_0_0_0_1px_rgba(14,131,136,0.25)] dark:bg-white/[0.06]">
+                                  <Icon className="h-[18px] w-[18px]" />
+                                </span>
+                              )}
+                              <span className="min-w-0 flex-1">
+                                <span className="flex items-center gap-1.5">
+                                  <span className="text-sm font-semibold text-heading transition-colors group-hover/item:text-teal">{c.label}</span>
+                                  {c.badge && <span className="rounded-pill bg-teal/12 px-1.5 py-0.5 text-[10px] font-bold text-teal">{c.badge}</span>}
+                                </span>
+                                {c.desc && <span className="mt-0.5 block truncate text-xs leading-snug text-muted">{c.desc}</span>}
+                              </span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+
+                      {/* Featured footer */}
+                      {item.featured && (() => {
+                        const FIcon = item.featured.icon;
+                        return (
+                          <>
+                            <div className="mx-1 my-1.5 h-px bg-[var(--border)]" />
+                            <Link
+                              href={item.featured.href}
+                              onClick={() => setOpen(null)}
+                              className="group/feat flex items-center justify-between gap-3 rounded-xl bg-gradient-to-r from-teal/[0.06] to-clinical/[0.04] px-3 py-2.5 transition hover:from-teal/[0.1] hover:to-clinical/[0.06]"
+                            >
+                              <span className="flex items-center gap-3">
+                                <span className="grid h-10 w-10 place-items-center rounded-xl bg-teal text-white shadow-soft">
+                                  <FIcon className="h-[18px] w-[18px]" />
+                                </span>
+                                <span>
+                                  <span className="block text-sm font-bold text-heading">{item.featured.title}</span>
+                                  <span className="block text-xs text-muted">{item.featured.desc}</span>
+                                </span>
+                              </span>
+                              <ArrowRight className="h-4 w-4 shrink-0 text-teal transition-transform group-hover/feat:translate-x-0.5" />
+                            </Link>
+                          </>
+                        );
+                      })()}
+                    </div>
                   </div>
-                </div>
-              )}
+                );
+              })()}
             </div>
           ))}
         </nav>
@@ -95,12 +155,23 @@ export function SiteHeader() {
                   {item.children && <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />}
                 </summary>
                 {item.children && (
-                  <div className="ml-3 space-y-0.5 border-l pl-3">
-                    {item.children.map((c) => (
-                      <Link key={c.href} href={c.href} onClick={() => setMobileOpen(false)} className="block rounded-md px-2 py-2 text-sm text-body hover:text-teal">
-                        {c.label}
-                      </Link>
-                    ))}
+                  <div className="ml-2 space-y-0.5 border-l pl-2">
+                    {item.children.map((c) => {
+                      const Icon = c.icon;
+                      return (
+                        <Link key={c.href} href={c.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5 rounded-lg px-2 py-2 hover:bg-mist/60 dark:hover:bg-white/[0.05]">
+                          {Icon && (
+                            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-black/[0.045] text-muted dark:bg-white/[0.06]">
+                              <Icon className="h-4 w-4" />
+                            </span>
+                          )}
+                          <span className="min-w-0">
+                            <span className="block text-sm font-medium text-heading">{c.label}</span>
+                            {c.desc && <span className="block truncate text-xs text-muted">{c.desc}</span>}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </details>

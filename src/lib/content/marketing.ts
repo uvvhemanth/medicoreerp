@@ -1,81 +1,114 @@
 /** Marketing content (CMS-ready, local now — Requirements §7.4). */
+import type { LucideIcon } from "lucide-react";
+import {
+  Users, Stethoscope, Pill, FlaskConical, Scan, Receipt, Boxes, UsersRound,
+  BarChart3, Settings2, Building2, Microscope, Network, Landmark, Mic, Bot,
+  TrendingUp, MessageSquareText, Sparkles, Share2, Globe, ArrowLeftRight,
+  ShieldCheck, BadgeCheck, Activity, BookOpen, GitCompare, Code2, Blocks,
+  ArrowRight, Zap,
+} from "lucide-react";
 
-export interface NavChild { label: string; href: string; desc?: string }
-export interface NavItem { label: string; href: string; children?: NavChild[] }
+export interface NavChild { label: string; href: string; desc?: string; icon?: LucideIcon; badge?: string }
+export interface NavFeatured { title: string; desc: string; href: string; icon: LucideIcon }
+export interface NavItem {
+  label: string;
+  href: string;
+  menuLabel?: string;
+  menuIcon?: LucideIcon;
+  children?: NavChild[];
+  featured?: NavFeatured;
+}
 
 export const NAV: NavItem[] = [
   {
     label: "Product",
     href: "/product",
+    menuLabel: "Platform modules",
+    menuIcon: Blocks,
+    featured: { title: "See the full platform", desc: "50+ modules, one interaction grammar", href: "/product", icon: ArrowRight },
     children: [
-      { label: "Patient Access", href: "/product/patient-access", desc: "Registration, appointments, queues" },
-      { label: "Clinical (EMR/OPD/IPD)", href: "/product/clinical", desc: "The AI-native chart" },
-      { label: "Pharmacy", href: "/product/pharmacy", desc: "Closed-loop dispensing" },
-      { label: "Laboratory", href: "/product/lab", desc: "LIS with analyzer integration" },
-      { label: "Radiology", href: "/product/radiology", desc: "RIS + zero-footprint PACS" },
-      { label: "Revenue Cycle", href: "/product/revenue-cycle", desc: "Autonomous RCM" },
-      { label: "Supply Chain", href: "/product/supply-chain", desc: "Inventory + procurement" },
-      { label: "Workforce (HRM)", href: "/product/hrm", desc: "Clinical-aware HR" },
-      { label: "Analytics", href: "/product/analytics", desc: "Real-time, ask-your-data" },
-      { label: "Platform & Admin", href: "/product/platform", desc: "No-code studios" },
+      { label: "Patient Access", href: "/product/patient-access", desc: "Registration, appointments, queues", icon: Users },
+      { label: "Clinical (EMR/OPD/IPD)", href: "/product/clinical", desc: "The AI-native chart", icon: Stethoscope },
+      { label: "Pharmacy", href: "/product/pharmacy", desc: "Closed-loop dispensing", icon: Pill },
+      { label: "Laboratory", href: "/product/lab", desc: "LIS with analyzer integration", icon: FlaskConical },
+      { label: "Radiology", href: "/product/radiology", desc: "RIS + zero-footprint PACS", icon: Scan },
+      { label: "Revenue Cycle", href: "/product/revenue-cycle", desc: "Autonomous RCM", icon: Receipt },
+      { label: "Supply Chain", href: "/product/supply-chain", desc: "Inventory + procurement", icon: Boxes },
+      { label: "Workforce (HRM)", href: "/product/hrm", desc: "Clinical-aware HR", icon: UsersRound },
+      { label: "Analytics", href: "/product/analytics", desc: "Real-time, ask-your-data", icon: BarChart3 },
+      { label: "Platform & Admin", href: "/product/platform", desc: "No-code studios", icon: Settings2 },
     ],
   },
   {
     label: "Solutions",
     href: "/solutions",
+    menuLabel: "Solutions",
+    menuIcon: Building2,
     children: [
-      { label: "Clinics", href: "/solutions/clinics", desc: "Single & multi-clinic" },
-      { label: "Hospitals", href: "/solutions/hospitals", desc: "Multispecialty" },
-      { label: "Diagnostics / Labs", href: "/solutions/diagnostics", desc: "Lab & imaging chains" },
-      { label: "Pharmacy Chains", href: "/solutions/pharmacy", desc: "Retail + hospital" },
-      { label: "Enterprise Networks", href: "/solutions/enterprise", desc: "Multi-branch groups" },
-      { label: "Government / Payer", href: "/solutions/government", desc: "Public health & TPAs" },
+      { label: "Clinics", href: "/solutions/clinics", desc: "Single & multi-clinic practices", icon: Stethoscope },
+      { label: "Hospitals", href: "/solutions/hospitals", desc: "Multispecialty & IPD", icon: Building2 },
+      { label: "Diagnostics / Labs", href: "/solutions/diagnostics", desc: "Lab & imaging chains", icon: Microscope },
+      { label: "Pharmacy Chains", href: "/solutions/pharmacy", desc: "Retail + hospital outlets", icon: Pill },
+      { label: "Enterprise Networks", href: "/solutions/enterprise", desc: "Multi-branch groups", icon: Network },
+      { label: "Government / Payer", href: "/solutions/government", desc: "Public sector & TPAs", icon: Landmark },
     ],
   },
   {
     label: "AI",
     href: "/ai",
+    menuLabel: "AI capabilities",
+    menuIcon: Sparkles,
+    featured: { title: "Human always in the loop", desc: "Cited, explainable, and fully audited", href: "/ai", icon: ShieldCheck },
     children: [
-      { label: "Ambient Scribe", href: "/ai/ambient-scribe", desc: "Voice → signed SOAP note" },
-      { label: "Clinical Co-pilot", href: "/ai/clinical-copilot", desc: "Cited, chart-aware assist" },
-      { label: "Autonomous RCM", href: "/ai/autonomous-rcm", desc: "Coding, scrub, appeals" },
-      { label: "Predictive Ops", href: "/ai/predictive-ops", desc: "LOS, no-show, demand" },
-      { label: "NL Analytics", href: "/ai/nl-analytics", desc: "Ask your hospital data" },
+      { label: "Ambient Scribe", href: "/ai/ambient-scribe", desc: "Voice → signed SOAP note", icon: Mic },
+      { label: "Clinical Co-pilot", href: "/ai/clinical-copilot", desc: "Cited, chart-aware assist", icon: Bot },
+      { label: "Autonomous RCM", href: "/ai/autonomous-rcm", desc: "Coding, scrub, appeals", icon: Receipt },
+      { label: "Predictive Ops", href: "/ai/predictive-ops", desc: "LOS, no-show, demand", icon: TrendingUp },
+      { label: "NL Analytics", href: "/ai/nl-analytics", desc: "Ask your hospital data", icon: MessageSquareText },
     ],
   },
   {
     label: "Interoperability",
     href: "/interoperability",
+    menuLabel: "Standards & data",
+    menuIcon: Network,
     children: [
-      { label: "FHIR", href: "/interoperability/fhir" },
-      { label: "HL7", href: "/interoperability/hl7" },
-      { label: "DICOM", href: "/interoperability/dicom" },
-      { label: "ABDM / TEFCA / EHDS", href: "/interoperability/abdm" },
-      { label: "Migration & Data-freedom", href: "/interoperability/migration" },
+      { label: "FHIR R4", href: "/interoperability/fhir", desc: "Native resource model", icon: Share2 },
+      { label: "HL7 v2", href: "/interoperability/hl7", desc: "Labs & legacy interfaces", icon: ArrowLeftRight },
+      { label: "DICOM", href: "/interoperability/dicom", desc: "Zero-footprint imaging", icon: Scan },
+      { label: "ABDM / TEFCA / EHDS", href: "/interoperability/abdm", desc: "Regional compliance", icon: Globe },
+      { label: "Migration & Data-freedom", href: "/interoperability/migration", desc: "Guaranteed exports, no lock-in", icon: ArrowLeftRight },
     ],
   },
   {
     label: "Security",
     href: "/security",
+    menuLabel: "Trust & compliance",
+    menuIcon: ShieldCheck,
     children: [
-      { label: "Trust Center", href: "/security" },
-      { label: "Compliance", href: "/security/compliance" },
-      { label: "Status", href: "/security/status" },
+      { label: "Trust Center", href: "/security", desc: "Our security posture", icon: ShieldCheck },
+      { label: "Compliance", href: "/security/compliance", desc: "HIPAA · GDPR · ABDM · SOC 2 · ISO", icon: BadgeCheck },
+      { label: "Status", href: "/security/status", desc: "Live uptime & incidents", icon: Activity },
     ],
   },
   { label: "Pricing", href: "/pricing" },
   {
     label: "Resources",
     href: "/resources",
+    menuLabel: "Resources",
+    menuIcon: BookOpen,
     children: [
-      { label: "Blog", href: "/resources/blog" },
-      { label: "Customers", href: "/customers" },
-      { label: "Compare", href: "/compare/vs-epic" },
-      { label: "Developers", href: "/developers" },
-      { label: "Company", href: "/company/about" },
+      { label: "Blog", href: "/resources/blog", desc: "Ideas on AI, RCM & interop", icon: BookOpen },
+      { label: "Customers", href: "/customers", desc: "Real outcomes & case studies", icon: Users },
+      { label: "Compare", href: "/compare/vs-epic", desc: "Honest teardowns vs incumbents", icon: GitCompare },
+      { label: "Developers", href: "/developers", desc: "API, FHIR, SDKs & sandbox", icon: Code2 },
+      { label: "Company", href: "/company/about", desc: "About, careers & press", icon: Building2 },
     ],
   },
 ];
+
+// Kept for potential future use in menus.
+export const NAV_ICONS = { Zap };
 
 export interface ProductDomain {
   slug: string;
