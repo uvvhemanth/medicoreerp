@@ -128,9 +128,6 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link href="/login" className="hidden text-sm font-semibold text-heading hover:text-teal sm:block">
-            Sign in
-          </Link>
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <Link href="/demo">Book a Demo</Link>
           </Button>
@@ -177,9 +174,6 @@ export function SiteHeader() {
               </details>
             ))}
             <div className="flex gap-2 pt-3">
-              <Button asChild variant="outline" className="flex-1">
-                <Link href="/login">Sign in</Link>
-              </Button>
               <Button asChild className="flex-1">
                 <Link href="/demo">Book a Demo</Link>
               </Button>

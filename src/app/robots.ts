@@ -5,7 +5,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/app/", "/portal/", "/login", "/register"],
     },
     sitemap: "https://aether.health/sitemap.xml",
   };

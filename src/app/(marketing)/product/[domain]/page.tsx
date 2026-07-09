@@ -41,7 +41,7 @@ export default async function DomainPage({ params }: { params: Promise<{ domain:
                 <Link href="/demo">Book a demo <ArrowRight className="h-4 w-4" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/login">See it live</Link>
+                <Link href="/demo">See it live</Link>
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">

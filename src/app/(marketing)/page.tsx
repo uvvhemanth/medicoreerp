@@ -47,7 +47,7 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/login">See it live</Link>
+                <Link href="/demo">See it live</Link>
               </Button>
             </div>
             <div className="mt-8 flex items-center gap-4 text-sm text-muted">

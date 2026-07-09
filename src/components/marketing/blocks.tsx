@@ -101,7 +101,7 @@ export function CTABand({
                 <Link href="/demo">Book a Demo</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10">
-                <Link href="/login">Explore live product</Link>
+                <Link href="/demo">Explore live product</Link>
               </Button>
             </div>
           </div>
