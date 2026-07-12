@@ -1,6 +1,5 @@
 import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
-import { CookieBanner } from "./cookie-banner";
 import { ChatBot } from "./chat-bot";
 import { DemoFab } from "./demo-fab";
 
@@ -16,7 +15,6 @@ export function MarketingShell({ children }: { children: React.ReactNode }) {
       <SiteHeader />
       <main id="main">{children}</main>
       <SiteFooter />
-      <CookieBanner />
       <DemoFab />
       <ChatBot />
     </>
