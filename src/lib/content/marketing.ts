@@ -53,10 +53,10 @@ export const NAV: NavItem[] = [
     menuIcon: Building2,
     featured: { title: "Find your edition", desc: "Clinic to government — see the fit", href: "/solutions", icon: ArrowRight },
     children: [
-      { label: "Clinics", href: "/solutions/clinics", desc: "Go live in 2–3 weeks · from ₹8,000/mo", icon: Stethoscope },
-      { label: "Hospitals", href: "/solutions/hospitals", desc: "Go live in 6–10 weeks · from ₹1,200/bed", icon: Building2 },
-      { label: "Diagnostics / Labs", href: "/solutions/diagnostics", desc: "Go live in 3–5 weeks · from ₹15,000/mo", icon: Microscope },
-      { label: "Pharmacy Chains", href: "/solutions/pharmacy", desc: "Go live in 3–4 weeks · from ₹6,000/store", icon: Pill },
+      { label: "Clinics", href: "/solutions/clinics", desc: "Go live in 2–3 weeks", icon: Stethoscope },
+      { label: "Hospitals", href: "/solutions/hospitals", desc: "Go live in 6–10 weeks", icon: Building2 },
+      { label: "Diagnostics / Labs", href: "/solutions/diagnostics", desc: "Go live in 3–5 weeks", icon: Microscope },
+      { label: "Pharmacy Chains", href: "/solutions/pharmacy", desc: "Go live in 3–4 weeks", icon: Pill },
       { label: "Enterprise Networks", href: "/solutions/enterprise", desc: "Multi-branch · custom rollout", icon: Network },
       { label: "Government / Payer", href: "/solutions/government", desc: "ABDM-ready · program-based", icon: Landmark },
     ],
@@ -98,18 +98,6 @@ export const NAV: NavItem[] = [
       { label: "Trust Center", href: "/security", desc: "Our security posture", icon: ShieldCheck },
       { label: "Compliance", href: "/security/compliance", desc: "HIPAA · GDPR · ABDM · SOC 2 · ISO", icon: BadgeCheck },
       { label: "Status", href: "/security/status", desc: "Live uptime & incidents", icon: Activity },
-    ],
-  },
-  {
-    label: "Pricing",
-    href: "/pricing",
-    menuLabel: "Plans & ROI",
-    menuIcon: Receipt,
-    featured: { title: "ROI calculator", desc: "Estimate payback in 60 seconds", href: "/pricing/roi-calculator", icon: BarChart3 },
-    children: [
-      { label: "All plans", href: "/pricing", desc: "Clinic, Hospital, Enterprise", icon: Tag },
-      { label: "ROI calculator", href: "/pricing/roi-calculator", desc: "Beds, denials, doc time", icon: Calculator },
-      { label: "Book a demo", href: "/demo", desc: "See pricing in context", icon: ArrowRight },
     ],
   },
   {
@@ -530,13 +518,12 @@ export interface Competitor { slug: string; name: string; summary: string; rows:
 export const COMPETITORS: Competitor[] = [
   {
     slug: "vs-epic", name: "Epic",
-    summary: "Epic is powerful and proven at mega-scale — and famously expensive, slow to deploy, and hard to use. MedicoreERP matches the breadth with modern UX, AI-native workflows, and honest pricing.",
+    summary: "Epic is powerful and proven at mega-scale — and famously expensive, slow to deploy, and hard to use. MedicoreERP matches the breadth with modern UX and AI-native workflows.",
     rows: [
       { feature: "AI ambient scribe (default)", medicore: "Included", them: "Add-on / 3rd-party" },
       { feature: "Time to go live", medicore: "6–10 weeks", them: "12–18 months" },
       { feature: "No-code configuration", medicore: "Workflow Studio + Form Builder", them: "Consultant-led" },
       { feature: "FHIR-native API", medicore: "Default, public", them: "Available, gated" },
-      { feature: "Transparent pricing", medicore: "Published per-bed", them: "Opaque" },
     ],
     theyStrong: ["Deepest specialty depth at 1000+ bed scale", "Huge existing install base & network", "Mature research/academic tooling"],
   },

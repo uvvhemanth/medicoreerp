@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SOLUTIONS } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
-import { ArrowRight, Clock, Tag, X, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Clock, CheckCircle2, X } from "lucide-react";
 
 export function generateStaticParams() {
   return SOLUTIONS.map((s) => ({ edition: s.slug }));
@@ -32,11 +32,9 @@ export default async function EditionPage({ params }: { params: Promise<{ editio
           </h1>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-muted">
             <span className="flex items-center gap-1.5"><Clock className="h-4 w-4 text-teal" /> Go live in {s.goLive}</span>
-            <span className="flex items-center gap-1.5"><Tag className="h-4 w-4 text-teal" /> From {s.priceFrom}</span>
           </div>
           <div className="mt-8 flex justify-center gap-3">
             <Button asChild size="lg"><Link href="/demo">Book a demo <ArrowRight className="h-4 w-4" /></Link></Button>
-            <Button asChild size="lg" variant="outline"><Link href="/pricing">See pricing</Link></Button>
           </div>
         </div>
       </section>

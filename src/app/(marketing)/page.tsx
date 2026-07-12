@@ -5,7 +5,7 @@ import { HisDashboard } from "@/components/marketing/his-dashboard";
 import { PATIENT_JOURNEY } from "@/lib/content/dashboard";
 import { HOME_STATS, LOGO_WALL, TESTIMONIALS, PRODUCT_DOMAINS, CASE_STUDIES, COMPLIANCE_BADGES, MAIN_FEATURES } from "@/lib/content/marketing";
 import {
-  Sparkles, ShieldCheck, Zap, Network, ArrowRight, Star,
+  Sparkles, Zap, Network, ArrowRight, Star,
   Stethoscope, Building2, CheckCircle2, Receipt, Users,
 } from "lucide-react";
 
@@ -27,12 +27,6 @@ const MOATS = [
     title: "Live in weeks",
     stat: "6–10 wk go-live",
     desc: "Clinics in 2–3 weeks, hospitals typically 6–10. Workflow Studio and Form Builder replace year-long consultant projects. Average customer go-live: ~9 weeks across branches.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Published pricing",
-    stat: "From ₹1,200/bed",
-    desc: "Clinic from ₹8,000/mo. Hospital from ₹1,200 per active bed/mo. Ambient scribe and core AI included on Hospital+. No opaque RFPs — what you see is what you pay.",
   },
 ];
 
@@ -160,10 +154,10 @@ export default function HomePage() {
           center
           eyebrow="Why hospitals switch"
           title="One system. Measurable outcomes."
-          subtitle="Replace seven departmental tools with one platform — faster notes, cleaner claims, shorter go-lives, and pricing you can publish to your board."
+          subtitle="Replace seven departmental tools with one platform — faster notes, cleaner claims, and shorter go-lives."
           className="mb-14"
         />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {MOATS.map((m, i) => (
             <Reveal key={m.title} delay={i * 0.06}>
               <div className="group flex h-full flex-col rounded-card border bg-card p-6 shadow-soft transition duration-standard hover:-translate-y-1 hover:border-teal/30 hover:shadow-card">
@@ -377,7 +371,7 @@ export default function HomePage() {
             <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-teal" />
             <div>
               <p className="font-heading font-bold text-heading">Ready when your hospital is</p>
-              <p className="mt-1 text-sm text-muted">Transparent pricing · Sandbox in minutes · Migration with data-freedom</p>
+              <p className="mt-1 text-sm text-muted">Sandbox in minutes · Migration with data-freedom · Go live in weeks</p>
             </div>
           </div>
           <Button asChild>

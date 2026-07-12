@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "About", description: "About Medicore
 
 const VALUES = [
   ["Clinicians first", "We design for the 10th consult of a 12-hour shift, not the demo."],
-  ["Honest by default", "Transparent pricing, candid comparisons, no lock-in."],
+  ["Honest by default", "Candid comparisons, clear roadmaps, no lock-in."],
   ["Safety is visual", "Every alert explains why. Every dangerous action is guarded."],
   ["Configurable, not customized", "Hospitals self-serve with no-code studios."],
 ];

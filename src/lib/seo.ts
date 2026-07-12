@@ -28,12 +28,6 @@ export function softwareApplicationJsonLd() {
     url: SITE_URL,
     description:
       "Run the entire hospital on one AI-native platform — clinical, operational, and financial.",
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "INR",
-      price: "8000",
-      description: "Clinic edition starting price per month",
-    },
   };
 }
 

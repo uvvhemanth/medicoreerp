@@ -31,8 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/security", priority: 0.8 },
     { path: "/security/compliance", priority: 0.7 },
     { path: "/security/status", priority: 0.6 },
-    { path: "/pricing", priority: 0.9 },
-    { path: "/pricing/roi-calculator", priority: 0.8 },
     { path: "/customers", priority: 0.8 },
     { path: "/resources", priority: 0.8 },
     { path: "/resources/blog", priority: 0.8 },

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s · MedicoreERP",
   },
   description:
-    "Run the entire hospital on one AI-native medical ERP — clinical, operational, and financial. Interoperable by default, fast to deploy, honestly priced.",
+    "Run the entire hospital on one AI-native medical ERP — clinical, operational, and financial. Interoperable by default and fast to deploy.",
   keywords: [
     "hospital information system",
     "HIS",

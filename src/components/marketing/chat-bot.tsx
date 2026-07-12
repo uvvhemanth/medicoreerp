@@ -10,7 +10,6 @@ type ChatMsg = { id: string; role: "bot" | "user"; text: string };
 
 const QUICK = [
   "What is MedicoreERP?",
-  "Pricing?",
   "Book a demo",
   "AI Ambient Scribe",
   "Is it HIPAA / ABDM ready?",
@@ -36,8 +35,8 @@ function botReply(input: string): string {
   if (/(demo|meeting|book|schedule|call)/.test(q)) {
     return "Great — pick a 30-minute demo slot on our booking page. You’ll get an instant confirmation (demo calendar). Open Book a demo below.";
   }
-  if (/(price|pricing|cost|₹|rupee)/.test(q)) {
-    return "Clinic starts at ₹8,000/mo. Hospitals are ₹1,200/bed/mo. AI is included at Hospital+. See /pricing or ask me to book a demo for a tailored quote.";
+  if (/(price|pricing|cost|₹|rupee|quote)/.test(q)) {
+    return "For plans and quotes, book a demo — our team will walk you through options for your hospital or clinic.";
   }
   if (/(hipaa|abdm|gdpr|soc|compliance|security)/.test(q)) {
     return "Yes — built for HIPAA, GDPR, ABDM, SOC 2 Type II, ISO 27001, and NABH contexts. Visit /security or /security/compliance for details.";
@@ -51,13 +50,13 @@ function botReply(input: string): string {
   if (/(fhir|hl7|interop|abha)/.test(q)) {
     return "MedicoreERP is FHIR-native with HL7, DICOM, and ABDM/TEFCA readiness — plus guaranteed data-freedom exports. See /interoperability.";
   }
-  if (/(what is|aether|hospital|erp|his)/.test(q)) {
-    return "MedicoreERP is an AI-native medical ERP / hospital OS — clinical, revenue, pharmacy, lab, HR, and analytics on one platform. Fast to deploy, honestly priced.";
+  if (/(what is|aether|medicore|hospital|erp|his)/.test(q)) {
+    return "MedicoreERP is an AI-native medical ERP / hospital OS — clinical, revenue, pharmacy, lab, HR, and analytics on one platform. Fast to deploy.";
   }
   if (/(hello|hi|hey|namaste)/.test(q)) {
-    return "Hi! I’m MedicoreERP Assist — free on this site. Ask about product, pricing, AI, compliance, or say “book a demo” to schedule a meeting.";
+    return "Hi! I’m MedicoreERP Assist — free on this site. Ask about product, AI, compliance, or say “book a demo” to schedule a meeting.";
   }
-  return "I can help with product modules, AI, pricing, security, or booking a demo meeting. Try a quick question below, or open Book a demo.";
+  return "I can help with product modules, AI, security, or booking a demo meeting. Try a quick question below, or open Book a demo.";
 }
 
 export function ChatBot() {
@@ -175,7 +174,7 @@ export function ChatBot() {
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about product, pricing, demo…"
+                placeholder="Ask about product, demo, AI…"
                 className="h-10 flex-1 rounded-control border bg-card px-3 text-sm text-heading placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
               />
               <Button type="submit" size="icon" disabled={!canSend} aria-label="Send">

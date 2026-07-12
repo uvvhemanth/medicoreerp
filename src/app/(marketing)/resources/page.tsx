@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading, CTABand, Reveal } from "@/components/marketing/blocks";
 import {
-  BookOpen, Users, GitCompare, Code2, FileText, ArrowRight,
+  BookOpen, Users, GitCompare, Code2, ArrowRight,
   GraduationCap, Mic2, BookMarked, ScrollText,
 } from "lucide-react";
 
@@ -21,7 +21,6 @@ const TILES = [
   { icon: Users, title: "Customers", desc: "Real outcomes from real care teams.", href: "/customers" },
   { icon: GitCompare, title: "Comparisons", desc: "Honest teardowns vs the incumbents.", href: "/compare/vs-epic" },
   { icon: Code2, title: "Developers", desc: "API docs, FHIR reference, marketplace.", href: "/developers" },
-  { icon: FileText, title: "Pricing", desc: "Transparent editions and ROI calculator.", href: "/pricing" },
 ];
 
 export default function ResourcesHub() {

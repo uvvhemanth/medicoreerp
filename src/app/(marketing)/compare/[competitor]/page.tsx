@@ -66,7 +66,7 @@ export default async function ComparePage({ params }: { params: Promise<{ compet
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-card border-2 border-teal/25 bg-teal/[0.04] p-7">
             <h2 className="font-heading text-xl font-bold text-teal">Where we win</h2>
-            <p className="mt-2 text-body">Modern UX, AI-native workflows by default, weeks-not-years deployment, and honest published pricing.</p>
+            <p className="mt-2 text-body">Modern UX, AI-native workflows by default, and weeks-not-years deployment.</p>
           </div>
           <div className="rounded-card border bg-card p-7 shadow-soft">
             <h2 className="font-heading text-xl font-bold text-heading">Where they're strong</h2>
