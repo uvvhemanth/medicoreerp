@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading, CTABand, Reveal } from "@/components/marketing/blocks";
-import { BookOpen, Users, GitCompare, Code2, FileText, ArrowRight } from "lucide-react";
+import {
+  BookOpen, Users, GitCompare, Code2, FileText, ArrowRight,
+  GraduationCap, Mic2, BookMarked, ScrollText,
+} from "lucide-react";
 
-export const metadata: Metadata = { title: "Resources", description: "Blog, guides, webinars, comparisons, docs, and glossary." };
+export const metadata: Metadata = {
+  title: "Resources",
+  description: "Blog, guides, webinars, glossary, comparisons, docs, and changelog for MedicoreERP.",
+  alternates: { canonical: "/resources" },
+};
 
 const TILES = [
   { icon: BookOpen, title: "Blog", desc: "Ideas on AI, RCM, and interoperability.", href: "/resources/blog" },
+  { icon: GraduationCap, title: "Guides", desc: "Migration, denials, and compliance playbooks.", href: "/resources/guides" },
+  { icon: Mic2, title: "Webinars", desc: "Live sessions and on-demand replays.", href: "/resources/webinars" },
+  { icon: BookMarked, title: "Glossary", desc: "FHIR, ABDM, RCM, HIS — plain definitions.", href: "/resources/glossary" },
+  { icon: ScrollText, title: "Changelog", desc: "What shipped across clinical and RCM.", href: "/resources/changelog" },
   { icon: Users, title: "Customers", desc: "Real outcomes from real care teams.", href: "/customers" },
   { icon: GitCompare, title: "Comparisons", desc: "Honest teardowns vs the incumbents.", href: "/compare/vs-epic" },
   { icon: Code2, title: "Developers", desc: "API docs, FHIR reference, marketplace.", href: "/developers" },

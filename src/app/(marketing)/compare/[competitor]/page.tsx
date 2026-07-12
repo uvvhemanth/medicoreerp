@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ competitor: string }> }): Promise<Metadata> {
   const { competitor } = await params;
   const c = COMPETITORS.find((x) => x.slug === competitor);
-  return c ? { title: `Aether vs ${c.name}`, description: c.summary } : {};
+  return c ? { title: `MedicoreERP vs ${c.name}`, description: c.summary } : {};
 }
 
 export default async function ComparePage({ params }: { params: Promise<{ competitor: string }> }) {
@@ -27,7 +27,7 @@ export default async function ComparePage({ params }: { params: Promise<{ compet
         <div className="container-page py-16">
           <Eyebrow>Comparison</Eyebrow>
           <h1 className="mt-5 font-heading text-4xl font-extrabold leading-tight text-heading sm:text-5xl">
-            Aether <span className="text-muted">vs</span> {c.name}
+            MedicoreERP <span className="text-muted">vs</span> {c.name}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted">{c.summary}</p>
         </div>
@@ -40,7 +40,7 @@ export default async function ComparePage({ params }: { params: Promise<{ compet
               <tr className="border-b bg-mist/40">
                 <th className="px-5 py-4 text-sm font-bold text-heading">Feature</th>
                 <th className="px-5 py-4 text-sm font-bold text-teal">
-                  <span className="flex items-center gap-1.5"><Sparkles className="h-4 w-4" /> Aether</span>
+                  <span className="flex items-center gap-1.5"><Sparkles className="h-4 w-4" /> MedicoreERP</span>
                 </th>
                 <th className="px-5 py-4 text-sm font-bold text-muted">{c.name}</th>
               </tr>
@@ -51,7 +51,7 @@ export default async function ComparePage({ params }: { params: Promise<{ compet
                   <td className="px-5 py-4 text-sm font-medium text-heading">{r.feature}</td>
                   <td className="px-5 py-4">
                     <span className="flex items-center gap-1.5 text-sm font-semibold text-teal">
-                      <Check className="h-4 w-4" /> {r.aether}
+                      <Check className="h-4 w-4" /> {r.medicore}
                     </span>
                   </td>
                   <td className="px-5 py-4 text-sm text-muted">{r.them}</td>

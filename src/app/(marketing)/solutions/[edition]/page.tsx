@@ -58,7 +58,7 @@ export default async function EditionPage({ params }: { params: Promise<{ editio
           </Reveal>
           <Reveal delay={0.08}>
             <div className="rounded-card border bg-teal/[0.04] p-7 shadow-soft">
-              <h2 className="font-heading text-xl font-bold text-heading">Your Aether bundle</h2>
+              <h2 className="font-heading text-xl font-bold text-heading">Your MedicoreERP bundle</h2>
               <ul className="mt-5 space-y-3">
                 {s.bundle.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-body">
@@ -81,7 +81,7 @@ export default async function EditionPage({ params }: { params: Promise<{ editio
         </div>
       </Section>
 
-      <CTABand title={`Ready to see Aether for ${s.name.toLowerCase()}?`} />
+      <CTABand title={`Ready to see MedicoreERP for ${s.name.toLowerCase()}?`} />
     </>
   );
 }

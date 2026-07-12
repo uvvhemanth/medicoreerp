@@ -9,25 +9,51 @@ type Variant = "demo" | "contact" | "sandbox";
 
 interface Errors { [k: string]: string }
 
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
+const UTM_STORAGE_KEY = "medicore_utm";
+
+function readStoredUtm(): Record<string, string> {
+  try {
+    const raw = localStorage.getItem(UTM_STORAGE_KEY);
+    return raw ? (JSON.parse(raw) as Record<string, string>) : {};
+  } catch {
+    return {};
+  }
+}
+
 export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
+  const [serverError, setServerError] = useState("");
   const [utm, setUtm] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    // Capture UTM + page for CRM payload (§7.3)
+    // Persist first-touch UTMs and attach page context (§7.3)
     const params = new URLSearchParams(window.location.search);
-    const captured: Record<string, string> = { page: window.location.pathname };
-    ["utm_source", "utm_medium", "utm_campaign"].forEach((k) => {
+    const stored = readStoredUtm();
+    const captured: Record<string, string> = { ...stored, page: window.location.pathname };
+    let touched = false;
+    UTM_KEYS.forEach((k) => {
       const v = params.get(k);
-      if (v) captured[k] = v;
+      if (v && !stored[k]) {
+        captured[k] = v;
+        touched = true;
+      }
     });
+    if (touched || !localStorage.getItem(UTM_STORAGE_KEY)) {
+      const toStore: Record<string, string> = {};
+      UTM_KEYS.forEach((k) => {
+        if (captured[k]) toStore[k] = captured[k];
+      });
+      localStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(toStore));
+    }
     setUtm(captured);
   }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setServerError("");
     const form = new FormData(e.currentTarget);
     const data = Object.fromEntries(form.entries()) as Record<string, string>;
     const errs: Errors = {};
@@ -38,11 +64,24 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
     if (Object.keys(errs).length) return;
 
     setLoading(true);
-    // Stubbed serverless handler — logs payload with UTM/page/persona (§7.3)
-    await new Promise((r) => setTimeout(r, 900));
-    console.info("[lead-capture]", { ...data, ...utm, variant });
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, ...utm, variant, consent: "marketing-demo" }),
+      });
+      const json = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !json.ok) {
+        setServerError(json.error || "Something went wrong. Please try again.");
+        setLoading(false);
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setServerError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -118,11 +157,13 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
         <Textarea id="message" name="message" placeholder="Optional" />
       </Field>
 
+      {serverError && <p className="text-sm text-danger">{serverError}</p>}
+
       <Button type="submit" loading={loading} className="w-full" size="lg">
         {variant === "sandbox" ? "Create my sandbox" : variant === "contact" ? "Send message" : "Book my demo"}
       </Button>
       <p className="text-center text-xs text-muted">
-        By submitting you agree to our privacy policy. This is a demo — no data is sent anywhere.
+        By submitting you agree to our privacy policy. This is a demo — leads are logged by the stub API, not sent to a CRM.
       </p>
     </form>
   );

@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Aether Health OS — Tailwind config.
+ * MedicoreERP — Tailwind config.
  * Colors reference CSS variables (see globals.css) so light/dark & white-label
  * are data, not forks. Derived from the Flutter MedicalErpTheme.
  */
@@ -79,12 +79,22 @@ const config: Config = {
           "70%": { boxShadow: "0 0 0 8px rgba(192,54,44,0)" },
           "100%": { boxShadow: "0 0 0 0 rgba(192,54,44,0)" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 280ms cubic-bezier(0.2,0,0,1)",
         "slide-in-right": "slide-in-right 280ms cubic-bezier(0.2,0,0,1)",
         "scale-in": "scale-in 200ms cubic-bezier(0.2,0,0,1)",
         "pulse-ring": "pulse-ring 2s infinite",
+        float: "float 5s ease-in-out infinite",
+        marquee: "marquee 32s linear infinite",
       },
     },
   },

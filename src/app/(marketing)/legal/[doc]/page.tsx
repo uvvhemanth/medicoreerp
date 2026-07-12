@@ -4,7 +4,7 @@ import { Section } from "@/components/marketing/blocks";
 
 const DOCS: Record<string, { title: string; intro: string }> = {
   privacy: { title: "Privacy Policy", intro: "How we collect, use, and protect information on this marketing website. The operational app is governed separately and never exposes PHI here." },
-  terms: { title: "Terms of Service", intro: "The terms governing your use of the Aether Health OS website and services." },
+  terms: { title: "Terms of Service", intro: "The terms governing your use of the MedicoreERP website and services." },
   dpa: { title: "Data Processing Agreement", intro: "Our commitments as a data processor under GDPR and equivalent regulations." },
   baa: { title: "Business Associate Agreement", intro: "Our HIPAA business-associate commitments for covered entities." },
   cookies: { title: "Cookie Policy", intro: "The cookies we use and how to control them. No non-essential tracking runs before consent." },

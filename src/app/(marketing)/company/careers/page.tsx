@@ -4,7 +4,7 @@ import { JOBS } from "@/lib/content/company";
 import { Section, SectionHeading, CTABand } from "@/components/marketing/blocks";
 import { MapPin, Briefcase, ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = { title: "Careers", description: "Join Aether Health OS — engineering, design, clinical, and success roles." };
+export const metadata: Metadata = { title: "Careers", description: "Join MedicoreERP — engineering, design, clinical, and success roles." };
 
 export default function CareersPage() {
   return (

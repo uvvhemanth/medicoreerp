@@ -3,23 +3,33 @@ import Link from "next/link";
 import { PRICING, FAQ_PRICING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, FAQ, Reveal } from "@/components/marketing/blocks";
+import { JsonLd } from "@/components/marketing/json-ld";
+import { faqJsonLd } from "@/lib/seo";
 import { Check, Calculator, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Pricing — transparent per-bed & per-seat",
   description: "Honest, published pricing by edition. AI features included. Try the ROI calculator to see your payback.",
+  alternates: { canonical: "/pricing" },
 };
 
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(FAQ_PRICING)} />
       <Section>
         <SectionHeading center eyebrow="Pricing" title="Transparency as a feature" subtitle="No opaque enterprise quotes. Published pricing, AI included, cancel anytime." className="mb-14" />
         <div className="grid gap-5 lg:grid-cols-3">
           {PRICING.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.06}>
-              <div className={cn("flex h-full flex-col rounded-card border bg-card p-7 shadow-soft", p.highlight && "border-teal ring-2 ring-teal/20 shadow-card")}>
+              <div
+                id={p.name.toLowerCase()}
+                className={cn(
+                  "flex h-full scroll-mt-24 flex-col rounded-card border bg-card p-7 shadow-soft",
+                  p.highlight && "border-teal ring-2 ring-teal/20 shadow-card",
+                )}
+              >
                 {p.highlight && <span className="mb-3 w-fit rounded-pill bg-teal px-3 py-1 text-xs font-bold text-white">Most popular</span>}
                 <h3 className="font-heading text-xl font-bold text-heading">{p.name}</h3>
                 <p className="mt-1 text-sm text-muted">{p.blurb}</p>

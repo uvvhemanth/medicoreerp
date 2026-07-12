@@ -4,6 +4,8 @@ import Link from "next/link";
 import { JOBS } from "@/lib/content/company";
 import { Button } from "@/components/ui/button";
 import { Section, Eyebrow } from "@/components/marketing/blocks";
+import { JsonLd } from "@/components/marketing/json-ld";
+import { jobPostingJsonLd } from "@/lib/seo";
 import { MapPin, Briefcase, ArrowLeft } from "lucide-react";
 
 export function generateStaticParams() {
@@ -13,7 +15,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ job: string }> }): Promise<Metadata> {
   const { job } = await params;
   const j = JOBS.find((x) => x.slug === job);
-  return j ? { title: `${j.title} — Careers`, description: j.desc } : {};
+  return j
+    ? { title: `${j.title} — Careers`, description: j.desc, alternates: { canonical: `/company/careers/${j.slug}` } }
+    : {};
 }
 
 export default async function JobPage({ params }: { params: Promise<{ job: string }> }) {
@@ -23,6 +27,15 @@ export default async function JobPage({ params }: { params: Promise<{ job: strin
 
   return (
     <Section>
+      <JsonLd
+        data={jobPostingJsonLd({
+          title: j.title,
+          description: j.desc,
+          location: j.location,
+          path: `/company/careers/${j.slug}`,
+          employmentType: j.type,
+        })}
+      />
       <div className="mx-auto max-w-3xl">
         <Link href="/company/careers" className="inline-flex items-center gap-1 text-sm font-semibold text-teal hover:underline">
           <ArrowLeft className="h-4 w-4" /> All roles

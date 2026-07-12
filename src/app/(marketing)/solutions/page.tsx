@@ -6,7 +6,7 @@ import { ArrowRight, Clock, Tag } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Solutions by edition & persona",
-  description: "Whether you're a clinic, hospital, lab, pharmacy chain, enterprise network, or government payer — Aether fits.",
+  description: "Whether you're a clinic, hospital, lab, pharmacy chain, enterprise network, or government payer — MedicoreERP fits.",
 };
 
 export default function SolutionsHub() {
@@ -17,7 +17,11 @@ export default function SolutionsHub() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SOLUTIONS.map((s, i) => (
             <Reveal key={s.slug} delay={i * 0.05}>
-              <Link href={`/solutions/${s.slug}`} className="group flex h-full flex-col rounded-card border bg-card p-6 shadow-soft transition hover:shadow-card">
+              <Link
+                id={s.slug}
+                href={`/solutions/${s.slug}`}
+                className="group flex h-full scroll-mt-24 flex-col rounded-card border bg-card p-6 shadow-soft transition hover:shadow-card"
+              >
                 <h3 className="font-heading text-xl font-bold text-heading">{s.name}</h3>
                 <p className="mt-2 flex-1 text-sm text-muted">{s.hero}</p>
                 <div className="mt-4 flex flex-wrap gap-3 text-xs text-muted">

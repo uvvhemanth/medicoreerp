@@ -4,7 +4,7 @@ import { CASE_STUDIES, LOGO_WALL } from "@/lib/content/marketing";
 import { Section, SectionHeading, CTABand, LogoWall, Reveal } from "@/components/marketing/blocks";
 import { ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = { title: "Customers", description: "How care teams cut denials, saved documentation time, and went live in weeks with Aether." };
+export const metadata: Metadata = { title: "Customers", description: "How care teams cut denials, saved documentation time, and went live in weeks with MedicoreERP." };
 
 export default function CustomersPage() {
   return (

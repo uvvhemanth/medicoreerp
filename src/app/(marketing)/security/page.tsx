@@ -7,7 +7,7 @@ import { ShieldCheck, Lock, Eye, Server, FileText, Activity, Download, ArrowRigh
 
 export const metadata: Metadata = {
   title: "Trust Center — security & compliance",
-  description: "How Aether protects PHI: encryption, RBAC/ABAC, audit, data residency, and certifications (HIPAA, GDPR, ABDM, SOC 2, ISO 27001).",
+  description: "How MedicoreERP protects PHI: encryption, RBAC/ABAC, audit, data residency, and certifications (HIPAA, GDPR, ABDM, SOC 2, ISO 27001).",
 };
 
 const POSTURE = [

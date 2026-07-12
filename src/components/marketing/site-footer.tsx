@@ -7,11 +7,11 @@ const columns = [
   {
     title: "Product",
     links: [
-      ["Clinical Core", "/product/clinical"],
-      ["Revenue Cycle", "/product/revenue-cycle"],
-      ["Pharmacy", "/product/pharmacy"],
-      ["Analytics", "/product/analytics"],
-      ["Platform & Admin", "/product/platform"],
+      ["HIS Dashboard", "/dashboard"],
+      ["Electronic Medical Records", "/product/emr"],
+      ["Appointments", "/product/appointments"],
+      ["Billing & Invoices", "/product/billing-invoices"],
+      ["Patient Reminders", "/product/patient-reminders"],
     ],
   },
   {
@@ -28,10 +28,10 @@ const columns = [
     title: "Resources",
     links: [
       ["Blog", "/resources/blog"],
-      ["Customers", "/customers"],
-      ["Compare vs Epic", "/compare/vs-epic"],
-      ["Developers", "/developers"],
-      ["Pricing", "/pricing"],
+      ["Guides", "/resources/guides"],
+      ["Glossary", "/resources/glossary"],
+      ["Webinars", "/resources/webinars"],
+      ["Changelog", "/resources/changelog"],
     ],
   },
   {
@@ -99,7 +99,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-6 flex flex-col items-start justify-between gap-3 text-xs text-muted sm:flex-row sm:items-center">
-          <p>© 2026 Aether Health OS. A demo build — no real patient data. All content is synthetic.</p>
+          <p>© 2026 MedicoreERP. A demo build — no real patient data. All content is synthetic.</p>
           <div className="flex items-center gap-4">
             <span>🌐 English (India)</span>
             <Link href="/legal/cookies" className="hover:text-teal">Cookie settings</Link>

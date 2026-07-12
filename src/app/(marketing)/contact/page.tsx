@@ -3,7 +3,7 @@ import { LeadForm } from "@/components/marketing/lead-form";
 import { Section, SectionHeading } from "@/components/marketing/blocks";
 import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 
-export const metadata: Metadata = { title: "Contact", description: "Get in touch with the Aether Health OS team." };
+export const metadata: Metadata = { title: "Contact", description: "Get in touch with the MedicoreERP team." };
 
 export default function ContactPage() {
   return (
@@ -13,7 +13,7 @@ export default function ContactPage() {
           <SectionHeading eyebrow="Contact" title="Let's talk" subtitle="Sales, support, partnerships, or press — we'll route you to the right person." />
           <div className="mt-8 space-y-4">
             {[
-              [Mail, "Email", "hello@aether.health"],
+              [Mail, "Email", "hello@medicoreerp.com"],
               [Phone, "Phone", "+91 80 4567 8900"],
               [MapPin, "Office", "Bengaluru · Dubai · Singapore"],
               [MessageSquare, "Sales chat", "Available 9am–9pm IST"],

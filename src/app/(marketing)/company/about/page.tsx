@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Section, SectionHeading, CTABand, Reveal } from "@/components/marketing/blocks";
 import { HOME_STATS } from "@/lib/content/marketing";
 
-export const metadata: Metadata = { title: "About", description: "Our mission: give every hospital an AI-native operating system that clinicians love." };
+export const metadata: Metadata = { title: "About", description: "About MedicoreERP — medical ERP / HIS that clinicians actually want to use." };
 
 const VALUES = [
   ["Clinicians first", "We design for the 10th consult of a 12-hour shift, not the demo."],
@@ -22,7 +22,7 @@ export default function AboutPage() {
     <>
       <section className="border-b">
         <div className="container-page py-16 text-center">
-          <SectionHeading center eyebrow="About" title="Healthcare software people actually want to use" subtitle="We're building the operating system for the modern hospital — AI-native, interoperable, and genuinely usable." className="mx-auto" />
+          <SectionHeading center eyebrow="About MedicoreERP" title="Healthcare software people actually want to use" subtitle="MedicoreERP is the medical ERP for modern hospitals — AI-native HIS, interoperable, and genuinely usable." className="mx-auto" />
         </div>
       </section>
 

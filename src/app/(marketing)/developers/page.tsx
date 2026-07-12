@@ -7,10 +7,10 @@ import { Code2, Webhook, Package, TerminalSquare, KeyRound, ArrowRight } from "l
 export const metadata: Metadata = { title: "Developers", description: "Public FHIR-native API, SMART-on-FHIR apps, webhooks, sandbox, SDKs, and a marketplace." };
 
 const RESOURCES = [
-  { icon: Code2, title: "API & FHIR docs", desc: "Interactive reference for REST + FHIR R4." },
-  { icon: KeyRound, title: "SMART-on-FHIR", desc: "Register apps and request scoped access." },
-  { icon: Webhook, title: "Webhooks", desc: "Subscribe to real-time platform events." },
-  { icon: Package, title: "Marketplace", desc: "Publish and discover healthcare apps." },
+  { icon: Code2, title: "API & FHIR docs", desc: "Interactive reference for REST + FHIR R4.", href: "/developers/docs" },
+  { icon: KeyRound, title: "SMART-on-FHIR", desc: "Register apps and request scoped access.", href: "/developers/fhir" },
+  { icon: Webhook, title: "Webhooks", desc: "Subscribe to real-time platform events.", href: "/developers/docs" },
+  { icon: Package, title: "Marketplace", desc: "Publish and discover healthcare apps.", href: "/developers/marketplace" },
 ];
 
 export default function DevelopersPage() {
@@ -53,16 +53,17 @@ Authorization: Bearer <token>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {RESOURCES.map((r, i) => (
             <Reveal key={r.title} delay={i * 0.05}>
-              <div className="h-full rounded-card border bg-card p-6 shadow-soft">
+              <Link href={r.href} className="block h-full rounded-card border bg-card p-6 shadow-soft transition hover:shadow-card">
                 <div className="mb-3 grid h-11 w-11 place-items-center rounded-xl bg-mist text-teal"><r.icon className="h-5 w-5" /></div>
                 <h3 className="font-heading font-bold text-heading">{r.title}</h3>
                 <p className="mt-1 text-sm text-muted">{r.desc}</p>
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>
         <div className="mt-8 flex justify-center gap-3">
           <Button asChild variant="outline"><Link href="/developers/sandbox">SDK downloads <ArrowRight className="h-4 w-4" /></Link></Button>
+          <Button asChild variant="outline"><Link href="/developers/fhir">FHIR reference <ArrowRight className="h-4 w-4" /></Link></Button>
         </div>
       </Section>
       <CTABand title="Ready to build?" subtitle="Spin up a sandbox tenant with sample data and start calling the API in minutes." />

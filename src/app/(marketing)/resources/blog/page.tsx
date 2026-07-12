@@ -11,7 +11,7 @@ export default function BlogIndex() {
   const [featured, ...rest] = BLOG_POSTS;
   return (
     <Section>
-      <SectionHeading eyebrow="Blog" title="Ideas from the Aether team" className="mb-10" />
+      <SectionHeading eyebrow="Blog" title="Ideas from the MedicoreERP team" className="mb-10" />
       <Reveal>
         <Link href={`/resources/blog/${featured.slug}`} className="group grid gap-6 overflow-hidden rounded-card border bg-card shadow-soft transition hover:shadow-card lg:grid-cols-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}

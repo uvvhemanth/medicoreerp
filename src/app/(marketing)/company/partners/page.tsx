@@ -6,15 +6,15 @@ export const metadata: Metadata = { title: "Partners", description: "Technology,
 
 const TIERS = [
   { icon: Code2, title: "Technology partners", desc: "Build integrations and SMART-on-FHIR apps on our marketplace." },
-  { icon: Building2, title: "Implementation partners", desc: "Deliver Aether go-lives and configuration for hospitals in your region." },
-  { icon: Handshake, title: "Channel partners", desc: "Resell Aether with margin, deal support, and co-marketing." },
+  { icon: Building2, title: "Implementation partners", desc: "Deliver MedicoreERP go-lives and configuration for hospitals in your region." },
+  { icon: Handshake, title: "Channel partners", desc: "Resell MedicoreERP with margin, deal support, and co-marketing." },
 ];
 
 export default function PartnersPage() {
   return (
     <>
       <Section>
-        <SectionHeading center eyebrow="Partners" title="Grow with Aether" subtitle="Three ways to partner — all built on an open platform." className="mb-12" />
+        <SectionHeading center eyebrow="Partners" title="Grow with MedicoreERP" subtitle="Three ways to partner — all built on an open platform." className="mb-12" />
         <div className="grid gap-4 sm:grid-cols-3">
           {TIERS.map((t, i) => (
             <Reveal key={t.title} delay={i * 0.06}>

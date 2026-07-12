@@ -82,7 +82,7 @@ export function SectionHeading({
 
 /* ---------------- CTA band ---------------- */
 export function CTABand({
-  title = "See Aether run your hospital",
+  title = "See MedicoreERP run your hospital",
   subtitle = "Book a 30-minute demo or explore the live product on sample data.",
 }: {
   title?: string;
@@ -91,9 +91,12 @@ export function CTABand({
   return (
     <section className="py-16 sm:py-20">
       <div className="container-page">
-        <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-teal-deep via-teal-dark to-teal px-8 py-14 text-center shadow-pop sm:px-16">
-          <div className="bg-grid absolute inset-0 opacity-20" />
+        <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-ink via-teal-deep to-teal px-8 py-16 text-center shadow-pop sm:px-16">
+          <div className="bg-grid absolute inset-0 opacity-[0.15]" />
+          <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-clinical/30 blur-3xl" />
+          <div className="absolute -right-16 bottom-0 h-56 w-56 rounded-full bg-sage/25 blur-3xl" />
           <div className="relative">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-white/70">MedicoreERP</p>
             <h2 className="mx-auto max-w-2xl font-heading text-3xl font-extrabold text-white sm:text-4xl">{title}</h2>
             <p className="mx-auto mt-4 max-w-xl text-white/85">{subtitle}</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -101,7 +104,7 @@ export function CTABand({
                 <Link href="/demo">Book a Demo</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10">
-                <Link href="/demo">Explore live product</Link>
+                <Link href="/pricing">View pricing</Link>
               </Button>
             </div>
           </div>
@@ -176,13 +179,19 @@ export function FAQ({ items }: { items: { q: string; a: string }[] }) {
 
 /* ---------------- Logo wall ---------------- */
 export function LogoWall({ logos }: { logos: string[] }) {
+  const row = [...logos, ...logos];
   return (
-    <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
-      {logos.map((l) => (
-        <span key={l} className="font-heading text-lg font-bold text-muted/70 grayscale transition hover:text-teal hover:grayscale-0">
-          {l}
-        </span>
-      ))}
+    <div className="logo-marquee overflow-hidden">
+      <div className="flex w-max animate-marquee items-center gap-x-12 pr-12">
+        {row.map((l, i) => (
+          <span
+            key={`${l}-${i}`}
+            className="shrink-0 font-heading text-lg font-bold tracking-tight text-muted/60 transition hover:text-teal"
+          >
+            {l}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

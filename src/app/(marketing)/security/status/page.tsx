@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/marketing/blocks";
 import { CheckCircle2, AlertTriangle } from "lucide-react";
 
-export const metadata: Metadata = { title: "System Status", description: "Live status and uptime history for Aether Health OS." };
+export const metadata: Metadata = { title: "System Status", description: "Live status and uptime history for MedicoreERP." };
 
 const COMPONENTS = [
   { name: "API Gateway", status: "operational", uptime: "99.99%" },

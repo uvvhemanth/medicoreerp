@@ -5,9 +5,9 @@ import { Download, ExternalLink } from "lucide-react";
 export const metadata: Metadata = { title: "Press", description: "Press releases, media kit, and coverage." };
 
 const RELEASES = [
-  { date: "2026-06-20", title: "Aether Health OS surpasses 400 care teams across three regions" },
+  { date: "2026-06-20", title: "MedicoreERP surpasses 400 care teams across three regions" },
   { date: "2026-04-11", title: "Ambient scribe cuts documentation time by 62% in multi-site study" },
-  { date: "2026-02-02", title: "Aether raises Series A to scale AI-native hospital operating system" },
+  { date: "2026-02-02", title: "MedicoreERP raises Series A to scale AI-native hospital operating system" },
 ];
 
 export default function PressPage() {
@@ -32,7 +32,7 @@ export default function PressPage() {
           </button>
         </div>
       </Section>
-      <CTABand title="Media inquiry?" subtitle="Reach our press team at press@aether.health." />
+      <CTABand title="Media inquiry?" subtitle="Reach our press team at press@medicoreerp.com." />
     </>
   );
 }

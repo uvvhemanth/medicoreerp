@@ -43,7 +43,7 @@ export default function DocsPage() {
             </table>
           </div>
           <div className="mt-6 rounded-card border bg-ink p-5 font-mono text-sm text-white/80">
-            <pre className="overflow-x-auto"><code>{`curl https://api.aether.health/fhir/r4/Patient \\
+            <pre className="overflow-x-auto"><code>{`curl https://api.medicoreerp.com/fhir/r4/Patient \\
   -H "Authorization: Bearer $TOKEN"`}</code></pre>
           </div>
         </div>

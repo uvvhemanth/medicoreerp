@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ============================================================
-   Aether Health OS — Design Tokens (from MedicalErpTheme)
+   MedicoreERP — Design Tokens (from MedicalErpTheme)
    ============================================================ */
 :root {
   /* Brand */
@@ -145,9 +145,53 @@ h1, h2, h3, h4, h5 {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
 }
 
+/* Soft clinical atmosphere — teal/ink only (brand-safe) */
+.bg-aurora {
+  background:
+    radial-gradient(900px 480px at 12% -10%, rgba(14, 131, 136, 0.22), transparent 55%),
+    radial-gradient(700px 420px at 88% 8%, rgba(27, 110, 194, 0.14), transparent 50%),
+    radial-gradient(600px 380px at 55% 100%, rgba(91, 180, 166, 0.12), transparent 55%),
+    var(--surface);
+}
+[data-theme="dark"] .bg-aurora {
+  background:
+    radial-gradient(900px 480px at 12% -10%, rgba(63, 182, 176, 0.18), transparent 55%),
+    radial-gradient(700px 420px at 88% 8%, rgba(111, 168, 220, 0.1), transparent 50%),
+    radial-gradient(600px 380px at 55% 100%, rgba(14, 131, 136, 0.12), transparent 55%),
+    var(--surface);
+}
+
+.bg-mesh {
+  background-image:
+    radial-gradient(at 20% 20%, rgba(14, 131, 136, 0.16) 0px, transparent 45%),
+    radial-gradient(at 80% 10%, rgba(27, 110, 194, 0.1) 0px, transparent 40%),
+    radial-gradient(at 50% 80%, rgba(91, 180, 166, 0.12) 0px, transparent 45%);
+}
+
 .text-gradient-teal {
   background: linear-gradient(120deg, var(--brand-teal), var(--brand-clinical-blue));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hero-media-mask {
+  mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+}
+
+.logo-marquee {
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Hide Next.js local-dev issue badge / portal (demo marketing site) */
+nextjs-portal,
+[data-nextjs-toast],
+[data-next-badge],
+[data-nextjs-dev-overlay],
+body > nextjs-portal {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }

@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { LeadForm } from "@/components/marketing/lead-form";
+import { DemoBookingForm } from "@/components/marketing/demo-booking-form";
 import { Section, SectionHeading } from "@/components/marketing/blocks";
 import { TESTIMONIALS } from "@/lib/content/marketing";
-import { CheckCircle2, Clock, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Clock, ShieldCheck, Video, Calendar } from "lucide-react";
 
-export const metadata: Metadata = { title: "Book a Demo", description: "See Aether Health OS run your hospital in a 30-minute personalized demo." };
+export const metadata: Metadata = {
+  title: "Book a Demo Meeting",
+  description: "Schedule a free 30-minute MedicoreERP demo meeting — pick a date and time that works for you.",
+  alternates: { canonical: "/demo" },
+};
 
 export default function DemoPage() {
   const t = TESTIMONIALS[0];
@@ -12,15 +16,21 @@ export default function DemoPage() {
     <Section>
       <div className="grid gap-12 lg:grid-cols-2">
         <div>
-          <SectionHeading eyebrow="Book a Demo" title="See it run your hospital" subtitle="A focused 30-minute walkthrough tailored to your edition and workflows." />
+          <SectionHeading
+            eyebrow="Book a Demo Meeting"
+            title="Pick a slot. See MedicoreERP live."
+            subtitle="A focused 30-minute video walkthrough tailored to your edition and workflows — free, no obligation."
+          />
           <ul className="mt-8 space-y-4">
             {[
-              [ShieldCheck, "Tailored to your specialty & size"],
-              [Clock, "30 minutes, no obligation"],
-              [CheckCircle2, "Live product on sample data"],
+              [Calendar, "Choose date & time that fits your calendar"],
+              [Video, "Join by video link — no install required"],
+              [ShieldCheck, "Tailored to your specialty & hospital size"],
+              [Clock, "30 minutes, sample data only — no PHI"],
+              [CheckCircle2, "Instant confirmation on this demo site"],
             ].map(([Icon, text], i) => (
               <li key={i} className="flex items-center gap-3">
-                <Icon className="h-6 w-6 text-teal" />
+                <Icon className="h-6 w-6 shrink-0 text-teal" />
                 <span className="text-body">{text as string}</span>
               </li>
             ))}
@@ -34,7 +44,7 @@ export default function DemoPage() {
             </figcaption>
           </figure>
         </div>
-        <LeadForm variant="demo" />
+        <DemoBookingForm />
       </div>
     </Section>
   );

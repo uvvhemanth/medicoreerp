@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Product — 50+ modules on one platform",
-  description: "Explore every Aether Health OS module: clinical core, revenue cycle, pharmacy, lab, radiology, HRM, analytics and the no-code platform.",
+  description: "Explore every MedicoreERP module: clinical core, revenue cycle, pharmacy, lab, radiology, HRM, analytics and the no-code platform.",
 };
 
 export default function ProductHub() {
@@ -24,8 +24,9 @@ export default function ProductHub() {
           {PRODUCT_DOMAINS.map((d, i) => (
             <Reveal key={d.slug} delay={i * 0.04}>
               <Link
+                id={d.slug}
                 href={`/product/${d.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-card border bg-card shadow-soft transition hover:shadow-card"
+                className="group flex h-full scroll-mt-24 flex-col overflow-hidden rounded-card border bg-card shadow-soft transition hover:shadow-card"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={d.image} alt={d.name} className="aspect-[16/9] w-full object-cover" loading="lazy" />

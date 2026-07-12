@@ -15,14 +15,18 @@ export default function InteroperabilityHub() {
           <div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-clinical text-white shadow-soft"><Network className="h-7 w-7" /></div>
           <Eyebrow>Interoperability</Eyebrow>
           <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-tight text-heading sm:text-5xl">Interoperable by default. Locked-in never.</h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-muted">Built on open standards from day one — the reason CIOs choose Aether.</p>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-muted">Built on open standards from day one — the reason CIOs choose MedicoreERP.</p>
         </div>
       </section>
       <Section>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {STANDARDS.map((s, i) => (
             <Reveal key={s.slug} delay={i * 0.05}>
-              <Link href={`/interoperability/${s.slug}`} className="group flex h-full flex-col rounded-card border bg-card p-6 shadow-soft transition hover:shadow-card">
+              <Link
+                id={s.slug}
+                href={`/interoperability/${s.slug}`}
+                className="group flex h-full scroll-mt-24 flex-col rounded-card border bg-card p-6 shadow-soft transition hover:shadow-card"
+              >
                 <h3 className="font-heading text-lg font-bold text-heading">{s.name}</h3>
                 <p className="mt-2 flex-1 text-sm text-muted">{s.desc}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal">Learn more <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" /></span>
