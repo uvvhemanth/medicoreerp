@@ -104,7 +104,7 @@ export function RoiCalculator() {
         </form>
       </div>
       <p className="text-xs text-muted lg:col-span-2">
-        * Illustrative estimate on a transparent model. Actual results vary. This is a demo build with no backend.
+        * Illustrative estimate on a transparent model. Actual results vary by organization.
       </p>
     </div>
   );

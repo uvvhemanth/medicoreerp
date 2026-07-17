@@ -73,10 +73,11 @@ export default function DashboardPage() {
         </div>
       </Section>
 
-      <CTABand
+      {/* HIDDEN — uncomment to restore the demo CTA banner */}
+      {/* <CTABand
         title="Want these dashboards live for your hospital?"
         subtitle="Book a 30-minute demo on sample data."
-      />
+      /> */}
     </>
   );
 }

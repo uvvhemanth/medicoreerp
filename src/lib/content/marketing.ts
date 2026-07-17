@@ -53,10 +53,10 @@ export const NAV: NavItem[] = [
     menuIcon: Building2,
     featured: { title: "Find your edition", desc: "Clinic to government — see the fit", href: "/solutions", icon: ArrowRight },
     children: [
-      { label: "Clinics", href: "/solutions/clinics", desc: "Go live in 2–3 weeks", icon: Stethoscope },
-      { label: "Hospitals", href: "/solutions/hospitals", desc: "Go live in 6–10 weeks", icon: Building2 },
-      { label: "Diagnostics / Labs", href: "/solutions/diagnostics", desc: "Go live in 3–5 weeks", icon: Microscope },
-      { label: "Pharmacy Chains", href: "/solutions/pharmacy", desc: "Go live in 3–4 weeks", icon: Pill },
+      { label: "Clinics", href: "/solutions/clinics", desc: "OPD, billing & patient access", icon: Stethoscope },
+      { label: "Hospitals", href: "/solutions/hospitals", desc: "Full hospital operations", icon: Building2 },
+      { label: "Diagnostics / Labs", href: "/solutions/diagnostics", desc: "LIS, RIS & reporting", icon: Microscope },
+      { label: "Pharmacy Chains", href: "/solutions/pharmacy", desc: "Multi-store inventory & POS", icon: Pill },
       { label: "Enterprise Networks", href: "/solutions/enterprise", desc: "Multi-branch · custom rollout", icon: Network },
       { label: "Government / Payer", href: "/solutions/government", desc: "ABDM-ready · program-based", icon: Landmark },
     ],
@@ -341,17 +341,16 @@ export interface Solution {
   hero: string;
   pains: string[];
   bundle: string[];
-  goLive: string;
   priceFrom: string;
 }
 
 export const SOLUTIONS: Solution[] = [
-  { slug: "clinics", name: "Clinics", hero: "Everything a growing clinic needs, nothing it doesn't.", pains: ["Paper registers & no-shows", "Manual billing", "No follow-up recall"], bundle: ["Patient Access", "OPD & e-Prescribe", "Billing", "Pharmacy-lite", "Patient Portal"], goLive: "2–3 weeks", priceFrom: "₹8,000/mo" },
-  { slug: "hospitals", name: "Hospitals", hero: "Run the whole hospital on one platform.", pains: ["Fragmented departmental systems", "Revenue leakage", "Bed & OT chaos"], bundle: ["Full Clinical Core", "IPD/ER/OT/ICU", "Pharmacy/Lab/Radiology", "Autonomous RCM", "Analytics"], goLive: "6–10 weeks", priceFrom: "₹1,200/bed/mo" },
-  { slug: "diagnostics", name: "Diagnostics / Labs", hero: "From sample to signed report, automated.", pains: ["Analyzer silos", "QC scramble", "Slow TAT"], bundle: ["LIS", "RIS/PACS", "Home-collection", "Patient reports", "B2B portal"], goLive: "3–5 weeks", priceFrom: "₹15,000/mo" },
-  { slug: "pharmacy", name: "Pharmacy Chains", hero: "One ledger across every outlet.", pains: ["Stock-outs & expiry loss", "No central visibility", "Manual reorder"], bundle: ["Multi-store inventory", "POS & returns", "Demand forecast", "Loyalty", "Analytics"], goLive: "3–4 weeks", priceFrom: "₹6,000/store/mo" },
-  { slug: "enterprise", name: "Enterprise Networks", hero: "Coherence across every branch.", pains: ["Inconsistent processes", "No network view", "Slow rollout"], bundle: ["Everything", "Command Center", "Multi-tenant admin", "Developer platform", "Dedicated success"], goLive: "12–20 weeks", priceFrom: "Custom" },
-  { slug: "government", name: "Government / Payer", hero: "Public-health scale, compliant by default.", pains: ["ABDM mandates", "Population reporting", "Interoperability"], bundle: ["ABDM-ready HMIS", "Registries", "Claims/TPA", "Analytics", "Data-freedom exports"], goLive: "Program-based", priceFrom: "Custom" },
+  { slug: "clinics", name: "Clinics", hero: "Everything a growing clinic needs, nothing it doesn't.", pains: ["Paper registers & no-shows", "Manual billing", "No follow-up recall"], bundle: ["Patient Access", "OPD & e-Prescribe", "Billing", "Pharmacy-lite", "Patient Portal"], priceFrom: "₹8,000/mo" },
+  { slug: "hospitals", name: "Hospitals", hero: "Run the whole hospital on one platform.", pains: ["Fragmented departmental systems", "Revenue leakage", "Bed & OT chaos"], bundle: ["Full Clinical Core", "IPD/ER/OT/ICU", "Pharmacy/Lab/Radiology", "Autonomous RCM", "Analytics"], priceFrom: "₹1,200/bed/mo" },
+  { slug: "diagnostics", name: "Diagnostics / Labs", hero: "From sample to signed report, automated.", pains: ["Analyzer silos", "QC scramble", "Slow TAT"], bundle: ["LIS", "RIS/PACS", "Home-collection", "Patient reports", "B2B portal"], priceFrom: "₹15,000/mo" },
+  { slug: "pharmacy", name: "Pharmacy Chains", hero: "One ledger across every outlet.", pains: ["Stock-outs & expiry loss", "No central visibility", "Manual reorder"], bundle: ["Multi-store inventory", "POS & returns", "Demand forecast", "Loyalty", "Analytics"], priceFrom: "₹6,000/store/mo" },
+  { slug: "enterprise", name: "Enterprise Networks", hero: "Coherence across every branch.", pains: ["Inconsistent processes", "No network view", "Slow rollout"], bundle: ["Everything", "Command Center", "Multi-tenant admin", "Developer platform", "Dedicated success"], priceFrom: "Custom" },
+  { slug: "government", name: "Government / Payer", hero: "Public-health scale, compliant by default.", pains: ["ABDM mandates", "Population reporting", "Interoperability"], bundle: ["ABDM-ready HMIS", "Registries", "Claims/TPA", "Analytics", "Data-freedom exports"], priceFrom: "Custom" },
 ];
 
 export interface Standard { slug: string; name: string; desc: string }
@@ -521,7 +520,7 @@ export const COMPETITORS: Competitor[] = [
     summary: "Epic is powerful and proven at mega-scale — and famously expensive, slow to deploy, and hard to use. MedicoreERP matches the breadth with modern UX and AI-native workflows.",
     rows: [
       { feature: "AI ambient scribe (default)", medicore: "Included", them: "Add-on / 3rd-party" },
-      { feature: "Time to go live", medicore: "6–10 weeks", them: "12–18 months" },
+      { feature: "Implementation time", medicore: "6–10 weeks", them: "12–18 months" },
       { feature: "No-code configuration", medicore: "Workflow Studio + Form Builder", them: "Consultant-led" },
       { feature: "FHIR-native API", medicore: "Default, public", them: "Available, gated" },
     ],
@@ -635,7 +634,7 @@ export const COMPLIANCE_BADGES = ["HIPAA", "GDPR", "ABDM", "SOC 2 Type II", "ISO
 export const HOME_STATS = [
   { value: "62%", label: "less documentation time" },
   { value: "45%", label: "fewer claim denials" },
-  { value: "9 wks", label: "average time to go live" },
+  { value: "400+", label: "care teams served" },
   { value: "99.98%", label: "platform uptime" },
 ];
 

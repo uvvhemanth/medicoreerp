@@ -36,7 +36,7 @@ export default async function LegalPage({ params }: { params: Promise<{ doc: str
             <section key={h}>
               <h2 className="font-heading text-xl font-bold text-heading">{h}</h2>
               <p className="mt-2 leading-relaxed text-muted">
-                This is placeholder legal copy for a demo build. In production, this content would be authored by legal and served from the CMS. No real personal data is processed by this demo.
+                MedicoreERP is committed to protecting your privacy and handling information responsibly. Contact our legal team for the full policy text for this section.
               </p>
             </section>
           ))}

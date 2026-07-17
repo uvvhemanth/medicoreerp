@@ -84,7 +84,7 @@ export async function POST(request: Request) {
     ok: true,
     leadId: lead.id,
     message: lead.meeting
-      ? "Demo meeting booked. Calendar invite simulated for this demo."
+      ? "Demo meeting booked. A calendar invite will follow by email."
       : "Lead captured. Sales will follow up within one business day.",
     meeting: lead.meeting,
   });

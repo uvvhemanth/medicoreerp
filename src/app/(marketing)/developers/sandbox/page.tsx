@@ -10,7 +10,7 @@ export default function SandboxPage() {
     <Section>
       <div className="grid gap-10 lg:grid-cols-2">
         <div>
-          <SectionHeading eyebrow="Sandbox" title="Provision a sandbox tenant" subtitle="A demo environment pre-loaded with synthetic patients, encounters, and claims — call the API in minutes." />
+          <SectionHeading eyebrow="Sandbox" title="Provision a sandbox tenant" subtitle="A sandbox environment pre-loaded with sample patients, encounters, and claims — call the API in minutes." />
           <ul className="mt-6 space-y-3">
             {["Full FHIR R4 + REST access", "SMART-on-FHIR app registration", "Webhooks & event streams", "SDKs for JS, Python, and Go", "No credit card required"].map((f) => (
               <li key={f} className="flex items-center gap-2 text-body"><CheckCircle2 className="h-5 w-5 text-success" /> {f}</li>

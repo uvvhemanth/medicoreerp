@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SOLUTIONS } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
-import { ArrowRight, Clock, CheckCircle2, X } from "lucide-react";
+import { ArrowRight, CheckCircle2, X } from "lucide-react";
 
 export function generateStaticParams() {
   return SOLUTIONS.map((s) => ({ edition: s.slug }));
@@ -30,9 +30,6 @@ export default async function EditionPage({ params }: { params: Promise<{ editio
           <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-tight tracking-tight text-heading sm:text-5xl">
             {s.hero}
           </h1>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-muted">
-            <span className="flex items-center gap-1.5"><Clock className="h-4 w-4 text-teal" /> Go live in {s.goLive}</span>
-          </div>
           <div className="mt-8 flex justify-center gap-3">
             <Button asChild size="lg"><Link href="/demo">Book a demo <ArrowRight className="h-4 w-4" /></Link></Button>
           </div>

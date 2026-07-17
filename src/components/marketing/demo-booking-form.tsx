@@ -135,7 +135,7 @@ export function DemoBookingForm() {
         </div>
         <h3 className="font-heading text-2xl font-bold text-heading">Demo meeting booked</h3>
         <p className="mt-2 max-w-sm text-muted">
-          You’re confirmed for a 30-minute MedicoreERP walkthrough. A calendar invite is simulated for this demo build.
+          You’re confirmed for a 30-minute MedicoreERP walkthrough. A calendar invite will follow by email.
         </p>
         <div className="mt-6 w-full max-w-sm space-y-2 rounded-card border bg-card p-4 text-left text-sm">
           <p className="flex items-center gap-2 font-semibold text-heading">
@@ -311,7 +311,7 @@ export function DemoBookingForm() {
             </Button>
           </div>
           <p className="text-center text-xs text-muted">
-            Free 30-minute video demo. No PHI on this site. Demo build — booking is stubbed to `/api/leads`.
+            Free 30-minute video demo.
           </p>
         </form>
       )}

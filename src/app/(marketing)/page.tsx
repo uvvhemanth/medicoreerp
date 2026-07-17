@@ -91,7 +91,7 @@ export default function HomePage() {
               </div>
               <p className="mt-6 flex items-center gap-1.5 text-sm text-muted">
                 <Star className="h-4 w-4 fill-warning text-warning" />
-                Trusted by 400+ care teams · Go live in weeks
+                Trusted by 400+ care teams
               </p>
             </div>
           </Reveal>
@@ -371,7 +371,7 @@ export default function HomePage() {
             <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-teal" />
             <div>
               <p className="font-heading font-bold text-heading">Ready when your hospital is</p>
-              <p className="mt-1 text-sm text-muted">Sandbox in minutes · Migration with data-freedom · Go live in weeks</p>
+              <p className="mt-1 text-sm text-muted">Sandbox in minutes · Migration with data-freedom · Dedicated onboarding</p>
             </div>
           </div>
           <Button asChild>

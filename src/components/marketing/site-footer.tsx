@@ -99,7 +99,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-6 flex flex-col items-start justify-between gap-3 text-xs text-muted sm:flex-row sm:items-center">
-          <p>© 2026 MedicoreERP. A demo build — no real patient data. All content is synthetic.</p>
+          <p>© 2026 MedicoreERP. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span>🌐 English (India)</span>
             <Link href="/legal/cookies" className="hover:text-teal">Cookie settings</Link>
