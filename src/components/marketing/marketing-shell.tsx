@@ -2,6 +2,7 @@ import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
 import { ChatBot } from "./chat-bot";
 import { DemoFab } from "./demo-fab";
+import { WhatsAppFab } from "./whatsapp-fab";
 
 export function MarketingShell({ children }: { children: React.ReactNode }) {
   return (
@@ -17,6 +18,7 @@ export function MarketingShell({ children }: { children: React.ReactNode }) {
       <SiteFooter />
       <DemoFab />
       <ChatBot />
+      <WhatsAppFab />
     </>
   );
 }

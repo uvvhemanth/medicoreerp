@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
 import { COMPLIANCE_BADGES } from "@/lib/content/marketing";
-import { Github, Linkedin, Twitter, Globe } from "lucide-react";
+import { Github, Linkedin, Twitter, Globe, Mail, Phone } from "lucide-react";
 
 const columns = [
   {
@@ -66,6 +66,14 @@ export function SiteFooter() {
             <p className="max-w-xs text-sm text-muted">
               The AI-native Hospital Operating System. Run every clinical, operational, and financial workflow on one platform.
             </p>
+            <div className="space-y-2 text-sm">
+              <a href="mailto:info@medicoreerp.com" className="flex items-center gap-2 font-semibold text-heading hover:text-teal">
+                <Mail className="h-4 w-4 text-teal" /> info@medicoreerp.com
+              </a>
+              <a href="tel:+919966411913" className="flex items-center gap-2 font-semibold text-heading hover:text-teal">
+                <Phone className="h-4 w-4 text-teal" /> +91 99664 11913
+              </a>
+            </div>
             <div className="flex gap-2">
               {[Twitter, Linkedin, Github, Globe].map((Icon, i) => (
                 <a key={i} href="#" className="grid h-9 w-9 place-items-center rounded-lg border text-muted hover:text-teal" aria-label="social">

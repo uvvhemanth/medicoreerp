@@ -133,16 +133,16 @@ export function DemoBookingForm() {
         <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-success/12 text-success">
           <CheckCircle2 className="h-9 w-9" />
         </div>
-        <h3 className="font-heading text-2xl font-bold text-heading">Demo meeting booked</h3>
+        <h3 className="font-heading text-2xl font-bold text-heading">Demo request received</h3>
         <p className="mt-2 max-w-sm text-muted">
-          You’re confirmed for a 30-minute MedicoreERP walkthrough. A calendar invite will follow by email.
+          We sent your request to info@medicoreerp.com. Our team will confirm your selected time by email.
         </p>
         <div className="mt-6 w-full max-w-sm space-y-2 rounded-card border bg-card p-4 text-left text-sm">
           <p className="flex items-center gap-2 font-semibold text-heading">
             <CalendarCheck className="h-4 w-4 text-teal" /> {booking.when}
           </p>
           <p className="flex items-center gap-2 text-muted">
-            <Video className="h-4 w-4 text-teal" /> Video meeting link emailed (demo)
+            <Video className="h-4 w-4 text-teal" /> Meeting details will follow after confirmation
           </p>
           {booking.leadId && <p className="text-xs text-muted">Ref: {booking.leadId}</p>}
         </div>

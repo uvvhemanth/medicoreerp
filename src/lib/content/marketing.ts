@@ -82,6 +82,8 @@ export const NAV: NavItem[] = [
     menuIcon: Network,
     featured: { title: "Developer platform", desc: "FHIR API, SMART apps, sandbox", href: "/developers", icon: Code2 },
     children: [
+      { label: "Third-party API Integrations", href: "/integrations/third-party-api", desc: "Labs, PACS, payments, insurance & external apps", icon: Code2, badge: "New" },
+      { label: "WhatsApp Integration", href: "/integrations/whatsapp", desc: "Reminders, reports, invoices & patient messages", icon: MessageSquareText, badge: "New" },
       { label: "FHIR R4", href: "/interoperability/fhir", desc: "Native resource model", icon: Share2 },
       { label: "HL7 v2", href: "/interoperability/hl7", desc: "Labs & legacy interfaces", icon: ArrowLeftRight },
       { label: "DICOM", href: "/interoperability/dicom", desc: "Zero-footprint imaging", icon: Scan },
@@ -718,6 +720,18 @@ export const MAIN_FEATURES: MainFeature[] = [
     desc: "Drugs and consumables with barcodes, expiry, reorder levels, and stock movements tied to clinical and pharmacy use.",
     href: "/product/supply-chain",
     icon: Barcode,
+  },
+  {
+    title: "Medical ERP API Integrations",
+    desc: "Connect labs, PACS, payment gateways, insurance, ABDM, third-party apps, and legacy systems through secure FHIR, HL7, and REST APIs.",
+    href: "/integrations/third-party-api",
+    icon: Code2,
+  },
+  {
+    title: "WhatsApp Integration",
+    desc: "Send appointment confirmations, reminders, reports, prescriptions, invoices, payment links, and follow-up messages through verified WhatsApp workflows.",
+    href: "/integrations/whatsapp",
+    icon: MessageSquareText,
   },
 ];
 

@@ -7,8 +7,9 @@ import { NAV } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/brand/logo";
 import { ThemeToggle } from "@/components/marketing/theme-toggle";
+import { WHATSAPP_URL, WhatsAppIcon } from "@/components/marketing/whatsapp-fab";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Menu, X, ArrowRight, MessageCircle, Calendar } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, MessageCircle, Calendar, Phone } from "lucide-react";
 
 function openChat() {
   window.dispatchEvent(new Event("medicore:open-chat"));
@@ -87,6 +88,16 @@ export function SiteHeader() {
         scrolled || menuOpen ? "border-b bg-card shadow-soft" : "bg-transparent",
       )}
     >
+      <div className="border-b border-white/15 bg-teal text-white lg:hidden">
+        <a
+          href="tel:+919966411913"
+          className="flex h-9 items-center justify-center gap-2 text-sm font-bold"
+          aria-label="Call MedicoreERP at +91 99664 11913"
+        >
+          <Phone className="h-4 w-4" />
+          Call +91 99664 11913
+        </a>
+      </div>
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2" aria-label="MedicoreERP home" onClick={() => setOpen(null)}>
           <Logo />
@@ -249,6 +260,14 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <a
+            href="tel:+919966411913"
+            className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-heading transition hover:text-teal xl:inline-flex"
+            aria-label="Call MedicoreERP at +91 99664 11913"
+          >
+            <Phone className="h-4 w-4 text-teal" />
+            +91 99664 11913
+          </a>
           <ThemeToggle />
           <Button
             type="button"
@@ -261,6 +280,16 @@ export function SiteHeader() {
             }}
           >
             <MessageCircle className="h-4 w-4" /> Free chat
+          </Button>
+          <Button asChild size="sm" variant="outline" className="hidden rounded-full sm:inline-flex">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(null)}
+            >
+              <WhatsAppIcon className="h-4 w-4 text-[#25D366]" /> WhatsApp
+            </a>
           </Button>
           <Button asChild size="sm" className="hidden rounded-full sm:inline-flex">
             <Link href="/demo" onClick={() => setOpen(null)}>
@@ -341,6 +370,16 @@ export function SiteHeader() {
                 }}
               >
                 <MessageCircle className="h-4 w-4" /> Free chat
+              </Button>
+              <Button asChild variant="outline" className="w-full">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <WhatsAppIcon className="h-4 w-4 text-[#25D366]" /> Chat on WhatsApp
+                </a>
               </Button>
               <Button asChild className="w-full">
                 <Link href="/demo" onClick={() => setMobileOpen(false)}>

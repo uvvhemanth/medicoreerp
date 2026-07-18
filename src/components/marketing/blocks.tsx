@@ -50,7 +50,7 @@ export function Section({
 /* ---------------- Eyebrow / heading ---------------- */
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-pill border border-teal/25 bg-teal/[0.06] px-3 py-1 text-xs font-bold uppercase tracking-wide text-teal">
+    <span className="inline-flex items-center gap-2 rounded-pill border border-teal/25 bg-teal/[0.06] px-3 py-1 text-[13px] font-bold uppercase tracking-wide text-teal">
       {children}
     </span>
   );
@@ -72,10 +72,10 @@ export function SectionHeading({
   return (
     <div className={cn(center && "mx-auto text-center", "max-w-2xl", className)}>
       {eyebrow && <div className="mb-4"><Eyebrow>{eyebrow}</Eyebrow></div>}
-      <h2 className="font-heading text-3xl font-extrabold leading-tight tracking-tight text-heading sm:text-[40px]">
+      <h2 className="font-heading text-[32px] font-extrabold leading-tight tracking-tight text-heading sm:text-[42px]">
         {title}
       </h2>
-      {subtitle && <p className="mt-4 text-lg leading-relaxed text-muted">{subtitle}</p>}
+      {subtitle && <p className="mt-4 text-lg leading-relaxed text-muted sm:text-xl">{subtitle}</p>}
     </div>
   );
 }
@@ -83,7 +83,7 @@ export function SectionHeading({
 /* ---------------- CTA band ---------------- */
 export function CTABand({
   title = "See MedicoreERP run your hospital",
-  subtitle = "Book a 30-minute demo or explore the live product on sample data.",
+  subtitle,
 }: {
   title?: string;
   subtitle?: string;
@@ -96,9 +96,9 @@ export function CTABand({
           <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-clinical/30 blur-3xl" />
           <div className="absolute -right-16 bottom-0 h-56 w-56 rounded-full bg-sage/25 blur-3xl" />
           <div className="relative">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-white/70">MedicoreERP</p>
-            <h2 className="mx-auto max-w-2xl font-heading text-3xl font-extrabold text-white sm:text-4xl">{title}</h2>
-            <p className="mx-auto mt-4 max-w-xl text-white/85">{subtitle}</p>
+            <p className="mb-4 text-[13px] font-bold uppercase tracking-[0.14em] text-white/70">MedicoreERP</p>
+            <h2 className="mx-auto max-w-2xl font-heading text-[32px] font-extrabold text-white sm:text-[42px]">{title}</h2>
+            {subtitle && <p className="mx-auto mt-4 max-w-xl text-white/85">{subtitle}</p>}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button asChild size="lg" className="bg-white text-teal-deep hover:bg-white/90">
                 <Link href="/demo">Book a Demo</Link>

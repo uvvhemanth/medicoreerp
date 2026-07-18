@@ -28,6 +28,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/solutions", priority: 0.9 },
     { path: "/ai", priority: 0.9 },
     { path: "/interoperability", priority: 0.8 },
+    { path: "/integrations/third-party-api", priority: 0.85 },
+    { path: "/integrations/whatsapp", priority: 0.85 },
     { path: "/security", priority: 0.8 },
     { path: "/security/compliance", priority: 0.7 },
     { path: "/security/status", priority: 0.6 },

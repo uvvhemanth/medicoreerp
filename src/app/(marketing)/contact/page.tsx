@@ -13,16 +13,22 @@ export default function ContactPage() {
           <SectionHeading eyebrow="Contact" title="Let's talk" subtitle="Sales, support, partnerships, or press — we'll route you to the right person." />
           <div className="mt-8 space-y-4">
             {[
-              [Mail, "Email", "hello@medicoreerp.com"],
-              [Phone, "Phone", "+91 80 4567 8900"],
-              [MapPin, "Office", "Bengaluru · Dubai · Singapore"],
-              [MessageSquare, "Sales chat", "Available 9am–9pm IST"],
-            ].map(([Icon, label, value], i) => (
-              <div key={i} className="flex items-center gap-4 rounded-card border bg-card p-4 shadow-soft">
+              { icon: Mail, label: "Official email", value: "info@medicoreerp.com", href: "mailto:info@medicoreerp.com" },
+              { icon: Phone, label: "Phone", value: "+91 99664 11913", href: "tel:+919966411913" },
+              { icon: MapPin, label: "Service region", value: "India · MENA · SEA" },
+              { icon: MessageSquare, label: "Enquiries", value: "Demo, sales, support and partnerships" },
+            ].map(({ icon: Icon, label, value, href }) => (
+              <div key={label} className="flex items-center gap-4 rounded-card border bg-card p-4 shadow-soft">
                 <Icon className="h-5 w-5 text-teal" />
                 <div>
-                  <p className="text-xs font-semibold text-muted">{label as string}</p>
-                  <p className="font-semibold text-heading">{value as string}</p>
+                  <p className="text-xs font-semibold text-muted">{label}</p>
+                  {href ? (
+                    <a href={href} className="font-semibold text-heading hover:text-teal hover:underline">
+                      {value}
+                    </a>
+                  ) : (
+                    <p className="font-semibold text-heading">{value}</p>
+                  )}
                 </div>
               </div>
             ))}

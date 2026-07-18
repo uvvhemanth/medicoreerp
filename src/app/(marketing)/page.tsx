@@ -66,16 +66,16 @@ export default function HomePage() {
         <div className="container-page relative z-10 grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-16">
           <Reveal>
             <div>
-              <p className="font-heading text-xs font-extrabold uppercase tracking-[0.18em] text-teal">
+              <p className="font-heading text-[13px] font-extrabold uppercase tracking-[0.18em] text-teal">
                 MedicoreERP
               </p>
-              <h1 className="mt-4 font-heading text-[36px] font-extrabold leading-[1.08] tracking-tight text-heading sm:text-[48px]">
+              <h1 className="mt-4 font-heading text-[40px] font-extrabold leading-[1.1] tracking-tight text-heading sm:text-[52px]">
                 Hospital Management System Software
               </h1>
-              <p className="mt-3 text-lg font-semibold text-teal">
+              <p className="mt-3 text-xl font-semibold text-teal">
                 Advanced HIS for modern clinics & hospitals
               </p>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
                 One integrated system for registration, appointments, OPD/EMR, lab, pharmacy, IPD, billing,
                 discharge, and patient follow-up — your full patient journey on one platform.
               </p>
@@ -89,7 +89,7 @@ export default function HomePage() {
                   <Link href="/dashboard">Open full dashboard</Link>
                 </Button>
               </div>
-              <p className="mt-6 flex items-center gap-1.5 text-sm text-muted">
+              <p className="mt-6 flex items-center gap-1.5 text-base text-muted">
                 <Star className="h-4 w-4 fill-warning text-warning" />
                 Trusted by 400+ care teams
               </p>
@@ -99,7 +99,7 @@ export default function HomePage() {
           <Reveal delay={0.1}>
             <div id="his-dashboard" className="scroll-mt-24">
               <HisDashboard compact />
-              <p className="mt-3 text-center text-xs text-muted lg:text-left">
+              <p className="mt-3 text-center text-sm text-muted lg:text-left">
                 Modules follow your patient journey (Steps 1–10). Click any tile.
               </p>
             </div>
