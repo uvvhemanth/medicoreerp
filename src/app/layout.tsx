@@ -24,7 +24,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MedicoreERP — The AI-native Hospital Operating System",
+    default: "MedicoreERP",
     template: "%s · MedicoreERP",
   },
   description:
