@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/input";
+import { sendLeadWithEmailJs } from "@/lib/emailjs";
 import { cn } from "@/lib/utils";
 import { CalendarCheck, CheckCircle2, Clock, Video } from "lucide-react";
 
@@ -97,31 +98,25 @@ export function DemoBookingForm() {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-          ...utm,
-          variant: "demo",
-          meetingDate,
-          meetingTime,
-          timezone,
-          consent: "marketing-demo-meeting",
-        }),
+      const result = await sendLeadWithEmailJs({
+        ...data,
+        ...utm,
+        name: data.name,
+        email: data.email,
+        variant: "demo",
+        meetingDate,
+        meetingTime,
+        timezone,
+        consent: "marketing-demo-meeting",
       });
-      const json = (await res.json()) as { ok?: boolean; error?: string; leadId?: string };
-      if (!res.ok || !json.ok) {
-        setServerError(json.error || "Something went wrong. Please try again.");
-        return;
-      }
       setBooking({
-        leadId: json.leadId,
+        leadId: result.leadId,
         when: `${selectedLabel} · ${meetingTime} · ${timezone}`,
       });
       setSubmitted(true);
-    } catch {
-      setServerError("Network error. Please try again.");
+    } catch (error) {
+      console.error("[demo-email-failed]", error);
+      setServerError("We could not deliver your request. Please email info@medicoreerp.com or call +91 99664 11913.");
     } finally {
       setLoading(false);
     }

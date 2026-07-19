@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/input";
+import { sendLeadWithEmailJs } from "@/lib/emailjs";
 import { CheckCircle2, CalendarCheck } from "lucide-react";
 
 type Variant = "demo" | "contact" | "sandbox";
@@ -65,20 +66,18 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, ...utm, variant, consent: "marketing-demo" }),
+      await sendLeadWithEmailJs({
+        ...data,
+        ...utm,
+        name: data.name,
+        email: data.email,
+        variant,
+        consent: "marketing-demo",
       });
-      const json = (await res.json()) as { ok?: boolean; error?: string };
-      if (!res.ok || !json.ok) {
-        setServerError(json.error || "Something went wrong. Please try again.");
-        setLoading(false);
-        return;
-      }
       setSubmitted(true);
-    } catch {
-      setServerError("Network error. Please try again.");
+    } catch (error) {
+      console.error("[lead-email-failed]", error);
+      setServerError("We could not deliver your request. Please email info@medicoreerp.com or call +91 99664 11913.");
     } finally {
       setLoading(false);
     }
@@ -91,17 +90,17 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
           <CheckCircle2 className="h-9 w-9" />
         </div>
         <h3 className="font-heading text-2xl font-bold text-heading">
-          {variant === "sandbox" ? "Sandbox on its way!" : "Thank you — you're booked in."}
+          {variant === "sandbox" ? "Request received" : "Thank you — your request was sent."}
         </h3>
         <p className="mt-2 max-w-sm text-muted">
           {variant === "sandbox"
-            ? "Check your inbox for sandbox credentials and API keys (demo)."
-            : "Our team will reach out within one business day. In the meantime, explore the live product."}
+            ? "Our team will contact you with the next steps."
+            : "Our team will reach out within one business day."}
         </p>
         {variant !== "sandbox" && (
           <div className="mt-6 flex items-center gap-2 rounded-lg bg-card px-4 py-3 text-sm">
             <CalendarCheck className="h-5 w-5 text-teal" />
-            <span className="text-body">Calendar invite sent · instant confirmation</span>
+            <span className="text-body">Our team will confirm the next step by email</span>
           </div>
         )}
       </div>
@@ -163,7 +162,7 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
         {variant === "sandbox" ? "Create my sandbox" : variant === "contact" ? "Send message" : "Book my demo"}
       </Button>
       <p className="text-center text-xs text-muted">
-        By submitting you agree to our privacy policy. This is a demo — leads are logged by the stub API, not sent to a CRM.
+        By submitting you agree to our privacy policy.
       </p>
     </form>
   );

@@ -28,68 +28,10 @@ async function fetchText(path, opts = {}) {
   return { res, text, status: res.status };
 }
 
-async function postJson(path, body) {
-  const res = await fetch(`${BASE}${path}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(body),
-  });
-  let json = null;
-  try {
-    json = await res.json();
-  } catch {
-    json = null;
-  }
-  return { res, json, status: res.status };
-}
-
 async function main() {
   console.log(`Functional web check → ${BASE}\n`);
 
-  // 1) API: lead validation
-  {
-    const bad = await postJson("/api/leads", { email: "not-an-email" });
-    if (bad.status === 400 && bad.json?.ok === false) ok("API rejects invalid lead", bad.json.error);
-    else fail("API rejects invalid lead", `status=${bad.status} body=${JSON.stringify(bad.json)}`);
-  }
-  {
-    const noOrg = await postJson("/api/leads", {
-      name: "Test User",
-      email: "test@hospital.com",
-      variant: "demo",
-    });
-    if (noOrg.status === 400) ok("API requires org for demo leads");
-    else fail("API requires org for demo leads", JSON.stringify(noOrg.json));
-  }
-  {
-    const contact = await postJson("/api/leads", {
-      name: "Contact User",
-      email: "contact@hospital.com",
-      message: "Hello",
-      variant: "contact",
-    });
-    if (contact.status === 200 && contact.json?.ok && contact.json?.leadId) {
-      ok("API accepts contact lead", contact.json.leadId);
-    } else fail("API accepts contact lead", JSON.stringify(contact.json));
-  }
-  {
-    const demo = await postJson("/api/leads", {
-      name: "Demo User",
-      email: "demo@hospital.com",
-      org: "CityCare Hospital",
-      variant: "demo",
-      meetingDate: "2026-07-15",
-      meetingTime: "11:00 AM",
-      timezone: "Asia/Kolkata (IST)",
-      page: "/demo",
-      utm_source: "functional-test",
-    });
-    if (demo.status === 200 && demo.json?.ok && demo.json?.meeting) {
-      ok("API books demo meeting", `${demo.json.meeting.date} ${demo.json.meeting.time}`);
-    } else fail("API books demo meeting", JSON.stringify(demo.json));
-  }
-
-  // 2) Home page functional markers
+  // 1) Home page functional markers
   {
     const { status, text } = await fetchText("/");
     if (status !== 200) fail("Home loads", `status=${status}`);
@@ -111,7 +53,7 @@ async function main() {
     }
   }
 
-  // 3) Demo page form UI
+  // 2) Demo page form UI
   {
     const { status, text } = await fetchText("/demo");
     if (status !== 200) fail("Demo page loads");

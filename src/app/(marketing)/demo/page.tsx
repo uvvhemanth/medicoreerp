@@ -26,8 +26,8 @@ export default function DemoPage() {
               [Calendar, "Choose date & time that fits your calendar"],
               [Video, "Join by video link — no install required"],
               [ShieldCheck, "Tailored to your specialty & hospital size"],
-              [Clock, "30 minutes, sample data only — no PHI"],
-              [CheckCircle2, "Instant confirmation on this demo site"],
+              [Clock, "Focused 30-minute walkthrough"],
+              [CheckCircle2, "Our team confirms your selected time by email"],
             ].map(([Icon, text], i) => (
               <li key={i} className="flex items-center gap-3">
                 <Icon className="h-6 w-6 shrink-0 text-teal" />
