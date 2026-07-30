@@ -28,19 +28,14 @@ const columns = [
     title: "Resources",
     links: [
       ["Blog", "/resources/blog"],
-      ["Guides", "/resources/guides"],
-      ["Glossary", "/resources/glossary"],
-      ["Webinars", "/resources/webinars"],
-      ["Changelog", "/resources/changelog"],
+      ["About Us", "/company/about"],
+      ["Contact", "/contact"],
     ],
   },
   {
     title: "Company",
     links: [
-      ["About", "/company/about"],
-      ["Careers", "/company/careers"],
-      ["Press", "/company/press"],
-      ["Partners", "/company/partners"],
+      ["About Us", "/company/about"],
       ["Contact", "/contact"],
     ],
   },
@@ -63,9 +58,14 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
           <div className="space-y-4">
             <Logo />
-            <p className="max-w-xs text-sm text-muted">
-              The AI-native Hospital Operating System. Run every clinical, operational, and financial workflow on one platform.
-            </p>
+            <div className="max-w-sm space-y-2">
+              <p className="text-sm leading-relaxed tracking-[0.01em] text-muted">
+                Integrated Hospital Management System and HIS software for hospitals, clinics and healthcare organizations in Hyderabad and across India.
+              </p>
+              <p className="text-sm leading-relaxed tracking-[0.01em] text-muted">
+                Manage clinical, administrative and financial workflows through one connected healthcare platform.
+              </p>
+            </div>
             <div className="space-y-2 text-sm">
               <a href="mailto:info@medicoreerp.com" className="flex items-center gap-2 font-semibold text-heading hover:text-teal">
                 <Mail className="h-4 w-4 text-teal" /> info@medicoreerp.com

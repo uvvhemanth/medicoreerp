@@ -387,10 +387,10 @@ function FhirPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <Link href="/developers/fhir">Open FHIR reference <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/contact">Talk to our FHIR team <ArrowRight className="h-4 w-4" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/developers/sandbox">Request a sandbox</Link>
+                <Link href="/demo">Request a demo</Link>
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">

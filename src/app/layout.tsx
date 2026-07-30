@@ -24,33 +24,36 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MedicoreERP",
-    template: "%s · MedicoreERP",
+    default: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    template: "%s | MedicoreERP",
   },
   description:
-    "Run the entire hospital on one AI-native medical ERP — clinical, operational, and financial. Interoperable by default and fast to deploy.",
+    "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
   keywords: [
+    "best hospital management system in Hyderabad",
+    "hospital management system Hyderabad",
+    "HIS software Hyderabad",
     "hospital information system",
     "HIS",
     "healthcare ERP",
     "medical ERP",
-    "FHIR",
-    "AI medical scribe",
-    "Epic alternative",
     "hospital software India",
+    "clinic management software",
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "MedicoreERP",
-    description: "The AI-native Hospital Operating System — medical ERP for clinics and hospitals.",
+    title: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    description:
+      "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
     type: "website",
     url: SITE_URL,
     siteName: "MedicoreERP",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MedicoreERP",
-    description: "The AI-native Hospital Operating System.",
+    title: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    description:
+      "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
   },
   robots: { index: true, follow: true },
 };

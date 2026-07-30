@@ -228,16 +228,16 @@ export const DASHBOARD_MODULES: DashboardModule[] = [
 ];
 
 export const PATIENT_JOURNEY = [
-  { step: 1, title: "Patient Registration", flow: "Create / find patient, capture demographics & ABHA", moduleId: "registration" },
-  { step: 2, title: "Appointment Booking", flow: "Schedule OPD / teleconsult with live slots", moduleId: "appointment" },
-  { step: 3, title: "Doctor Consultation (OPD)", flow: "EMR note, diagnosis, and orders", moduleId: "clinical" },
-  { step: 4, title: "Lab / Radiology Orders", flow: "Diagnostics ordered from the chart", moduleId: "lab" },
-  { step: 5, title: "Pharmacy", flow: "Prescribe, dispense, and counsel", moduleId: "pharmacy" },
-  { step: 6, title: "Admission (IPD if required)", flow: "Bed allocation and inpatient chart", moduleId: "ipd" },
-  { step: 7, title: "OT / ICU / Emergency", flow: "Specialized care when needed", moduleId: "ot" },
-  { step: 8, title: "Billing & Insurance", flow: "Invoices, payments, and claims", moduleId: "billing" },
-  { step: 9, title: "Discharge", flow: "Summary, medicines, and settlement", moduleId: "discharge" },
-  { step: 10, title: "Follow-up & Patient Portal", flow: "Reminders, portal access, recalls", moduleId: "reminders" },
+  { step: 1, title: "Patient Registration", flow: "Create patient profiles, capture demographics and maintain patient records", moduleId: "registration" },
+  { step: 2, title: "Appointment Booking", flow: "Schedule doctor consultations, manage slots and patient queues", moduleId: "appointment" },
+  { step: 3, title: "Doctor Consultation (OPD)", flow: "Access EMR, record diagnosis, prescriptions and clinical orders", moduleId: "clinical" },
+  { step: 4, title: "Lab / Radiology Orders", flow: "Send diagnostic orders and connect reports with patient records", moduleId: "lab" },
+  { step: 5, title: "Pharmacy", flow: "Manage prescriptions, dispensing, medicines and pharmacy inventory", moduleId: "pharmacy" },
+  { step: 6, title: "Admission (IPD if required)", flow: "Manage admissions, beds, wards and inpatient care", moduleId: "ipd" },
+  { step: 7, title: "OT / ICU / Emergency", flow: "Coordinate specialized and critical care workflows", moduleId: "ot" },
+  { step: 8, title: "Billing & Insurance", flow: "Manage invoices, payments, insurance and claims", moduleId: "billing" },
+  { step: 9, title: "Discharge", flow: "Create discharge summaries, prescriptions and settlement details", moduleId: "discharge" },
+  { step: 10, title: "Follow-up & Patient Portal", flow: "Manage reminders, follow-ups and patient communication", moduleId: "reminders" },
 ] as const;
 
 export const DASHBOARD_SIDEBAR = [

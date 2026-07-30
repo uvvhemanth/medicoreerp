@@ -1,33 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading, CTABand, Reveal } from "@/components/marketing/blocks";
-import {
-  BookOpen, Users, GitCompare, Code2, ArrowRight,
-  GraduationCap, Mic2, BookMarked, ScrollText,
-} from "lucide-react";
+import { BookOpen, Building2, Mail, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Resources",
-  description: "Blog, guides, webinars, glossary, comparisons, docs, and changelog for MedicoreERP.",
+  description: "Blog, about us, and contact for MedicoreERP.",
   alternates: { canonical: "/resources" },
 };
 
 const TILES = [
   { icon: BookOpen, title: "Blog", desc: "Ideas on AI, RCM, and interoperability.", href: "/resources/blog" },
-  { icon: GraduationCap, title: "Guides", desc: "Migration, denials, and compliance playbooks.", href: "/resources/guides" },
-  { icon: Mic2, title: "Webinars", desc: "Live sessions and on-demand replays.", href: "/resources/webinars" },
-  { icon: BookMarked, title: "Glossary", desc: "FHIR, ABDM, RCM, HIS — plain definitions.", href: "/resources/glossary" },
-  { icon: ScrollText, title: "Changelog", desc: "What shipped across clinical and RCM.", href: "/resources/changelog" },
-  { icon: Users, title: "Customers", desc: "Real outcomes from real care teams.", href: "/customers" },
-  { icon: GitCompare, title: "Comparisons", desc: "Honest teardowns vs the incumbents.", href: "/compare/vs-epic" },
-  { icon: Code2, title: "Developers", desc: "API docs, FHIR reference, marketplace.", href: "/developers" },
+  { icon: Building2, title: "About Us", desc: "Mission, team, and values.", href: "/company/about" },
+  { icon: Mail, title: "Contact", desc: "Talk to the MedicoreERP team.", href: "/contact" },
 ];
 
 export default function ResourcesHub() {
   return (
     <>
       <Section>
-        <SectionHeading center eyebrow="Resources" title="Learn, compare, and build" className="mb-12" />
+        <SectionHeading center eyebrow="Resources" title="Learn and connect" className="mb-12" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {TILES.map((t, i) => (
             <Reveal key={t.title} delay={i * 0.05}>

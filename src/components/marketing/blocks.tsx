@@ -72,10 +72,10 @@ export function SectionHeading({
   return (
     <div className={cn(center && "mx-auto text-center", "max-w-2xl", className)}>
       {eyebrow && <div className="mb-4"><Eyebrow>{eyebrow}</Eyebrow></div>}
-      <h2 className="font-heading text-[32px] font-extrabold leading-tight tracking-tight text-heading sm:text-[42px]">
+      <h2 className="text-heading-display">
         {title}
       </h2>
-      {subtitle && <p className="mt-4 text-lg leading-relaxed text-muted sm:text-xl">{subtitle}</p>}
+      {subtitle && <p className="text-subtitle mt-4">{subtitle}</p>}
     </div>
   );
 }
@@ -83,11 +83,17 @@ export function SectionHeading({
 /* ---------------- CTA band ---------------- */
 export function CTABand({
   title = "See MedicoreERP run your hospital",
-  subtitle,
+  subtitle = "Looking for the best Hospital Management System in Hyderabad? Discover how MedicoreERP can connect patient care, clinical workflows, billing, pharmacy, diagnostics and hospital operations through one integrated platform.",
 }: {
   title?: string;
   subtitle?: string;
 }) {
+  const [lead, detail] = (() => {
+    const parts = subtitle.split(/(?<=\?)\s+|(?<=\.)\s+/);
+    if (parts.length >= 2) return [parts[0], parts.slice(1).join(" ")] as const;
+    return [subtitle, ""] as const;
+  })();
+
   return (
     <section className="py-16 sm:py-20">
       <div className="container-page">
@@ -97,8 +103,19 @@ export function CTABand({
           <div className="absolute -right-16 bottom-0 h-56 w-56 rounded-full bg-sage/25 blur-3xl" />
           <div className="relative">
             <p className="mb-4 text-[13px] font-bold uppercase tracking-[0.14em] text-white/70">MedicoreERP</p>
-            <h2 className="mx-auto max-w-2xl font-heading text-[32px] font-extrabold text-white sm:text-[42px]">{title}</h2>
-            {subtitle && <p className="mx-auto mt-4 max-w-xl text-white/85">{subtitle}</p>}
+            <h2 className="text-heading-display mx-auto max-w-2xl text-white">{title}</h2>
+            {subtitle && (
+              <div className="mx-auto mt-6 max-w-2xl space-y-3">
+                <p className="text-subtitle font-medium text-white/95">
+                  {lead}
+                </p>
+                {detail ? (
+                  <p className="text-subtitle text-white/80">
+                    {detail}
+                  </p>
+                ) : null}
+              </div>
+            )}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button asChild size="lg" className="bg-white text-teal-deep hover:bg-white/90">
                 <Link href="/demo">Book a Demo</Link>

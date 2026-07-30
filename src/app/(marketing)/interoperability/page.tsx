@@ -35,7 +35,7 @@ export default function InteroperabilityHub() {
           ))}
         </div>
         <div className="mt-10 flex justify-center">
-          <Button asChild variant="outline"><Link href="/developers">Explore the developer platform</Link></Button>
+          <Button asChild variant="outline"><Link href="/contact">Talk to our integration team</Link></Button>
         </div>
       </Section>
       <CTABand />

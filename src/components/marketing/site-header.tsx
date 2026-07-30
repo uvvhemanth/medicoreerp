@@ -107,11 +107,10 @@ export function SiteHeader() {
           {NAV.map((item) => {
             const hasChildren = !!item.children?.length;
             const isOpen = open === item.label;
-            // Solutions + Product + Resources use wide two-column mega menus
+            // Solutions + Product + AI use wide two-column mega menus
             const twoCol =
               item.label === "Solutions" ||
               item.label === "Product" ||
-              item.label === "Resources" ||
               item.label === "AI" ||
               (item.children?.length ?? 0) > 5;
             const alignRight =
@@ -163,7 +162,6 @@ export function SiteHeader() {
                       twoCol ? "w-[560px]" : "w-[380px]",
                       item.label === "Solutions" && "w-[580px]",
                       item.label === "Product" && "w-[680px]",
-                      item.label === "Resources" && "w-[640px]",
                       item.label === "AI" && "w-[560px]",
                     )}
                     onMouseEnter={() => openMenu(item.label)}

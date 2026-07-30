@@ -4,9 +4,8 @@ import {
   Users, Stethoscope, Pill, FlaskConical, Scan, Receipt, Boxes, UsersRound,
   BarChart3, Settings2, Building2, Microscope, Network, Landmark, Mic, Bot,
   TrendingUp, MessageSquareText, Sparkles, Share2, Globe, ArrowLeftRight,
-  ShieldCheck, BadgeCheck, Activity, BookOpen, GitCompare, Code2, Blocks,
-  ArrowRight, Zap, Tag, Calculator, GraduationCap, Mic2, BookMarked, ScrollText,
-  Briefcase, Mail, Handshake, Calendar, FileText, Bell, ClipboardList, LayoutDashboard,
+  ShieldCheck, BadgeCheck, Activity, BookOpen, Code2, Blocks,
+  ArrowRight, Zap, Tag, Calculator, Mail, Calendar, FileText, Bell, ClipboardList, LayoutDashboard,
   HeartPulse, BedDouble, CreditCard, GitBranch, FormInput, Barcode,
 } from "lucide-react";
 
@@ -80,7 +79,7 @@ export const NAV: NavItem[] = [
     href: "/interoperability",
     menuLabel: "Standards & data",
     menuIcon: Network,
-    featured: { title: "Developer platform", desc: "FHIR API, SMART apps, sandbox", href: "/developers", icon: Code2 },
+    featured: { title: "Standards hub", desc: "FHIR, HL7, DICOM & regional compliance", href: "/interoperability", icon: Network },
     children: [
       { label: "Third-party API Integrations", href: "/integrations/third-party-api", desc: "Labs, PACS, payments, insurance & external apps", icon: Code2, badge: "New" },
       { label: "WhatsApp Integration", href: "/integrations/whatsapp", desc: "Reminders, reports, invoices & patient messages", icon: MessageSquareText, badge: "New" },
@@ -105,22 +104,13 @@ export const NAV: NavItem[] = [
   {
     label: "Resources",
     href: "/resources",
-    menuLabel: "Learn & compare",
+    menuLabel: "Learn & connect",
     menuIcon: BookOpen,
-    featured: { title: "Resource hub", desc: "Blog, guides, glossary & more", href: "/resources", icon: ArrowRight },
+    featured: { title: "Resource hub", desc: "Blog, about us & contact", href: "/resources", icon: ArrowRight },
     children: [
       { label: "Blog", href: "/resources/blog", desc: "Ideas on AI, RCM & interop", icon: BookOpen },
-      { label: "Guides", href: "/resources/guides", desc: "Migration & compliance playbooks", icon: GraduationCap },
-      { label: "Webinars", href: "/resources/webinars", desc: "Live sessions & replays", icon: Mic2 },
-      { label: "Glossary", href: "/resources/glossary", desc: "Healthcare ERP definitions", icon: BookMarked },
-      { label: "Changelog", href: "/resources/changelog", desc: "What shipped recently", icon: ScrollText },
-      { label: "Customers", href: "/customers", desc: "Real outcomes & case studies", icon: Users },
-      { label: "Compare", href: "/compare/vs-epic", desc: "Honest teardowns vs incumbents", icon: GitCompare },
-      { label: "Developers", href: "/developers", desc: "API, FHIR, SDKs & sandbox", icon: Code2 },
-      { label: "About", href: "/company/about", desc: "Mission, team & values", icon: Building2 },
-      { label: "Careers", href: "/company/careers", desc: "Open roles", icon: Briefcase },
+      { label: "About Us", href: "/company/about", desc: "Mission, team & values", icon: Building2 },
       { label: "Contact", href: "/contact", desc: "Talk to the team", icon: Mail },
-      { label: "Partners", href: "/company/partners", desc: "Technology & channel partners", icon: Handshake },
     ],
   },
 ];
@@ -142,7 +132,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
   {
     slug: "emr",
     name: "Electronic Medical Records (EMR)",
-    tagline: "The complete digital patient chart — clear, fast, and audit-ready.",
+    tagline: "Keep complete patient clinical information accessible to authorized healthcare teams.",
     problem: "Paper charts and fragmented EMRs slow clinicians, lose history, and create unsafe gaps between OPD, IPD, and labs.",
     features: [
       { title: "Longitudinal record", desc: "Problems, allergies, meds, vitals, notes, and results in one timeline — amend, never overwrite." },
@@ -156,7 +146,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
   {
     slug: "appointments",
     name: "Appointments & Scheduling",
-    tagline: "Fill every slot. Cut no-shows. Keep the front desk calm.",
+    tagline: "Manage doctor availability, patient appointments and consultation schedules.",
     problem: "Manual diaries, double bookings, and missed recalls waste doctor time and patient goodwill every day.",
     features: [
       { title: "Multi-resource calendar", desc: "Doctors, rooms, equipment, and teleconsult slots in one schedule." },
@@ -170,7 +160,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
   {
     slug: "billing-invoices",
     name: "Billing & Invoices",
-    tagline: "Clear patient bills, GST-ready invoices, faster collections.",
+    tagline: "Simplify hospital billing, payments, insurance and financial workflows.",
     problem: "Missed charges, unclear invoices, and slow settlements frustrate patients and leak hospital revenue.",
     features: [
       { title: "Point-of-care billing", desc: "OPD, IPD, pharmacy, and lab charges captured as care happens." },
@@ -184,7 +174,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
   {
     slug: "patient-reminders",
     name: "Patient Reminders",
-    tagline: "Reminders that patients actually open — and show up for.",
+    tagline: "Improve patient communication with appointment and follow-up reminders.",
     problem: "No-shows and missed follow-ups cost clinics revenue and delay care when patients forget appointments or meds.",
     features: [
       { title: "Appointment reminders", desc: "SMS, WhatsApp, and email before every visit with one-tap reschedule." },
@@ -211,8 +201,8 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
   },
   {
     slug: "clinical",
-    name: "Clinical Core",
-    tagline: "The chart clinicians actually want to use.",
+    name: "Clinical Management",
+    tagline: "Give doctors and care teams access to connected clinical information throughout the patient journey.",
     problem: "Legacy EMRs make doctors click 40 times to write one note. MedicoreERP makes it one voice conversation.",
     features: [
       { title: "Ambient scribe", desc: "Mic → live transcript → structured SOAP + coded problems + draft orders, one-tap signed." },
@@ -268,7 +258,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
   {
     slug: "revenue-cycle",
     name: "Revenue Cycle & Finance",
-    tagline: "Autonomous RCM that gets you paid faster.",
+    tagline: "Connect patient services, billing, payments and financial operations for better visibility.",
     problem: "Denials, missed charges, and manual coding cost hospitals up to 5% of net revenue.",
     features: [
       { title: "Zero missed charges", desc: "Clinical activity auto-captures as billable ChargeItems." },
@@ -651,85 +641,85 @@ export interface MainFeature {
 export const MAIN_FEATURES: MainFeature[] = [
   {
     title: "Patients Management",
-    desc: "Register and organize every inpatient and outpatient — demographics, ABHA, visit history, and family accounts in one front-desk workflow.",
+    desc: "Register and manage patients through one centralized patient record, including demographics, visits, medical history and account details.",
     href: "/product/patient-access",
     icon: Users,
   },
   {
     title: "Medical Records (EMR)",
-    desc: "Document the full chart: consultations, vitals, lab results, imaging, allergies, meds, and signed notes with a complete audit trail.",
+    desc: "Maintain consultations, diagnosis, vitals, allergies, medicines, clinical notes and patient history in a secure digital record.",
     href: "/product/emr",
     icon: ClipboardList,
   },
   {
     title: "Medical Forms",
-    desc: "Department form templates for quick data entry — OPD, consent, nursing, and specialty forms you configure without code.",
+    desc: "Create and manage digital medical forms for OPD, consent, nursing, procedures and specialty-specific workflows.",
     href: "/product/platform",
     icon: FormInput,
   },
   {
     title: "Medical Scheduling",
-    desc: "Track appointments, doctor calendars, waiting lists, tokens, and inpatient schedules with no-show prediction and online booking.",
+    desc: "Manage doctor schedules, appointments, patient queues, waiting lists and follow-up visits from one system.",
     href: "/product/appointments",
     icon: Calendar,
   },
   {
     title: "Medical Workflows",
-    desc: "Streamline care with treatment plans, order sets, and accountable handoffs across OPD, IPD, OT, and discharge.",
+    desc: "Connect treatment plans, clinical orders, prescriptions and patient care across OPD, IPD and discharge workflows.",
     href: "/product/clinical",
     icon: GitBranch,
   },
   {
     title: "Medical Billing & Claims",
-    desc: "Generate invoices from the chart — OPD/IPD charges, GST bills, packages, UPI/card receipts, and insurance claims.",
+    desc: "Generate OPD and IPD bills, manage services, payments, insurance and claim-related workflows.",
     href: "/product/billing-invoices",
     icon: CreditCard,
   },
   {
     title: "Wards Management",
-    desc: "Assign beds and wards, track occupancy, transfers, and house-keeping status for every inpatient stay.",
+    desc: "Manage admissions, bed allocation, ward occupancy, transfers and inpatient movement in real time.",
     href: "/product/clinical",
     icon: BedDouble,
   },
   {
     title: "Laboratory (LIS)",
-    desc: "Order tests, track samples, connect analyzers, and publish signed results back to the EMR with full TAT control.",
+    desc: "Manage test orders, samples, processing and results while connecting laboratory data directly with patient records.",
     href: "/product/lab",
     icon: FlaskConical,
   },
   {
     title: "Imaging / Radiology",
-    desc: "RIS workflows plus zero-footprint PACS — request, schedule, report, and view studies beside the clinical chart.",
+    desc: "Manage radiology requests, scheduling, imaging reports and integration with relevant imaging systems.",
     href: "/product/radiology",
     icon: Scan,
   },
   {
     title: "Nurses Module",
-    desc: "Vitals, nursing assessments, care notes, and consumables recorded at the bedside and synced to the patient record.",
+    desc: "Record patient vitals, nursing assessments, notes, medication administration and bedside care.",
     href: "/product/emr",
     icon: HeartPulse,
   },
   {
     title: "Pharmacy",
-    desc: "Closed-loop dispensing — from e-prescribe to stock, indent, returns, and point-of-sale across counters and wards.",
+    desc: "Manage prescriptions, medicine dispensing, batches, expiry dates, stock and pharmacy billing.",
     href: "/product/pharmacy",
     icon: Pill,
   },
   {
     title: "Inventory Management",
-    desc: "Drugs and consumables with barcodes, expiry, reorder levels, and stock movements tied to clinical and pharmacy use.",
+    desc: "Monitor medicines, medical supplies, consumables, purchases, stock levels and departmental inventory.",
     href: "/product/supply-chain",
     icon: Barcode,
   },
   {
-    title: "Medical ERP API Integrations",
-    desc: "Connect labs, PACS, payment gateways, insurance, ABDM, third-party apps, and legacy systems through secure FHIR, HL7, and REST APIs.",
+    title: "HMS API Integrations",
+    desc: "Connect MedicoreERP with diagnostic systems, payment gateways, insurance platforms, accounting software and other hospital applications.",
     href: "/integrations/third-party-api",
     icon: Code2,
   },
   {
-    title: "WhatsApp Integration",
-    desc: "Send appointment confirmations, reminders, reports, prescriptions, invoices, payment links, and follow-up messages through verified WhatsApp workflows.",
+    title: "Patient Communication",
+    desc: "Send appointment confirmations, reminders, follow-up notifications, prescriptions and other patient communications.",
     href: "/integrations/whatsapp",
     icon: MessageSquareText,
   },

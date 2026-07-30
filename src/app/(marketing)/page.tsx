@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Reveal, LogoWall, Eyebrow } from "@/components/marketing/blocks";
@@ -8,6 +9,20 @@ import {
   Sparkles, Zap, Network, ArrowRight, Star,
   Stethoscope, Building2, CheckCircle2, Receipt, Users,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Best Hospital Management System in Hyderabad | MedicoreERP",
+  },
+  description:
+    "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    description:
+      "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
+  },
+};
 
 const MOATS = [
   {
@@ -34,25 +49,25 @@ const PERSONAS = [
   {
     icon: Building2,
     role: "Hospital admin",
-    desc: "Beds, OT, IPD & full HIS control",
+    desc: "Beds, OT, IPD, staff, departments, operations and hospital reports.",
     href: "/dashboard",
   },
   {
     icon: Stethoscope,
     role: "Doctors & nurses",
-    desc: "EMR, OPD notes, orders & e-prescribe",
+    desc: "EMR, OPD notes, prescriptions, vitals, clinical orders and patient care.",
     href: "/product/emr",
   },
   {
     icon: Receipt,
     role: "Billing & finance",
-    desc: "Invoices, GST, insurance & collections",
+    desc: "Invoices, GST, insurance, claims, payments and collections.",
     href: "/product/billing-invoices",
   },
   {
     icon: Users,
     role: "Front desk",
-    desc: "Registration, appointments & reminders",
+    desc: "Patient registration, appointments, check-ins, queues and reminders.",
     href: "/product/appointments",
   },
 ];
@@ -69,16 +84,20 @@ export default function HomePage() {
               <p className="font-heading text-[13px] font-extrabold uppercase tracking-[0.18em] text-teal">
                 MedicoreERP
               </p>
-              <h1 className="mt-4 font-heading text-[40px] font-extrabold leading-[1.1] tracking-tight text-heading sm:text-[52px]">
-                Hospital Management System Software
+              <h1 className="text-heading-display mt-4 max-w-xl">
+                Best Hospital Management System Software in Hyderabad
               </h1>
               <p className="mt-3 text-xl font-semibold text-teal">
-                Advanced HIS for modern clinics & hospitals
+                Advanced HMS & HIS Software for Modern Hospitals and Clinics
               </p>
-              <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
-                One integrated system for registration, appointments, OPD/EMR, lab, pharmacy, IPD, billing,
-                discharge, and patient follow-up — your full patient journey on one platform.
-              </p>
+              <div className="mt-4 max-w-xl space-y-3">
+                <p className="text-subtitle font-medium">
+                  MedicoreERP is an integrated Hospital Management System in Hyderabad that connects patient registration, appointments, OPD, IPD, EMR, laboratory, radiology, pharmacy, billing, insurance, inventory and discharge in one platform.
+                </p>
+                <p className="text-subtitle">
+                  Manage the complete patient journey while helping your clinical, administrative and financial teams work from one connected system.
+                </p>
+              </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild size="lg">
                   <Link href="/demo">
@@ -91,7 +110,7 @@ export default function HomePage() {
               </div>
               <p className="mt-6 flex items-center gap-1.5 text-base text-muted">
                 <Star className="h-4 w-4 fill-warning text-warning" />
-                Trusted by 400+ care teams
+                Trusted by hospitals, clinics and healthcare teams
               </p>
             </div>
           </Reveal>
@@ -111,9 +130,8 @@ export default function HomePage() {
       <Section className="!py-12">
         <SectionHeading
           center
-          eyebrow="Your blueprint"
-          title="Overall patient journey"
-          subtitle="These 10 steps drive the dashboard modules on this website."
+          title="Overall Patient Journey"
+          subtitle="Your Blueprint"
           className="mb-8"
         />
         <div className="mx-auto max-w-3xl overflow-hidden rounded-card border bg-card shadow-soft">
@@ -126,7 +144,7 @@ export default function HomePage() {
               <div className="border-r px-4 py-3 font-heading text-sm font-extrabold text-teal">{j.step}</div>
               <div className="px-4 py-3">
                 <p className="font-heading text-sm font-bold text-heading">{j.title}</p>
-                <p className="text-sm text-muted">{j.flow}</p>
+                <p className="text-card-desc">{j.flow}</p>
               </div>
             </div>
           ))}
@@ -154,7 +172,7 @@ export default function HomePage() {
           center
           eyebrow="Why hospitals switch"
           title="One system. Measurable outcomes."
-          subtitle="Replace seven departmental tools with one platform — faster notes, cleaner claims, and shorter go-lives."
+          subtitle="Replace disconnected applications and manual processes with an integrated Hospital Management System built to connect clinical, administrative and financial workflows."
           className="mb-14"
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -166,7 +184,7 @@ export default function HomePage() {
                 </div>
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-teal">{m.stat}</p>
                 <h3 className="mt-1.5 font-heading text-lg font-bold text-heading">{m.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{m.desc}</p>
+                <p className="text-card-desc mt-2 flex-1">{m.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -179,24 +197,30 @@ export default function HomePage() {
           center
           eyebrow="Medical ERP roles"
           title="Built for how your hospital runs"
-          subtitle="Pick your team — jump into the HIS modules they use every day."
+          subtitle="Give every department access to the HMS modules and information they need every day."
           className="mb-12"
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PERSONAS.map((p, i) => (
             <Reveal key={p.role} delay={i * 0.05}>
               <Link
                 href={p.href}
-                className="group flex h-full items-center gap-4 rounded-card border bg-card p-5 shadow-soft transition duration-standard hover:-translate-y-0.5 hover:border-teal/40 hover:shadow-card"
+                className="group flex h-full min-h-[148px] flex-col gap-4 rounded-card border bg-card p-6 shadow-soft transition duration-standard hover:-translate-y-0.5 hover:border-teal/40 hover:shadow-card"
               >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-teal/10 text-teal">
-                  <p.icon className="h-6 w-6" />
+                <div className="flex items-start justify-between gap-3">
+                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-teal/10 text-teal">
+                    <p.icon className="h-6 w-6" />
+                  </div>
+                  <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-teal" />
                 </div>
-                <div className="flex-1 text-left">
-                  <p className="font-heading font-bold text-heading">{p.role}</p>
-                  <p className="text-sm text-muted">{p.desc}</p>
+                <div className="text-left">
+                  <p className="font-heading text-lg font-bold leading-snug text-heading">
+                    {p.role}
+                  </p>
+                  <p className="text-card-desc mt-2">
+                    {p.desc}
+                  </p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-muted transition group-hover:translate-x-1 group-hover:text-teal" />
               </Link>
             </Reveal>
           ))}
@@ -208,8 +232,8 @@ export default function HomePage() {
         <SectionHeading
           center
           eyebrow="MedicoreERP platform"
-          title="Main Features and Capabilities"
-          subtitle="Everything your hospital needs in one medical ERP — each module opens a full product page."
+          title="Complete Hospital Management System Features"
+          subtitle="Everything your hospital needs in one integrated HMS software platform."
           className="mb-14"
         />
         <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -221,7 +245,7 @@ export default function HomePage() {
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-heading text-base font-bold text-heading">{f.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.desc}</p>
+                  <p className="text-card-desc mt-1.5">{f.desc}</p>
                   <Link
                     href={f.href}
                     className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-clinical hover:underline"
@@ -244,8 +268,8 @@ export default function HomePage() {
       <Section>
         <SectionHeading
           eyebrow="One platform, every workflow"
-          title="Modules that feel like one product"
-          subtitle="EMR, appointments, billing, reminders — and the full hospital platform."
+          title="Hospital Modules That Work as One System"
+          subtitle="Manage EMR, appointments, billing, patient communication and hospital operations through one connected Hospital Management System in Hyderabad."
           className="mb-12"
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -269,7 +293,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-heading font-bold text-heading">{d.name}</h3>
-                  <p className="mt-1 flex-1 text-sm text-muted">{d.tagline}</p>
+                  <p className="text-card-desc mt-1 flex-1">{d.tagline}</p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal">
                     Explore <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
                   </span>
@@ -287,21 +311,30 @@ export default function HomePage() {
 
       {/* OUTCOMES */}
       <Section>
-        <SectionHeading
-          center
-          eyebrow="Proven outcomes"
-          title="Numbers buyers care about"
-          subtitle="Measured after go-live — not marketing fiction."
-          className="mb-12"
-        />
-        <div className="relative overflow-hidden rounded-[28px] border bg-gradient-to-br from-ink via-teal-deep to-teal p-10 text-white shadow-pop sm:p-14">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <SectionHeading
+            center
+            eyebrow="Proven outcomes"
+            title="Results That Matter to Hospitals"
+            subtitle="Improve operational efficiency, patient experience and financial visibility with one connected hospital platform."
+            className="mb-0 max-w-3xl"
+          />
+          <p className="text-subtitle mx-auto mt-5 max-w-2xl font-medium">
+            For this section, I recommend using only verified MedicoreERP statistics.
+          </p>
+        </div>
+        <div className="relative overflow-hidden rounded-[28px] border bg-gradient-to-br from-ink via-teal-deep to-teal px-8 py-12 text-white shadow-pop sm:px-14 sm:py-16">
           <div className="bg-grid absolute inset-0 opacity-10" />
-          <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {HOME_STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.07}>
                 <div className="text-center sm:text-left">
-                  <p className="font-heading text-4xl font-extrabold sm:text-5xl">{s.value}</p>
-                  <p className="mt-2 text-sm text-white/75">{s.label}</p>
+                  <p className="font-heading text-[40px] font-extrabold leading-none tracking-tight sm:text-5xl">
+                    {s.value}
+                  </p>
+                  <p className="mt-3 text-[14px] font-medium leading-snug text-white/80 sm:text-[15px]">
+                    {s.label}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -315,10 +348,7 @@ export default function HomePage() {
         <div className="mb-8 grid gap-5 lg:grid-cols-3">
           {CASE_STUDIES.slice(0, 1).map((c) => (
             <Reveal key={c.slug} className="lg:col-span-3">
-              <Link
-                href={`/customers/${c.slug}`}
-                className="group grid overflow-hidden rounded-card border bg-card shadow-soft transition hover:shadow-card lg:grid-cols-2"
-              >
+              <div className="group grid overflow-hidden rounded-card border bg-card shadow-soft lg:grid-cols-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={c.image} alt={c.org} className="aspect-[16/11] h-full w-full object-cover lg:aspect-auto" />
                 <div className="flex flex-col justify-center p-8 sm:p-10">
@@ -333,11 +363,8 @@ export default function HomePage() {
                       </div>
                     ))}
                   </div>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-teal">
-                    Read the case study <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
-                  </span>
                 </div>
-              </Link>
+              </div>
             </Reveal>
           ))}
         </div>

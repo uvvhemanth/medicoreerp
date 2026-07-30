@@ -119,6 +119,16 @@ h1, h2, h3, h4, h5 {
   .hairline {
     @apply border-b border-[var(--border)];
   }
+  /* Shared marketing typography — matches section subtitles */
+  .text-subtitle {
+    @apply text-lg leading-relaxed tracking-[0.01em] text-muted sm:text-xl;
+  }
+  .text-card-desc {
+    @apply text-base leading-relaxed tracking-[0.01em] text-muted;
+  }
+  .text-heading-display {
+    @apply font-heading text-[32px] font-extrabold leading-[1.2] tracking-tight text-heading sm:text-[42px];
+  }
 }
 
 @keyframes shimmer {
