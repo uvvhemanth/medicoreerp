@@ -41,7 +41,7 @@ export const NAV: NavItem[] = [
       { label: "Revenue Cycle", href: "/product/revenue-cycle", desc: "Autonomous RCM", icon: Receipt },
       { label: "Supply Chain", href: "/product/supply-chain", desc: "Inventory + procurement", icon: Boxes },
       { label: "Workforce (HRM)", href: "/product/hrm", desc: "Clinical-aware HR", icon: UsersRound },
-      { label: "Analytics", href: "/product/analytics", desc: "Real-time, ask-your-data", icon: BarChart3 },
+      { label: "Analytics", href: "/product/analytics", desc: "Dashboards, KPIs & MIS reports", icon: BarChart3, badge: "New" },
       { label: "Platform & Admin", href: "/product/platform", desc: "No-code studios", icon: Settings2 },
     ],
   },
@@ -123,9 +123,13 @@ export interface ProductDomain {
   name: string;
   tagline: string;
   problem: string;
-  features: { title: string; desc: string }[];
+  features: { title: string; desc: string; icon?: LucideIcon }[];
   moats: string[];
   image: string;
+  overview?: string[];
+  benefits?: string[];
+  faqs?: { q: string; a: string }[];
+  seo?: { title: string; description: string; keywords?: string[] };
 }
 
 export const PRODUCT_DOMAINS: ProductDomain[] = [
@@ -299,16 +303,65 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
   },
   {
     slug: "analytics",
-    name: "Analytics & Command Center",
-    tagline: "Ask your hospital data in plain language.",
-    problem: "Overnight batch reports answer yesterday's questions. Leaders need now.",
-    features: [
-      { title: "Real-time dashboards", desc: "Streaming clinical, financial, and operational KPIs." },
-      { title: "NL analytics bar", desc: "Type a question, get a chart — with the query shown for trust." },
-      { title: "Command-center twin", desc: "Network-wide live board for wall displays." },
-      { title: "Self-serve builder", desc: "Drag metrics to charts; save and schedule." },
+    name: "Hospital Analytics Software",
+    tagline: "Turn Hospital Data into Clear, Actionable Insights",
+    problem: "Hospitals generate large amounts of information across clinical, operational, administrative, and financial workflows — and too often it stays locked in disconnected reports and spreadsheets.",
+    overview: [
+      "Hospitals generate large amounts of information across clinical, operational, administrative, and financial workflows. MedicoreERP Hospital Analytics Software brings this information together through easy-to-understand dashboards, reports, and performance indicators.",
+      "Management teams can analyze patient volumes, OPD and IPD activity, revenue, collections, bed occupancy, department performance, inventory, and other hospital KPIs without manually combining information from multiple spreadsheets.",
+      "With better access to hospital data, decision-makers can identify trends, compare performance, and understand where operational attention may be required.",
     ],
-    moats: ["NL 'ask your data'", "Digital twin"],
+    features: [
+      { title: "Hospital KPI Dashboards", desc: "Monitor important clinical, operational, and financial performance indicators.", icon: LayoutDashboard },
+      { title: "Patient Volume Analytics", desc: "Analyze consultations, visits, admissions, and discharge activity over time.", icon: Users },
+      { title: "Revenue Analytics", desc: "Review billing, collections, outstanding balances, and financial trends.", icon: TrendingUp },
+      { title: "OPD & IPD Analytics", desc: "Compare outpatient and inpatient volumes and service utilization.", icon: Activity },
+      { title: "Bed Occupancy Reports", desc: "Monitor bed availability, occupancy, and utilization patterns.", icon: BedDouble },
+      { title: "Department Performance", desc: "Compare operational activity and performance across hospital departments.", icon: Building2 },
+      { title: "Billing & Collection Analytics", desc: "Understand billed amounts, collected payments, and outstanding balances.", icon: Receipt },
+      { title: "Inventory Insights", desc: "Review stock levels, consumption, purchasing, and inventory trends.", icon: Boxes },
+      { title: "Operational MIS Reports", desc: "Generate structured reports for hospital management and operational review.", icon: FileText },
+      { title: "Trend & Comparison Reports", desc: "Compare performance across time periods, departments, services, or hospital locations.", icon: BarChart3 },
+    ],
+    benefits: [
+      "Faster data-driven decision-making",
+      "Better hospital performance visibility",
+      "Reduced manual spreadsheet reporting",
+      "Easier KPI monitoring",
+      "Better departmental comparison",
+      "Clearer operational and financial insights",
+    ],
+    faqs: [
+      {
+        q: "What is hospital analytics software?",
+        a: "Hospital analytics software turns clinical, operational, and financial information into dashboards, KPIs, reports, and trends.",
+      },
+      {
+        q: "What KPIs can hospitals monitor?",
+        a: "Hospitals can monitor patient volumes, OPD/IPD activity, occupancy, revenue, collections, department performance, inventory, and other relevant indicators.",
+      },
+      {
+        q: "Can hospital analytics reduce spreadsheet reporting?",
+        a: "Yes. Centralized reporting can reduce the need to manually collect and combine information from multiple spreadsheets.",
+      },
+      {
+        q: "Who can use hospital analytics?",
+        a: "Hospital administrators, management teams, finance teams, department heads, and other authorized decision-makers can use analytics to monitor performance.",
+      },
+    ],
+    seo: {
+      title: "Hospital Analytics & MIS Software | MedicoreERP",
+      description: "Turn hospital clinical, operational and financial data into dashboards, KPIs and MIS reports with MedicoreERP Hospital Analytics Software.",
+      keywords: [
+        "Hospital Analytics Software",
+        "Healthcare analytics software",
+        "hospital MIS software",
+        "hospital KPI dashboard",
+        "healthcare business intelligence",
+        "hospital reporting software",
+      ],
+    },
+    moats: ["Hospital KPI dashboards", "MIS reports", "Revenue & occupancy analytics"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=70",
   },
   {
@@ -723,6 +776,12 @@ export const MAIN_FEATURES: MainFeature[] = [
     href: "/integrations/whatsapp",
     icon: MessageSquareText,
   },
+  {
+    title: "Hospital Analytics",
+    desc: "Turn clinical, operational and financial data into dashboards, KPIs, MIS reports and performance comparisons.",
+    href: "/product/analytics",
+    icon: BarChart3,
+  },
 ];
 
 export const LOGO_WALL = ["Sunrise Health", "Metro Network", "CityCare", "Wellness Labs", "Apollo-ish", "Rural Trust", "CarePlus", "MediGroup"];
@@ -894,6 +953,12 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: "HIS / Hospital ERP",
     definition: "Hospital Information System or medical ERP — the operational platform covering clinical, ancillary, revenue, supply chain, and workforce workflows.",
     related: ["fhir", "rcm"],
+  },
+  {
+    slug: "hospital-analytics",
+    term: "Hospital Analytics Software",
+    definition: "Software that turns clinical, operational, and financial hospital information into dashboards, KPIs, MIS reports, and trends for management review.",
+    related: ["his", "rcm"],
   },
 ];
 
