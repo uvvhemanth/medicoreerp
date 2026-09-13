@@ -17,10 +17,11 @@ const columns = [
   {
     title: "Solutions",
     links: [
-      ["Clinics", "/solutions/clinics"],
-      ["Hospitals", "/solutions/hospitals"],
-      ["Diagnostics", "/solutions/diagnostics"],
-      ["Enterprise", "/solutions/enterprise"],
+      ["Clinics", "/solutions/clinic-management-software"],
+      ["Hospitals", "/solutions/hospital-management-software"],
+      ["Diagnostics", "/solutions/laboratory-management-software"],
+      ["Pharmacy", "/solutions/pharmacy-management-software"],
+      ["Enterprise", "/solutions/enterprise-healthcare-erp"],
       ["Government", "/solutions/government"],
     ],
   },

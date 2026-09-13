@@ -7,7 +7,7 @@ import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/
 import { ArrowRight, CheckCircle2, X } from "lucide-react";
 
 export function generateStaticParams() {
-  return SOLUTIONS.map((s) => ({ edition: s.slug }));
+  return SOLUTIONS.filter((s) => !s.href).map((s) => ({ edition: s.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ edition: string }> }): Promise<Metadata> {

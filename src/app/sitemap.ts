@@ -20,6 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/product", priority: 0.9 },
     { path: "/dashboard", priority: 0.95 },
     { path: "/solutions", priority: 0.9 },
+    { path: "/solutions/clinic-management-software", priority: 0.95 },
+    { path: "/solutions/hospital-management-software", priority: 0.95 },
+    { path: "/solutions/laboratory-management-software", priority: 0.95 },
+    { path: "/solutions/pharmacy-management-software", priority: 0.95 },
+    { path: "/solutions/enterprise-healthcare-erp", priority: 0.95 },
     { path: "/ai", priority: 0.9 },
     { path: "/interoperability", priority: 0.8 },
     { path: "/integrations/third-party-api", priority: 0.85 },
@@ -41,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const dynamic: Entry[] = [
     ...PRODUCT_DOMAINS.map((d) => ({ path: `/product/${d.slug}`, priority: 0.85 })),
-    ...SOLUTIONS.map((s) => ({ path: `/solutions/${s.slug}`, priority: 0.85 })),
+    ...SOLUTIONS.filter((s) => !s.href).map((s) => ({ path: `/solutions/${s.slug}`, priority: 0.85 })),
     ...AI_CAPABILITIES.map((c) => ({ path: `/ai/${c.slug}`, priority: 0.85 })),
     ...STANDARDS.map((s) => ({ path: `/interoperability/${s.slug}`, priority: 0.75 })),
     ...BLOG_POSTS.map((p) => ({ path: `/resources/blog/${p.slug}`, priority: 0.7 })),

@@ -10,7 +10,7 @@ import { breadcrumbJsonLd } from "@/lib/seo";
 import { ArrowRight, ShieldCheck, CheckCircle2, Users } from "lucide-react";
 
 export function generateStaticParams() {
-  return AI_CAPABILITIES.map((c) => ({ capability: c.slug }));
+  return AI_CAPABILITIES.filter((c) => !["ambient-scribe", "clinical-copilot", "autonomous-rcm", "predictive-operations", "nl-analytics"].includes(c.slug)).map((c) => ({ capability: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ capability: string }> }): Promise<Metadata> {

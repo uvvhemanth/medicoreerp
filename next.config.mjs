@@ -26,6 +26,12 @@ const nextConfig = {
       { source: "/company/careers/:path*", destination: "/company/about", permanent: false },
       { source: "/company/partners", destination: "/company/about", permanent: false },
       { source: "/company/press", destination: "/company/about", permanent: false },
+      { source: "/solutions/clinics", destination: "/solutions/clinic-management-software", permanent: true },
+      { source: "/solutions/hospitals", destination: "/solutions/hospital-management-software", permanent: true },
+      { source: "/solutions/diagnostics", destination: "/solutions/laboratory-management-software", permanent: true },
+      { source: "/solutions/pharmacy", destination: "/solutions/pharmacy-management-software", permanent: true },
+      { source: "/solutions/enterprise", destination: "/solutions/enterprise-healthcare-erp", permanent: true },
+      { source: "/ai/predictive-ops", destination: "/ai/predictive-operations", permanent: true },
     ];
   },
   images: {

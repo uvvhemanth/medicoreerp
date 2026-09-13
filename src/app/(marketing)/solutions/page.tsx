@@ -19,7 +19,7 @@ export default function SolutionsHub() {
             <Reveal key={s.slug} delay={i * 0.05}>
               <Link
                 id={s.slug}
-                href={`/solutions/${s.slug}`}
+                href={s.href ?? `/solutions/${s.slug}`}
                 className="group flex h-full scroll-mt-24 flex-col rounded-card border bg-card p-6 shadow-soft transition hover:shadow-card"
               >
                 <h3 className="font-heading text-xl font-bold text-heading">{s.name}</h3>
