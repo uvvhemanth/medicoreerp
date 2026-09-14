@@ -3,52 +3,128 @@ import Link from "next/link";
 import { COMPLIANCE_BADGES } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
-import { ShieldCheck, Lock, Eye, Server, FileText, Activity, Download, ArrowRight } from "lucide-react";
+import { JsonLd } from "@/components/marketing/json-ld";
+import { breadcrumbJsonLd } from "@/lib/seo";
+import { ShieldCheck, Lock, Eye, Server, FileText, Activity, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Trust Center — security & compliance",
-  description: "How MedicoreERP protects PHI: encryption, RBAC/ABAC, audit, data residency, and certifications (HIPAA, GDPR, ABDM, SOC 2, ISO 27001).",
+  title: { absolute: "Healthcare Data Security Solutions | MedicoreERP" },
+  description:
+    "Protect patient, clinical and financial data with encryption, access control, audit trails and secure healthcare data management.",
+  keywords: [
+    "Healthcare Data Security",
+    "hospital data security",
+    "healthcare cybersecurity",
+    "patient data protection",
+    "healthcare ERP security",
+    "medical data security",
+  ],
+  alternates: { canonical: "/security" },
+  openGraph: {
+    title: "Healthcare Data Security Solutions | MedicoreERP",
+    description:
+      "Protect patient, clinical and financial data with encryption, access control, audit trails and secure healthcare data management.",
+    url: "/security",
+  },
 };
 
-const POSTURE = [
-  { icon: Lock, title: "Encryption everywhere", desc: "AES-256 at rest, TLS 1.3 in transit, field-level encryption for the most sensitive PHI." },
-  { icon: Eye, title: "RBAC + ABAC", desc: "Role, department, branch, and care-relationship checks. Minimum-necessary access by default." },
-  { icon: FileText, title: "Immutable audit", desc: "Every login, view, change, export, and print is logged and tamper-evident." },
-  { icon: Server, title: "Data residency", desc: "Region-pinned deployments. Your data stays where regulation requires." },
+const CAPABILITIES = [
+  {
+    icon: Lock,
+    title: "Encryption Everywhere",
+    desc: "Protect patient and hospital data while it is stored, shared, and accessed.",
+    href: "/security/encryption",
+  },
+  {
+    icon: Eye,
+    title: "Smart Access Control",
+    desc: "Give users access based on their role, department, branch, and responsibilities.",
+    href: "/security/access-control",
+  },
+  {
+    icon: FileText,
+    title: "Complete Audit Trails",
+    desc: "Track important logins, record views, changes, exports, and user activity.",
+    href: "/security/audit-trails",
+  },
+  {
+    icon: Server,
+    title: "Data Residency",
+    desc: "Keep healthcare data within approved regions based on your organization's requirements.",
+    href: "/security/data-residency",
+  },
 ];
 
 export default function SecurityPage() {
   return (
     <>
-      <section className="border-b bg-gradient-to-b from-mist/40 to-transparent">
-        <div className="container-page py-16 text-center">
-          <div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-teal text-white shadow-soft"><ShieldCheck className="h-7 w-7" /></div>
-          <Eyebrow>Trust Center</Eyebrow>
-          <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-tight text-heading sm:text-5xl">
-            Security is a feature, not a checkbox.
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
-            The browser is an attack surface handling PHI. We treat it that way — hardened, audited, and permission-aware end to end.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button asChild variant="outline"><Link href="/security/compliance">Compliance details</Link></Button>
-            <Button asChild variant="outline"><Link href="/security/status">System status</Link></Button>
-          </div>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Security", path: "/security" },
+        ])}
+      />
+
+      <section className="relative overflow-hidden border-b bg-aurora">
+        <div className="bg-grid pointer-events-none absolute inset-0 opacity-60" />
+        <div className="container-page relative z-10 py-14 text-center lg:py-16">
+          <Reveal>
+            <div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-teal text-white shadow-soft">
+              <ShieldCheck className="h-7 w-7" />
+            </div>
+            <Eyebrow>Healthcare Data Security</Eyebrow>
+            <h1 className="text-heading-display mx-auto mt-5 max-w-3xl">
+              Healthcare Data Security Built Into Every Workflow
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
+              Protect sensitive patient, clinical and financial information with enterprise-grade security built into MedicoreERP.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Talk to Our Security Team <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/security/compliance">Compliance details</Link>
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       <Section>
-        <SectionHeading center title="Our security posture" className="mb-12" />
-        <div className="grid gap-4 sm:grid-cols-2">
-          {POSTURE.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.05}>
-              <div className="flex gap-4 rounded-card border bg-card p-6 shadow-soft">
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-mist text-teal"><p.icon className="h-6 w-6" /></div>
-                <div>
-                  <h3 className="font-heading font-bold text-heading">{p.title}</h3>
-                  <p className="mt-1 text-sm text-muted">{p.desc}</p>
+        <SectionHeading
+          center
+          eyebrow="Security capabilities"
+          title="Protect Patient, Clinical and Financial Data"
+          subtitle="Encryption, access control, audit trails and data residency are built into everyday MedicoreERP workflows."
+          className="mb-12"
+        />
+        <div className="grid gap-5 sm:grid-cols-2">
+          {CAPABILITIES.map((item, i) => (
+            <Reveal key={item.title} delay={i * 0.05}>
+              {item.href ? (
+                <Link href={item.href} className="flex h-full gap-4 rounded-card border bg-card p-6 shadow-soft transition hover:shadow-card">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-teal/10 text-teal">
+                    <item.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h2 className="font-heading text-xl font-bold text-heading">{item.title}</h2>
+                    <p className="mt-2 leading-relaxed text-muted">{item.desc}</p>
+                  </div>
+                </Link>
+              ) : (
+                <div className="flex h-full gap-4 rounded-card border bg-card p-6 shadow-soft">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-teal/10 text-teal">
+                    <item.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h2 className="font-heading text-xl font-bold text-heading">{item.title}</h2>
+                    <p className="mt-2 leading-relaxed text-muted">{item.desc}</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </Reveal>
           ))}
         </div>
@@ -63,13 +139,6 @@ export default function SecurityPage() {
             </span>
           ))}
         </div>
-        <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
-          {["DPA (PDF)", "BAA (PDF)", "Sub-processors list"].map((doc) => (
-            <button key={doc} className="flex items-center justify-between rounded-card border bg-card px-4 py-3 text-sm font-semibold text-heading shadow-soft hover:border-teal/40">
-              {doc} <Download className="h-4 w-4 text-teal" />
-            </button>
-          ))}
-        </div>
       </Section>
 
       <Section>
@@ -78,14 +147,23 @@ export default function SecurityPage() {
             <Activity className="h-6 w-6 text-success" />
             <div>
               <p className="font-heading font-bold text-heading">All systems operational</p>
-              <p className="text-sm text-muted">99.98% uptime over the last 90 days.</p>
+              <p className="text-sm text-muted">Live status for MedicoreERP services and integrations.</p>
             </div>
           </div>
-          <Button asChild variant="outline"><Link href="/security/status">View live status <ArrowRight className="h-4 w-4" /></Link></Button>
+          <Button asChild variant="outline">
+            <Link href="/security/status">
+              View live status <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </Section>
 
-      <CTABand title="Have a security question?" subtitle="Our team responds to responsible-disclosure reports and buyer security reviews fast." />
+      <CTABand
+        title="Talk to Our Security Team"
+        subtitle="Protect patient, clinical and financial data with encryption, access control, audit trails and secure healthcare data management."
+        ctaLabel="Talk to Our Security Team"
+        ctaHref="/contact"
+      />
     </>
   );
 }

@@ -19,10 +19,10 @@ const columns = [
     links: [
       ["Clinics", "/solutions/clinic-management-software"],
       ["Hospitals", "/solutions/hospital-management-software"],
-      ["Diagnostics", "/solutions/laboratory-management-software"],
+      ["Diagnostics", "/solutions/diagnostic-lab-management-software"],
       ["Pharmacy", "/solutions/pharmacy-management-software"],
       ["Enterprise", "/solutions/enterprise-healthcare-erp"],
-      ["Government", "/solutions/government"],
+      ["Government", "/solutions/government-payer-management"],
     ],
   },
   {
@@ -44,6 +44,10 @@ const columns = [
     title: "Trust",
     links: [
       ["Security", "/security"],
+      ["Encryption", "/security/encryption"],
+      ["Access Control", "/security/access-control"],
+      ["Audit Trails", "/security/audit-trails"],
+      ["Data Residency", "/security/data-residency"],
       ["Compliance", "/security/compliance"],
       ["Status", "/security/status"],
       ["Privacy", "/legal/privacy"],

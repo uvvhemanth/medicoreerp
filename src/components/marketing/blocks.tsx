@@ -84,9 +84,13 @@ export function SectionHeading({
 export function CTABand({
   title = "See MedicoreERP run your hospital",
   subtitle = "Looking for the best Hospital Management System in Hyderabad? Discover how MedicoreERP can connect patient care, clinical workflows, billing, pharmacy, diagnostics and hospital operations through one integrated platform.",
+  ctaLabel = "Book a Demo",
+  ctaHref = "/demo",
 }: {
   title?: string;
   subtitle?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
 }) {
   const [lead, detail] = (() => {
     const parts = subtitle.split(/(?<=\?)\s+|(?<=\.)\s+/);
@@ -118,7 +122,7 @@ export function CTABand({
             )}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button asChild size="lg" className="bg-white text-teal-deep hover:bg-white/90">
-                <Link href="/demo">Book a Demo</Link>
+                <Link href={ctaHref}>{ctaLabel}</Link>
               </Button>
             </div>
           </div>

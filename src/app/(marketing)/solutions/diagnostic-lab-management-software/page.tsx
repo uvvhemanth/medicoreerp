@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LABORATORY_LANDING } from "@/lib/content/marketing";
+import { DIAGNOSTIC_LAB_LANDING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal, FAQ } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import { HisDashboard } from "@/components/marketing/his-dashboard";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Star } from "lucide-react";
 
-const PAGE = LABORATORY_LANDING;
+const PAGE = DIAGNOSTIC_LAB_LANDING;
 
 export const metadata: Metadata = {
   title: { absolute: PAGE.seo.title },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LaboratoryManagementSoftwarePage() {
+export default function DiagnosticLabManagementSoftwarePage() {
   return (
     <>
       <JsonLd
@@ -35,7 +35,7 @@ export default function LaboratoryManagementSoftwarePage() {
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
             { name: "Solutions", path: "/solutions" },
-            { name: "Laboratory Management Software", path: PAGE.seo.canonical },
+            { name: "Diagnostic Lab Management Software", path: PAGE.seo.canonical },
           ]),
           faqJsonLd(PAGE.faqs),
         ]}
@@ -46,8 +46,9 @@ export default function LaboratoryManagementSoftwarePage() {
         <div className="container-page relative z-10 grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-16">
           <Reveal>
             <div>
-              <Eyebrow>{PAGE.heroSubtitle}</Eyebrow>
+              <Eyebrow>Diagnostic Lab Management Software in Hyderabad</Eyebrow>
               <h1 className="text-heading-display mt-5 max-w-xl">{PAGE.heroTitle}</h1>
+              <p className="mt-3 text-xl font-semibold text-teal">{PAGE.heroSubtitle}</p>
               <div className="mt-4 max-w-xl space-y-3">
                 {PAGE.overview.map((p) => (
                   <p key={p} className="text-subtitle">
@@ -62,12 +63,12 @@ export default function LaboratoryManagementSoftwarePage() {
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link href="/product/lab">Explore LIS</Link>
+                  <Link href="/contact">Talk to an ERP Expert</Link>
                 </Button>
               </div>
               <p className="mt-6 flex items-center gap-1.5 text-base text-muted">
                 <Star className="h-4 w-4 fill-warning text-warning" />
-                Built for diagnostic centres, pathology labs and multi-centre networks
+                Built for diagnostic centres, pathology labs, hospital labs and collection networks
               </p>
             </div>
           </Reveal>
@@ -95,9 +96,32 @@ export default function LaboratoryManagementSoftwarePage() {
       <Section muted>
         <SectionHeading
           center
-          eyebrow="Laboratory modules"
-          title="Connect the Entire Sample Journey"
-          subtitle="Orders, samples, analyzers, results, reports and billing stay linked to the patient record."
+          eyebrow="Diagnostic environments"
+          title="Built for Different Diagnostic Environments"
+          subtitle="Configure MedicoreERP around independent centres, hospital labs, collection points and multi-location networks."
+          className="mb-12"
+        />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {PAGE.audiences.map((item, i) => (
+            <Reveal key={item.title} delay={i * 0.05}>
+              <div className="flex h-full flex-col rounded-card border bg-card p-6 shadow-soft">
+                <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-teal/10 text-teal">
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <h2 className="font-heading text-lg font-bold text-heading">{item.title}</h2>
+                <p className="mt-2 flex-1 leading-relaxed text-muted">{item.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading
+          center
+          eyebrow="Diagnostic & laboratory modules"
+          title="From Test Order to Final Report"
+          subtitle="Registration, tracking, analyzers, validation, reporting, billing and inventory stay connected to the same sample journey."
           className="mb-14"
         />
         <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -108,7 +132,7 @@ export default function LaboratoryManagementSoftwarePage() {
                   <mod.icon className="h-5 w-5" />
                 </div>
                 <div className="min-w-0">
-                  <h2 className="font-heading text-base font-bold text-heading">{mod.title}</h2>
+                  <h3 className="font-heading text-base font-bold text-heading">{mod.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted">{mod.desc}</p>
                   <Link
                     href={mod.href}
@@ -123,14 +147,36 @@ export default function LaboratoryManagementSoftwarePage() {
         </div>
       </Section>
 
+      <Section muted>
+        <SectionHeading
+          center
+          eyebrow="Why choose MedicoreERP for diagnostics"
+          title="Visibility, Speed and Connected Records"
+          className="mb-12"
+        />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {PAGE.reasons.map((reason, i) => (
+            <Reveal key={reason.title} delay={i * 0.04}>
+              <div className="flex h-full items-start gap-3 rounded-card border bg-card p-6 shadow-soft">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" />
+                <div>
+                  <h3 className="font-heading font-bold text-heading">{reason.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{reason.desc}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
       <Section>
-        <SectionHeading center eyebrow="Lab FAQs" title="Questions diagnostic centres ask before they switch" className="mb-12" />
+        <SectionHeading center eyebrow="Diagnostic / Lab FAQs" title="Questions labs ask before they switch" className="mb-12" />
         <FAQ items={PAGE.faqs} />
       </Section>
 
       <CTABand
-        title="Ready to connect your lab workflow?"
-        subtitle="Looking for Laboratory Management Software in Hyderabad? Book a demo to see how MedicoreERP manages test orders, samples, processing, results, reports, billing and analyzers."
+        title="Simplify Your Diagnostic Operations with MedicoreERP"
+        subtitle="Connect patients, samples, analyzers, reports and billing through one integrated diagnostic management platform. Book a Demo."
       />
     </>
   );

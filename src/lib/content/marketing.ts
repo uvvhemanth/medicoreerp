@@ -4,7 +4,7 @@ import {
   Users, Stethoscope, Pill, FlaskConical, Scan, Receipt, Boxes, UsersRound,
   BarChart3, Settings2, Building2, Microscope, Network, Landmark, Mic, Bot,
   TrendingUp, MessageSquareText, Sparkles, Share2, Globe, ArrowLeftRight,
-  ShieldCheck, BadgeCheck, Activity, BookOpen, Code2, Blocks,
+  ShieldCheck, BadgeCheck, Activity, BookOpen, Code2, Blocks, Lock, Eye, Server,
   ArrowRight, Zap, Tag, Calculator, Mail, Calendar, FileText, Bell, ClipboardList, LayoutDashboard,
   HeartPulse, BedDouble, CreditCard, GitBranch, FormInput, Barcode,
   UserPlus, MapPin, ClipboardPen, FolderOpen, Ambulance, Hospital, Workflow, TestTube2, Package, ShoppingCart, RotateCcw,
@@ -55,10 +55,10 @@ export const NAV: NavItem[] = [
     children: [
       { label: "Clinics", href: "/solutions/clinic-management-software", desc: "OPD, billing & patient access", icon: Stethoscope },
       { label: "Hospitals", href: "/solutions/hospital-management-software", desc: "Full hospital operations", icon: Building2 },
-      { label: "Diagnostics / Labs", href: "/solutions/laboratory-management-software", desc: "LIS, RIS & reporting", icon: Microscope },
+      { label: "Diagnostics / Labs", href: "/solutions/diagnostic-lab-management-software", desc: "LIS, RIS & reporting", icon: Microscope },
       { label: "Pharmacy Chains", href: "/solutions/pharmacy-management-software", desc: "Multi-store inventory & POS", icon: Pill },
       { label: "Enterprise Networks", href: "/solutions/enterprise-healthcare-erp", desc: "Multi-branch · custom rollout", icon: Network },
-      { label: "Government / Payer", href: "/solutions/government", desc: "ABDM-ready · program-based", icon: Landmark },
+      { label: "Government / Payer", href: "/solutions/government-payer-management", desc: "ABDM-ready · program-based", icon: Landmark },
     ],
   },
   {
@@ -97,9 +97,13 @@ export const NAV: NavItem[] = [
     menuLabel: "Trust & compliance",
     menuIcon: ShieldCheck,
     children: [
-      { label: "Trust Center", href: "/security", desc: "Our security posture", icon: ShieldCheck },
-      { label: "Compliance", href: "/security/compliance", desc: "HIPAA · GDPR · ABDM · SOC 2 · ISO", icon: BadgeCheck },
-      { label: "Status", href: "/security/status", desc: "Live uptime & incidents", icon: Activity },
+      { label: "Trust Center", href: "/security", desc: "Healthcare data security", icon: ShieldCheck },
+      { label: "Encryption", href: "/security/encryption", desc: "Data at rest and in transit", icon: Lock },
+      { label: "Access Control", href: "/security/access-control", desc: "Roles, branches and permissions", icon: Eye },
+      { label: "Audit Trails", href: "/security/audit-trails", desc: "Who accessed what and when", icon: FileText },
+      { label: "Data Residency", href: "/security/data-residency", desc: "Keep data in the right region", icon: Server },
+      { label: "Compliance", href: "/security/compliance", desc: "Healthcare compliance & privacy", icon: BadgeCheck },
+      { label: "Status", href: "/security/status", desc: "MedicoreERP system status", icon: Activity },
     ],
   },
   {
@@ -394,10 +398,10 @@ export interface Solution {
 export const SOLUTIONS: Solution[] = [
   { slug: "clinics", href: "/solutions/clinic-management-software", name: "Clinics", hero: "Everything a growing clinic needs, nothing it doesn't.", pains: ["Paper registers & no-shows", "Manual billing", "No follow-up recall"], bundle: ["Patient Access", "OPD & e-Prescribe", "Billing", "Pharmacy-lite", "Patient Portal"], priceFrom: "₹8,000/mo" },
   { slug: "hospitals", href: "/solutions/hospital-management-software", name: "Hospitals", hero: "Run the whole hospital on one platform.", pains: ["Fragmented departmental systems", "Revenue leakage", "Bed & OT chaos"], bundle: ["Full Clinical Core", "IPD/ER/OT/ICU", "Pharmacy/Lab/Radiology", "Autonomous RCM", "Analytics"], priceFrom: "₹1,200/bed/mo" },
-  { slug: "diagnostics", href: "/solutions/laboratory-management-software", name: "Diagnostics / Labs", hero: "From sample to signed report, automated.", pains: ["Analyzer silos", "QC scramble", "Slow TAT"], bundle: ["LIS", "RIS/PACS", "Home-collection", "Patient reports", "B2B portal"], priceFrom: "₹15,000/mo" },
+  { slug: "diagnostics", href: "/solutions/diagnostic-lab-management-software", name: "Diagnostics / Labs", hero: "From sample to signed report, automated.", pains: ["Analyzer silos", "QC scramble", "Slow TAT"], bundle: ["LIS", "RIS/PACS", "Home-collection", "Patient reports", "B2B portal"], priceFrom: "₹15,000/mo" },
   { slug: "pharmacy", href: "/solutions/pharmacy-management-software", name: "Pharmacy Chains", hero: "One ledger across every outlet.", pains: ["Stock-outs & expiry loss", "No central visibility", "Manual reorder"], bundle: ["Multi-store inventory", "POS & returns", "Demand forecast", "Loyalty", "Analytics"], priceFrom: "₹6,000/store/mo" },
   { slug: "enterprise", href: "/solutions/enterprise-healthcare-erp", name: "Enterprise Networks", hero: "Coherence across every branch.", pains: ["Inconsistent processes", "No network view", "Slow rollout"], bundle: ["Everything", "Command Center", "Multi-tenant admin", "Developer platform", "Dedicated success"], priceFrom: "Custom" },
-  { slug: "government", name: "Government / Payer", hero: "Public-health scale, compliant by default.", pains: ["ABDM mandates", "Population reporting", "Interoperability"], bundle: ["ABDM-ready HMIS", "Registries", "Claims/TPA", "Analytics", "Data-freedom exports"], priceFrom: "Custom" },
+  { slug: "government", href: "/solutions/government-payer-management", name: "Government / Payer", hero: "Public-health scale, compliant by default.", pains: ["ABDM mandates", "Population reporting", "Interoperability"], bundle: ["ABDM-ready HMIS", "Registries", "Claims/TPA", "Analytics", "Data-freedom exports"], priceFrom: "Custom" },
 ];
 
 export const CLINIC_LANDING = {
@@ -817,28 +821,29 @@ export const HOSPITAL_LANDING = {
   ],
 };
 
-export const LABORATORY_LANDING = {
+export const DIAGNOSTIC_LAB_LANDING = {
   seo: {
-    title: "Laboratory Management Software Hyderabad | MedicoreERP",
+    title: "Diagnostic Lab Management Software Hyderabad | MedicoreERP",
     description:
-      "Manage test orders, samples, processing, results, reports, billing and analyzers with MedicoreERP Laboratory Management Software.",
+      "Manage test orders, sample tracking, analyzer integration, reporting, billing and multi-location labs with MedicoreERP Diagnostic Lab Management Software.",
     keywords: [
-      "Laboratory Management Software in Hyderabad",
+      "Diagnostic Lab Management Software in Hyderabad",
+      "Laboratory management software",
       "LIMS software Hyderabad",
-      "laboratory information system",
-      "diagnostic lab software",
+      "diagnostic centre software",
       "pathology lab software",
-      "sample management software",
       "lab billing software",
-      "diagnostic centre management software",
+      "sample tracking software",
+      "laboratory information system",
+      "multi-location lab software",
     ],
-    canonical: "/solutions/laboratory-management-software",
+    canonical: "/solutions/diagnostic-lab-management-software",
   },
-  heroTitle: "From Test Order to Final Report—Connect the Entire Lab Workflow",
-  heroSubtitle: "Laboratory Management Software in Hyderabad",
+  heroTitle: "Diagnostic & Laboratory Management Software",
+  heroSubtitle: "From Test Order to Final Report—Manage Every Step in One Connected System.",
   overview: [
-    "MedicoreERP helps diagnostic centres and laboratories digitize the complete sample journey while keeping laboratory information connected with the patient's healthcare record.",
-    "Manage orders, samples, processing, analyzer integrations, results, reports, billing and operational information from one connected platform.",
+    "MedicoreERP helps diagnostic centres, pathology laboratories and hospital labs manage the complete diagnostic workflow from patient registration and test booking to sample collection, processing, result validation, reporting and billing.",
+    "By connecting laboratory operations with patient records, diagnostics, billing and reporting, MedicoreERP helps teams reduce manual work, improve sample visibility and deliver a smoother patient experience.",
   ],
   journey: [
     { step: "1", title: "Order" },
@@ -848,104 +853,183 @@ export const LABORATORY_LANDING = {
     { step: "5", title: "Validation" },
     { step: "6", title: "Report" },
   ],
+  audiences: [
+    {
+      title: "Independent Diagnostic Centres",
+      desc: "Manage patients, tests, samples, billing and reports through one connected platform.",
+      icon: Microscope,
+    },
+    {
+      title: "Pathology Laboratories",
+      desc: "Simplify sample processing, result validation and report generation.",
+      icon: FlaskConical,
+    },
+    {
+      title: "Hospital Laboratories",
+      desc: "Connect laboratory orders and results directly with OPD, IPD and patient records.",
+      icon: Hospital,
+    },
+    {
+      title: "Multi-Location Diagnostic Networks",
+      desc: "Standardize test workflows and maintain centralized visibility across branches.",
+      icon: Network,
+    },
+    {
+      title: "Collection Centres",
+      desc: "Connect sample collection locations with central laboratories and improve sample traceability.",
+      icon: MapPin,
+    },
+  ],
   modules: [
     {
       title: "Patient Registration",
-      desc: "Create or retrieve patient information for diagnostic services.",
+      desc: "Create or retrieve patient profiles and maintain demographic, clinical and diagnostic information in one place.",
       icon: UserPlus,
       href: "/product/patient-access",
     },
     {
       title: "Test & Package Management",
-      desc: "Configure tests, profiles, panels and packages.",
+      desc: "Configure individual tests, panels, profiles and diagnostic packages according to your service offerings.",
       icon: Package,
       href: "/product/lab",
     },
     {
-      title: "Order Management",
-      desc: "Manage laboratory orders from doctors, hospitals or direct patients.",
+      title: "Test Order Management",
+      desc: "Manage laboratory orders generated by doctors, hospitals, clinics or walk-in patients.",
       icon: ClipboardList,
       href: "/product/lab",
     },
     {
       title: "Sample Collection",
-      desc: "Record specimen collection details.",
+      desc: "Record sample type, collection time, collection location and related specimen information.",
       icon: TestTube2,
       href: "/product/lab",
     },
     {
-      title: "Sample Tracking",
-      desc: "Track sample status throughout laboratory processing.",
+      title: "Barcode & Sample Tracking",
+      desc: "Track samples from collection through processing, testing and final report generation.",
       icon: Barcode,
       href: "/product/lab",
     },
     {
+      title: "Laboratory Processing",
+      desc: "Monitor sample status across different laboratory stages and departments.",
+      icon: Activity,
+      href: "/product/lab",
+    },
+    {
       title: "Analyzer Integration",
-      desc: "Exchange orders, sample status, quality-control information and signed results with compatible analyzers.",
+      desc: "Connect compatible analyzers and laboratory systems to improve data flow and reduce repetitive manual entry.",
       icon: Share2,
       href: "/integrations/third-party-api",
     },
     {
       title: "Result Entry & Validation",
-      desc: "Record and review results through structured workflows.",
+      desc: "Enter, review and validate test results before final report approval.",
       icon: BadgeCheck,
       href: "/product/lab",
     },
     {
+      title: "Multi-Level Approval",
+      desc: "Configure result verification and authorization workflows based on laboratory requirements.",
+      icon: ShieldCheck,
+      href: "/product/platform",
+    },
+    {
       title: "Report Management",
-      desc: "Generate and publish diagnostic reports linked to the patient record.",
+      desc: "Generate structured diagnostic reports and connect completed reports with patient records.",
       icon: FileText,
       href: "/product/lab",
     },
     {
-      title: "Billing & Payments",
-      desc: "Connect investigations, packages and services with billing.",
+      title: "Report Delivery",
+      desc: "Share reports through configured patient communication channels and digital workflows.",
+      icon: Bell,
+      href: "/integrations/whatsapp",
+    },
+    {
+      title: "Laboratory Billing",
+      desc: "Manage test pricing, packages, invoices, receipts and payments.",
       icon: CreditCard,
       href: "/product/billing-invoices",
     },
     {
-      title: "Inventory Management",
-      desc: "Track reagents, consumables and laboratory materials.",
+      title: "Reagent & Inventory Management",
+      desc: "Track reagents, kits, consumables and laboratory stock.",
       icon: Boxes,
       href: "/product/supply-chain",
     },
     {
-      title: "Multi-Centre Operations",
-      desc: "Maintain visibility across diagnostic centres and collection locations.",
-      icon: MapPin,
+      title: "Multi-Location Management",
+      desc: "Manage multiple diagnostic centres and collection points through centralized workflows.",
+      icon: Network,
       href: "/solutions/enterprise-healthcare-erp",
     },
     {
-      title: "Analytics & MIS",
-      desc: "Monitor volumes, operational activity and financial performance.",
+      title: "MIS & Analytics",
+      desc: "Monitor test volumes, pending samples, revenue, branch activity and operational performance.",
       icon: BarChart3,
       href: "/product/analytics",
     },
   ],
-  faqs: [
+  reasons: [
     {
-      q: "What is a Laboratory Information Management System?",
-      a: "A LIMS/LIS manages test orders, samples, laboratory processing, results, reports and related diagnostic operations.",
+      title: "Complete Sample Visibility",
+      desc: "Track every stage from sample collection to final reporting.",
     },
     {
-      q: "Can MedicoreERP track samples?",
-      a: "Yes. MedicoreERP supports test-order, sample, processing and result workflows.",
+      title: "Faster Laboratory Workflows",
+      desc: "Reduce unnecessary manual steps across test ordering, processing and reporting.",
+    },
+    {
+      title: "Connected Patient Information",
+      desc: "Keep diagnostic results linked with the patient's broader healthcare record.",
+    },
+    {
+      title: "Better Result Management",
+      desc: "Use structured validation and approval workflows before reports are released.",
+    },
+    {
+      title: "Centralized Multi-Location Control",
+      desc: "Maintain visibility across diagnostic centres, labs and collection points.",
+    },
+    {
+      title: "Integrated Billing",
+      desc: "Connect tests and packages directly with billing and payment workflows.",
+    },
+  ],
+  faqs: [
+    {
+      q: "What is Diagnostic Lab Management Software?",
+      a: "Diagnostic Lab Management Software helps laboratories manage patient registration, test orders, sample collection, processing, results, reports, billing and inventory.",
+    },
+    {
+      q: "What is LIMS?",
+      a: "LIMS stands for Laboratory Information Management System. It helps organize laboratory samples, workflows, test information, results and operational data.",
+    },
+    {
+      q: "Can MedicoreERP track laboratory samples?",
+      a: "Yes. MedicoreERP can manage sample collection, processing status, testing and report workflows in a structured way.",
     },
     {
       q: "Can MedicoreERP connect with laboratory analyzers?",
-      a: "Yes. Compatible analyzers can exchange orders, sample status, QC information and signed results through MedicoreERP integrations.",
+      a: "Yes. Compatible laboratory analyzers and systems can be integrated based on the organization's technical requirements.",
     },
     {
-      q: "Can results become part of the patient's record?",
-      a: "Yes. Laboratory information can be connected directly with patient records.",
+      q: "Can MedicoreERP manage lab billing?",
+      a: "Yes. Tests, diagnostic packages and other services can be connected directly with billing and payment workflows.",
     },
     {
-      q: "Does MedicoreERP support multi-location diagnostic operations?",
-      a: "Its centralized architecture can support organizations operating across locations.",
+      q: "Can lab reports be connected with patient records?",
+      a: "Yes. Laboratory information and reports can be linked with the patient's connected healthcare record.",
     },
     {
-      q: "Does it provide laboratory billing?",
-      a: "Yes. Laboratory services can be connected with billing and payment workflows.",
+      q: "Is MedicoreERP suitable for multiple diagnostic centres?",
+      a: "Yes. MedicoreERP can support centralized operations and reporting across multiple labs and collection locations.",
+    },
+    {
+      q: "Can patients receive reports digitally?",
+      a: "Digital report delivery can be configured through supported communication channels.",
     },
   ],
 };
@@ -1202,6 +1286,234 @@ export const ENTERPRISE_LANDING = {
     {
       q: "Do we have to heavily customize the platform?",
       a: "MedicoreERP provides configurable Workflow Studio and Form Builder capabilities intended to reduce dependence on hard-coded customization.",
+    },
+  ],
+};
+
+export const GOVERNMENT_PAYER_LANDING = {
+  seo: {
+    title: "Government & Healthcare Payer Management Software | MedicoreERP",
+    description:
+      "Manage eligibility, pre-authorizations, insurance, TPA claims, settlements and government healthcare workflows with MedicoreERP.",
+    keywords: [
+      "Healthcare Payer Management Software",
+      "Government healthcare software",
+      "TPA management software",
+      "hospital insurance software",
+      "healthcare claims management",
+      "eClaims software",
+      "pre-authorization software",
+      "payer management system",
+      "government health scheme software",
+    ],
+    canonical: "/solutions/government-payer-management",
+  },
+  heroTitle: "Government & Healthcare Payer Management Software",
+  heroSubtitle: "Connect Eligibility, Approvals, Claims and Settlements in One Workflow.",
+  overview: [
+    "Healthcare organizations often deal with multiple insurers, TPAs, government programs, authorization processes and claim workflows.",
+    "MedicoreERP helps connect patient care with payer-related operations such as eligibility verification, pre-authorization, billing, claims, approvals and settlements through one integrated healthcare platform.",
+    "Improve visibility across payer workflows, reduce repetitive coordination and create better alignment between clinical, administrative and financial teams.",
+  ],
+  audiences: [
+    {
+      title: "Government Health Programs",
+      desc: "Manage healthcare-program-related patient, billing and reporting workflows.",
+      icon: Landmark,
+    },
+    {
+      title: "Insurance Companies",
+      desc: "Support structured information exchange between healthcare providers and insurers.",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Third-Party Administrators",
+      desc: "Manage pre-authorizations, claims, supporting documents and settlement workflows.",
+      icon: Users,
+    },
+    {
+      title: "Hospitals with Multiple Payers",
+      desc: "Centralize payer information instead of managing each insurer through separate processes.",
+      icon: Hospital,
+    },
+    {
+      title: "Healthcare Networks",
+      desc: "Standardize payer and claim workflows across multiple facilities.",
+      icon: Network,
+    },
+  ],
+  modules: [
+    {
+      title: "Patient & Beneficiary Management",
+      desc: "Maintain patient, beneficiary and payer-related information in one connected record.",
+      icon: UserPlus,
+      href: "/product/patient-access",
+    },
+    {
+      title: "Payer Management",
+      desc: "Maintain insurer, TPA and healthcare program information associated with patient care.",
+      icon: FolderOpen,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "Policy & Scheme Management",
+      desc: "Record policy, scheme, package and payer information based on applicable workflows.",
+      icon: FileText,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "Eligibility Verification",
+      desc: "Verify patient eligibility before providing covered services.",
+      icon: BadgeCheck,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "Pre-Authorization Management",
+      desc: "Manage authorization requests, treatment information and supporting documentation.",
+      icon: ClipboardPen,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "Package & Tariff Management",
+      desc: "Configure payer-specific packages, service rates and approved tariffs.",
+      icon: Tag,
+      href: "/product/billing-invoices",
+    },
+    {
+      title: "Insurance & TPA Management",
+      desc: "Connect patient services with insurers and third-party administrators.",
+      icon: ShieldCheck,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "Claims Management",
+      desc: "Manage claims from preparation and submission through review and settlement.",
+      icon: ClipboardList,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "eClaims Management",
+      desc: "Support electronic claim workflows with compatible payer platforms.",
+      icon: Share2,
+      href: "/integrations/third-party-api",
+    },
+    {
+      title: "Claims Documentation",
+      desc: "Maintain supporting medical and billing documentation throughout the claim process.",
+      icon: BookOpen,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "Approval & Deduction Tracking",
+      desc: "Track approved amounts, deductions, rejections and payer decisions.",
+      icon: TrendingUp,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "Settlement Management",
+      desc: "Maintain settlement information against patient claims and invoices.",
+      icon: CreditCard,
+      href: "/product/billing-invoices",
+    },
+    {
+      title: "Claims Receivable Tracking",
+      desc: "Monitor outstanding claims and payer receivables.",
+      icon: Receipt,
+      href: "/product/revenue-cycle",
+    },
+    {
+      title: "Hospital Billing Integration",
+      desc: "Connect treatment, services and patient billing with insurance and payer workflows.",
+      icon: GitBranch,
+      href: "/product/billing-invoices",
+    },
+    {
+      title: "Government Health Program Integration",
+      desc: "Support compatible government healthcare program integrations where interfaces are available.",
+      icon: Landmark,
+      href: "/integrations/third-party-api",
+    },
+    {
+      title: "ABDM / ABHA Integration",
+      desc: "Support applicable digital-health and consent-based healthcare workflows.",
+      icon: Globe,
+      href: "/interoperability/abdm",
+    },
+    {
+      title: "Audit Trail",
+      desc: "Maintain traceable information for claim, authorization and payer-related transactions.",
+      icon: Activity,
+      href: "/product/platform",
+    },
+    {
+      title: "Payer Analytics & MIS",
+      desc: "Monitor pending claims, approvals, settlements, receivables and payer performance.",
+      icon: BarChart3,
+      href: "/product/analytics",
+    },
+  ],
+  reasons: [
+    {
+      title: "Connected Payer Workflows",
+      desc: "Keep eligibility, authorization, claims, billing and settlements in one process.",
+    },
+    {
+      title: "Better Claims Visibility",
+      desc: "Know which claims are pending, approved, rejected or settled.",
+    },
+    {
+      title: "Faster Pre-Authorization",
+      desc: "Keep patient, treatment and payer information organized for authorization workflows.",
+    },
+    {
+      title: "Reduced Manual Coordination",
+      desc: "Limit dependency on spreadsheets, emails and disconnected systems.",
+    },
+    {
+      title: "Better Financial Visibility",
+      desc: "Track approved values, deductions, pending receivables and settlements.",
+    },
+    {
+      title: "Support Multiple Payers",
+      desc: "Manage multiple insurers, TPAs and government-health programs from a centralized platform.",
+    },
+  ],
+  faqs: [
+    {
+      q: "What is Healthcare Payer Management Software?",
+      a: "Healthcare Payer Management Software helps providers manage workflows with insurers, TPAs and government health programs, including eligibility, pre-authorization, claims and settlements.",
+    },
+    {
+      q: "Who are healthcare payers?",
+      a: "Healthcare payers can include insurance companies, TPAs, government healthcare programs and other organizations that fund or reimburse patient care.",
+    },
+    {
+      q: "Can MedicoreERP support pre-authorization workflows?",
+      a: "Yes. MedicoreERP can support structured pre-authorization processes linked with patient and treatment information.",
+    },
+    {
+      q: "Can MedicoreERP manage insurance claims?",
+      a: "Yes. Claim-related information can be managed from preparation and submission through approval and settlement.",
+    },
+    {
+      q: "Can MedicoreERP work with multiple insurers and TPAs?",
+      a: "Yes. MedicoreERP can support healthcare organizations that work with multiple payer organizations.",
+    },
+    {
+      q: "Can MedicoreERP track pending claims?",
+      a: "Yes. Claims can be organized according to their status, allowing teams to monitor pending, approved, rejected and settled cases.",
+    },
+    {
+      q: "Can payer workflows connect with hospital billing?",
+      a: "Yes. Payer and claims information can be connected with hospital billing and patient-service workflows.",
+    },
+    {
+      q: "Does MedicoreERP support government healthcare integrations?",
+      a: "Compatible government-health and digital-health integrations can be implemented based on supported APIs and program requirements.",
+    },
+    {
+      q: "Can MedicoreERP support ABDM and ABHA workflows?",
+      a: "MedicoreERP can support applicable ABDM and ABHA interoperability workflows based on implementation requirements.",
     },
   ],
 };

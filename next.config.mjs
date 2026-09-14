@@ -28,9 +28,11 @@ const nextConfig = {
       { source: "/company/press", destination: "/company/about", permanent: false },
       { source: "/solutions/clinics", destination: "/solutions/clinic-management-software", permanent: true },
       { source: "/solutions/hospitals", destination: "/solutions/hospital-management-software", permanent: true },
-      { source: "/solutions/diagnostics", destination: "/solutions/laboratory-management-software", permanent: true },
+      { source: "/solutions/diagnostics", destination: "/solutions/diagnostic-lab-management-software", permanent: true },
+      { source: "/solutions/laboratory-management-software", destination: "/solutions/diagnostic-lab-management-software", permanent: true },
       { source: "/solutions/pharmacy", destination: "/solutions/pharmacy-management-software", permanent: true },
       { source: "/solutions/enterprise", destination: "/solutions/enterprise-healthcare-erp", permanent: true },
+      { source: "/solutions/government", destination: "/solutions/government-payer-management", permanent: true },
       { source: "/ai/predictive-ops", destination: "/ai/predictive-operations", permanent: true },
     ];
   },

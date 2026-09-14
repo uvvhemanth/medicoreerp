@@ -38,7 +38,6 @@ export default function DemoPage() {
           <figure className="mt-10 rounded-card border-l-4 border-teal bg-mist/40 p-6">
             <blockquote className="font-heading text-lg font-bold text-heading">“{t.quote}”</blockquote>
             <figcaption className="mt-2 flex items-center gap-3 text-sm text-muted">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={t.avatar} alt={t.name} className="h-9 w-9 rounded-full object-cover" />
               {t.name}, {t.role} · {t.org}
             </figcaption>
