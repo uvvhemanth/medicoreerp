@@ -7,8 +7,8 @@ const columns = [
   {
     title: "Product",
     links: [
-      ["HIS Dashboard", "/dashboard"],
-      ["Electronic Medical Records", "/product/emr"],
+      ["HIS Dashboard", "/product/his-dashboard"],
+      ["Electronic Medical Records", "/product/electronic-medical-records"],
       ["Appointments", "/product/appointments"],
       ["Billing & Invoices", "/product/billing-invoices"],
       ["Patient Reminders", "/product/patient-reminders"],

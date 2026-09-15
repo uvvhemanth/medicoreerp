@@ -34,6 +34,10 @@ const nextConfig = {
       { source: "/solutions/enterprise", destination: "/solutions/enterprise-healthcare-erp", permanent: true },
       { source: "/solutions/government", destination: "/solutions/government-payer-management", permanent: true },
       { source: "/ai/predictive-ops", destination: "/ai/predictive-operations", permanent: true },
+      { source: "/product/emr", destination: "/product/electronic-medical-records", permanent: true },
+      { source: "/product/clinical", destination: "/product/clinical-emr-opd-ipd", permanent: true },
+      { source: "/product/lab", destination: "/product/laboratory", permanent: true },
+      { source: "/product/hrm", destination: "/product/workforce-hrm", permanent: true },
     ];
   },
   images: {

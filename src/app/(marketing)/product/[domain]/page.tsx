@@ -34,6 +34,10 @@ export default async function DomainPage({ params }: { params: Promise<{ domain:
   if (!d) notFound();
 
   const isLanding = Boolean(d.overview?.length || d.benefits?.length || d.faqs?.length);
+  const featuresTitle = d.landing?.featuresTitle ?? (isLanding ? "What this module covers" : "What you get");
+  const benefitsTitle = d.landing?.benefitsTitle ?? "Why it matters";
+  const faqsTitle = d.landing?.faqsTitle ?? "Frequently asked questions";
+  const liveHref = d.landing?.liveHref ?? "/demo";
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
@@ -71,7 +75,7 @@ export default async function DomainPage({ params }: { params: Promise<{ domain:
                 <Link href="/demo">Book a demo <ArrowRight className="h-4 w-4" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/demo">See it live</Link>
+                <Link href={liveHref}>{d.landing?.liveHref ? "Open live dashboard" : "See it live"}</Link>
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -94,7 +98,7 @@ export default async function DomainPage({ params }: { params: Promise<{ domain:
         <SectionHeading
           center
           eyebrow={isLanding ? "Key Capabilities" : undefined}
-          title={isLanding ? "What hospital teams can monitor" : "What you get"}
+          title={featuresTitle}
           className="mb-14"
         />
         {isLanding ? (
@@ -132,7 +136,7 @@ export default async function DomainPage({ params }: { params: Promise<{ domain:
 
       {d.benefits?.length ? (
         <Section muted>
-          <SectionHeading center eyebrow="Business Benefits" title="Why hospital analytics matters" className="mb-12" />
+          <SectionHeading center eyebrow="Business Benefits" title={benefitsTitle} className="mb-12" />
           <div className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2">
             {d.benefits.map((benefit, i) => (
               <Reveal key={benefit} delay={i * 0.04}>
@@ -163,7 +167,7 @@ export default async function DomainPage({ params }: { params: Promise<{ domain:
 
       {d.faqs?.length ? (
         <Section>
-          <SectionHeading center eyebrow="FAQs" title="Hospital analytics questions" className="mb-12" />
+          <SectionHeading center eyebrow="FAQs" title={faqsTitle} className="mb-12" />
           <FAQ items={d.faqs} />
         </Section>
       ) : null}
@@ -195,8 +199,8 @@ export default async function DomainPage({ params }: { params: Promise<{ domain:
       </Section>
 
       <CTABand
-        title={isLanding ? "See hospital analytics on your data" : undefined}
-        subtitle={isLanding ? "Book a demo to review dashboards, KPIs, occupancy, revenue and MIS reports for your hospital." : undefined}
+        title={isLanding ? d.landing?.ctaTitle : undefined}
+        subtitle={isLanding ? d.landing?.ctaSubtitle : undefined}
       />
     </>
   );

@@ -94,16 +94,18 @@ async function main() {
 
   // 6) Product deep links from MAIN_FEATURES
   const productPaths = [
+    "/product/his-dashboard",
     "/product/patient-access",
-    "/product/emr",
+    "/product/electronic-medical-records",
     "/product/platform",
     "/product/appointments",
-    "/product/clinical",
+    "/product/clinical-emr-opd-ipd",
     "/product/billing-invoices",
-    "/product/lab",
+    "/product/laboratory",
     "/product/radiology",
     "/product/pharmacy",
     "/product/supply-chain",
+    "/product/workforce-hrm",
   ];
   for (const p of productPaths) {
     const { status, text } = await fetchText(p);

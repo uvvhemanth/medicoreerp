@@ -50,13 +50,13 @@ const PERSONAS = [
     icon: Building2,
     role: "Hospital admin",
     desc: "Beds, OT, IPD, staff, departments, operations and hospital reports.",
-    href: "/dashboard",
+    href: "/product/his-dashboard",
   },
   {
     icon: Stethoscope,
     role: "Doctors & nurses",
     desc: "EMR, OPD notes, prescriptions, vitals, clinical orders and patient care.",
-    href: "/product/emr",
+    href: "/product/electronic-medical-records",
   },
   {
     icon: Receipt,
@@ -119,7 +119,11 @@ export default function HomePage() {
             <div id="his-dashboard" className="scroll-mt-24">
               <HisDashboard compact />
               <p className="mt-3 text-center text-sm text-muted lg:text-left">
-                Modules follow your patient journey (Steps 1–10). Click any tile.
+                Modules follow your patient journey (Steps 1–10).{" "}
+                <Link href="/product/his-dashboard" className="font-semibold text-teal hover:underline">
+                  Explore the HIS Dashboard
+                </Link>
+                {" "}or click any tile.
               </p>
             </div>
           </Reveal>
@@ -274,7 +278,7 @@ export default function HomePage() {
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PRODUCT_DOMAINS.filter((d) =>
-            ["emr", "appointments", "billing-invoices", "patient-reminders", "clinical", "revenue-cycle"].includes(d.slug),
+            ["his-dashboard", "electronic-medical-records", "appointments", "billing-invoices", "patient-reminders", "clinical-emr-opd-ipd"].includes(d.slug),
           ).map((d, i) => (
             <Reveal key={d.slug} delay={i * 0.05}>
               <Link

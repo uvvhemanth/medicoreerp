@@ -66,8 +66,8 @@ const QUEUE = [
 ];
 
 const CLINICAL_TASKS = [
-  { title: "Pending lab results", count: 23, href: "/product/lab", tone: "amber" },
-  { title: "Unsigned OPD notes", count: 8, href: "/product/emr", tone: "red" },
+  { title: "Pending lab results", count: 23, href: "/product/laboratory", tone: "amber" },
+  { title: "Unsigned OPD notes", count: 8, href: "/product/electronic-medical-records", tone: "red" },
   { title: "Pharmacy pending dispense", count: 15, href: "/product/pharmacy", tone: "teal" },
   { title: "Radiology to report", count: 6, href: "/product/radiology", tone: "blue" },
 ];

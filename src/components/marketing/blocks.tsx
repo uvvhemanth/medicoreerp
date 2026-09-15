@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { ChevronRight, Plus, Minus } from "lucide-react";
 import { useState } from "react";
 
@@ -121,9 +120,12 @@ export function CTABand({
               </div>
             )}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button asChild size="lg" className="bg-white text-teal-deep hover:bg-white/90">
-                <Link href={ctaHref}>{ctaLabel}</Link>
-              </Button>
+              <Link
+                href={ctaHref}
+                className="inline-flex h-12 items-center justify-center rounded-control bg-white px-6 text-[15px] font-semibold text-teal-deep shadow-soft transition hover:bg-white/90"
+              >
+                {ctaLabel}
+              </Link>
             </div>
           </div>
         </div>

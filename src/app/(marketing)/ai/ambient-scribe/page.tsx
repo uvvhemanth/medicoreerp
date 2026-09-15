@@ -164,7 +164,9 @@ export default function AmbientScribePage() {
 
       <CTABand
         title="Spend More Time With Patients, Not Paperwork"
-        subtitle="See how AI-assisted clinical documentation can simplify everyday consultations. Book an Ambient Scribe Demo."
+        subtitle="See how AI-assisted clinical documentation can simplify everyday consultations."
+        ctaLabel="Contact Us"
+        ctaHref="/contact"
       />
     </>
   );

@@ -18,19 +18,34 @@ const QUICK = [
 function botReply(input: string): string {
   const q = input.toLowerCase();
   if (/(dashboard|his|module tile|hospital management)/.test(q)) {
-    return "Open the interactive HIS dashboard at /dashboard — module tiles follow your patient journey from registration to follow-up.";
+    return "The MedicoreERP HIS Dashboard gives one view of hospital KPIs, OPD/IPD, occupancy, revenue and department performance. See /product/his-dashboard, or open the live module tiles at /dashboard.";
   }
   if (/(emr|electronic medical|medical record|chart)/.test(q)) {
-    return "Our EMR is a full digital chart — notes, orders, results, and audit trail. Open /product/emr or ask me to book a demo.";
+    return "MedicoreERP EMR keeps patient history, diagnoses, prescriptions, notes, labs and imaging in one digital record. See /product/electronic-medical-records or ask me to book a demo.";
+  }
+  if (/(opd|ipd|clinical management|admission|discharge summary|ward management)/.test(q)) {
+    return "MedicoreERP Clinical Management Software connects EMR with OPD and IPD — consultations, prescriptions, nursing, admissions and discharge. See /product/clinical-emr-opd-ipd.";
   }
   if (/(appointment|schedule|booking|slot|no-show)/.test(q)) {
-    return "Appointments covers multi-doctor calendars, online booking, queues, and no-show prediction. See /product/appointments.";
+    return "MedicoreERP Appointment Management Software covers doctor availability, time slots, walk-ins, queues, rescheduling and reminders. See /product/appointments.";
+  }
+  if (/(radiology|\bris\b|\bpacs\b|dicom|imaging order|medical imaging)/.test(q)) {
+    return "MedicoreERP Radiology Management Software connects imaging orders, RIS workflows, PACS/DICOM and digital reports. See /product/radiology.";
+  }
+  if (/(laboratory|\blis\b|\blims\b|lab report|sample tracking|analyzer integration)/.test(q)) {
+    return "MedicoreERP Laboratory Information System (LIS/LIMS) manages orders, samples, barcode tracking, results, validation and digital reports. See /product/laboratory.";
+  }
+  if (/(pharmacy|dispense|medicine inventory|expiry|e-?prescription)/.test(q)) {
+    return "MedicoreERP Hospital Pharmacy Management Software connects e-prescriptions, inventory, batches, expiry, purchases and dispensing. See /product/pharmacy.";
   }
   if (/(bill|invoice|gst|payment|upi)/.test(q)) {
-    return "Billing & Invoices handles OPD/IPD charges, GST invoices, packages, and UPI/card receipts. See /product/billing-invoices.";
+    return "MedicoreERP Hospital Billing Software connects OPD/IPD charges, invoices, payments, outstanding balances, pharmacy, laboratory and TPA billing. See /product/billing-invoices.";
+  }
+  if (/(patient access|registration|check-?in|front.?desk|duplicate record)/.test(q)) {
+    return "MedicoreERP Patient Access Software simplifies registration, digital profiles, check-in and front-desk workflows. See /product/patient-access.";
   }
   if (/(reminder|whatsapp|sms|recall|follow-?up)/.test(q)) {
-    return "Patient Reminders send SMS/WhatsApp appointment nudges, recalls, and med refill alerts. See /product/patient-reminders.";
+    return "MedicoreERP Patient Reminder Software automates appointment, follow-up and recall notifications through SMS and WhatsApp. See /product/patient-reminders.";
   }
   if (/(demo|meeting|book|schedule|call)/.test(q)) {
     return "Great — pick a 30-minute demo slot on our booking page. You’ll get an instant confirmation (demo calendar). Open Book a demo below.";
@@ -44,7 +59,19 @@ function botReply(input: string): string {
   if (/(scribe|ambient|documentation|soap)/.test(q)) {
     return "Ambient Scribe turns a consult into a signed, coded SOAP note — human always signs. Hospitals cut documentation time ~62%. See /ai/ambient-scribe.";
   }
-  if (/(rcm|denial|claim|billing)/.test(q)) {
+  if (/(analytics|mis report|kpi dashboard|hospital reporting)/.test(q)) {
+    return "MedicoreERP Hospital Analytics Software turns clinical, operational and financial data into dashboards, KPIs and MIS reports. See /product/analytics.";
+  }
+  if (/(workforce|hrm|human resource|staff scheduling|roster|attendance|leave management)/.test(q)) {
+    return "MedicoreERP Hospital HR Management Software centralizes employees, attendance, shifts, rosters, leave and workforce information. See /product/workforce-hrm.";
+  }
+  if (/(supply chain|inventory|procurement|stock-?out|reorder|goods receipt)/.test(q)) {
+    return "MedicoreERP Hospital Supply Chain Management Software covers inventory, suppliers, procurement, stock transfers and reorder levels. See /product/supply-chain.";
+  }
+  if (/(revenue cycle|\brcm\b|charge capture|accounts receivable|claims tracking)/.test(q)) {
+    return "MedicoreERP Healthcare Revenue Cycle Management Software covers charge capture, billing, claims, collections, reconciliation and receivables. See /product/revenue-cycle.";
+  }
+  if (/(denial|autonomous rcm)/.test(q)) {
     return "Autonomous RCM helps code, scrub, and draft appeals with a human approver. Customers often see ~45% fewer denials. See /ai/autonomous-rcm.";
   }
   if (/(fhir|hl7|interop|abha)/.test(q)) {
