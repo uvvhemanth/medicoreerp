@@ -61,6 +61,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   verification: {
     google: "googlea42bc3bc7d85ea98.html",
+    other: {
+      "msvalidate.01": "6AB545078D151CCA74FADD1EEDA0555B",
+    },
   },
 };
 
