@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
@@ -7,6 +8,8 @@ import { JsonLd } from "@/components/marketing/json-ld";
 import { HideNextDevBadge } from "@/components/marketing/hide-next-dev-badge";
 import { organizationJsonLd, softwareApplicationJsonLd } from "@/lib/seo";
 import { SITE_URL } from "@/lib/content/marketing";
+
+const GA_MEASUREMENT_ID = "G-Q82LRBQGTP";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -56,6 +59,9 @@ export const metadata: Metadata = {
       "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "googlea42bc3bc7d85ea98.html",
+  },
 };
 
 export default function RootLayout({
@@ -65,6 +71,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body className={`${inter.variable} ${manrope.variable} font-sans antialiased`}>
         <JsonLd data={[organizationJsonLd(), softwareApplicationJsonLd()]} />
         <ThemeProvider>
