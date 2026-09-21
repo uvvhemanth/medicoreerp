@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
 import { ChatBot } from "./chat-bot";
@@ -5,6 +8,13 @@ import { DemoFab } from "./demo-fab";
 import { WhatsAppFab } from "./whatsapp-fab";
 
 export function MarketingShell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const confirmationPage = pathname === "/demo/thank-you";
+
+  if (confirmationPage) {
+    return <main id="main">{children}</main>;
+  }
+
   return (
     <>
       <a
