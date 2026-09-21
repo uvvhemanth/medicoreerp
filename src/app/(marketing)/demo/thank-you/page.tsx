@@ -45,13 +45,13 @@ function DetailRow({
   value: string;
 }) {
   return (
-    <div className="flex items-start gap-3 px-4 py-3.5 sm:gap-4 sm:px-5 sm:py-4">
-      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-teal/10 text-teal sm:h-10 sm:w-10">
-        <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+    <div className="flex items-center gap-3 px-4 py-2.5 sm:px-5">
+      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-teal/10 text-teal">
+        <Icon className="h-4 w-4" />
       </span>
       <div className="min-w-0">
-        <p className="text-[11px] font-semibold text-muted sm:text-xs">{label}</p>
-        <p className="mt-0.5 break-words font-heading text-sm font-bold text-heading sm:text-base">{value}</p>
+        <p className="text-[11px] font-semibold text-muted">{label}</p>
+        <p className="break-words font-heading text-sm font-bold leading-snug text-heading">{value}</p>
       </div>
     </div>
   );
@@ -67,84 +67,77 @@ export default async function DemoThankYouPage({
   const reference = ref || "Pending";
 
   return (
-    <div className="relative min-h-dvh overflow-x-hidden bg-[#F7FBFC] text-heading">
-      <div className="pointer-events-none absolute -left-24 -top-28 h-56 w-56 rounded-full bg-teal/15 blur-3xl sm:h-72 sm:w-72" />
-      <div className="pointer-events-none absolute -right-10 top-8 h-40 w-40 rounded-full bg-clinical/10 blur-3xl sm:h-56 sm:w-56" />
-
-      <div className="relative mx-auto flex min-h-dvh w-full max-w-xl flex-col px-4 py-6 sm:px-6 sm:py-8">
-        <header className="flex flex-col items-center gap-2 sm:relative">
-          <Logo />
-          <p className="text-center text-[10px] font-semibold tracking-[0.18em] text-teal sm:text-[11px]">
-            SMART HEALTHCARE MANAGEMENT
-          </p>
-          <p className={`${caveat.className} text-center text-lg leading-tight text-teal sm:absolute sm:right-0 sm:top-0 sm:text-right sm:text-xl`}>
+    <div className="min-h-dvh overflow-x-hidden bg-[#F7FBFC] text-heading">
+      <div className="mx-auto flex min-h-dvh w-full max-w-lg flex-col px-4 py-4 sm:px-6 sm:py-5">
+        <header className="flex items-start justify-between gap-3">
+          <div className="flex min-w-0 flex-1 flex-col items-center sm:items-start">
+            <Logo />
+            <p className="mt-0.5 text-[10px] font-semibold tracking-[0.16em] text-teal">
+              SMART HEALTHCARE MANAGEMENT
+            </p>
+          </div>
+          <p className={`${caveat.className} shrink-0 pt-1 text-right text-base leading-tight text-teal sm:text-lg`}>
             Better Care
             <br />
             Smarter Systems
           </p>
         </header>
 
-        <div className="flex flex-1 flex-col items-center pt-8 sm:pt-10">
-          <div className="relative grid h-16 w-16 place-items-center sm:h-[88px] sm:w-[88px]">
-            <span className="absolute left-1 top-2 h-2 w-2 rounded-full bg-teal/70 sm:h-2.5 sm:w-2.5" />
-            <span className="absolute right-0 top-5 h-1.5 w-1.5 rounded-full bg-clinical/80 sm:h-2 sm:w-2" />
-            <span className="absolute -right-1 bottom-5 h-2 w-2 rounded-full bg-success/80 sm:h-2.5 sm:w-2.5" />
-            <span className="absolute left-0 bottom-3 h-1.5 w-1.5 rounded-full bg-warning/80 sm:h-2 sm:w-2" />
-            <div className="grid h-14 w-14 place-items-center rounded-full bg-success text-white shadow-[0_10px_30px_rgba(16,185,129,0.35)] sm:h-[72px] sm:w-[72px]">
-              <svg viewBox="0 0 24 24" className="h-8 w-8 sm:h-10 sm:w-10" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <path d="M5 12.5 9.5 17 19 7.5" />
-              </svg>
-            </div>
+        <div className="flex flex-1 flex-col items-center justify-center py-3">
+          <div className="grid h-12 w-12 place-items-center rounded-full bg-success text-white shadow-[0_8px_24px_rgba(16,185,129,0.3)] sm:h-14 sm:w-14">
+            <svg viewBox="0 0 24 24" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M5 12.5 9.5 17 19 7.5" />
+            </svg>
           </div>
 
-          <h1 className="mt-5 text-center font-heading text-[26px] font-extrabold tracking-tight text-heading sm:mt-6 sm:text-4xl">
+          <h1 className="mt-3 text-center font-heading text-[22px] font-extrabold tracking-tight text-heading sm:text-[28px]">
             Demo Request Received!
           </h1>
-          <p className="mt-3 max-w-md px-1 text-center text-sm leading-relaxed text-muted sm:text-base">
+          <p className="mt-1.5 max-w-md text-center text-xs leading-relaxed text-muted sm:text-sm">
             Thank you for your interest in MedicoreERP. We have received your request and our team will confirm your selected time by email.
           </p>
 
-          <div className="mt-6 w-full divide-y divide-black/[0.06] overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-card sm:mt-8 sm:rounded-3xl">
+          <div className="mt-4 w-full divide-y divide-black/[0.06] overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-soft">
             <DetailRow icon={CalendarDays} label="Scheduled Date & Time" value={scheduled} />
             <DetailRow icon={Video} label="Meeting Details" value="Meeting details will follow after confirmation" />
             <DetailRow icon={FileText} label="Reference ID" value={reference} />
           </div>
 
-          <div className="mt-8 flex w-full flex-col items-center gap-4 sm:mt-10 sm:flex-row sm:items-center sm:justify-between">
-            <p className={`${caveat.className} text-center text-[26px] leading-tight text-teal sm:text-left sm:text-3xl`}>
+          <div className="mt-4 grid w-full grid-cols-[1fr_auto] items-center gap-3">
+            <p className={`${caveat.className} text-left text-xl leading-tight text-teal sm:text-2xl`}>
               Thank you
               <br />
               for choosing
               <br />
               MedicoreERP!
             </p>
-            <HospitalArt className="h-auto w-28 shrink-0 sm:w-36" />
+            <HospitalArt className="h-[72px] w-[100px] sm:h-[88px] sm:w-[124px]" />
           </div>
 
-          <p className="mt-5 max-w-md text-center text-sm leading-relaxed text-muted">
+          <p className="mt-3 text-center text-xs leading-relaxed text-muted sm:text-sm">
             We&apos;re excited to show you how MedicoreERP can simplify and manage your healthcare operations.
           </p>
 
           <Link
             href="/"
-            className="mt-5 inline-flex h-11 w-full max-w-xs items-center justify-center gap-2 rounded-pill bg-teal px-6 text-sm font-bold text-white shadow-soft transition hover:bg-teal-dark sm:mt-6 sm:h-12 sm:w-auto sm:px-8 sm:text-[15px]"
+            className="mt-3 inline-flex h-10 items-center justify-center gap-2 rounded-pill bg-teal px-6 text-sm font-bold text-white shadow-soft transition hover:bg-teal-dark sm:h-11 sm:px-7"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Website
           </Link>
         </div>
 
-        <footer className="mt-8 flex flex-col items-center gap-2 border-t border-black/[0.06] py-5 text-xs text-muted sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4 sm:gap-y-2 sm:text-sm">
-          <a href="mailto:info@medicoreerp.com" className="inline-flex items-center gap-2 hover:text-teal">
-            <Mail className="h-4 w-4 shrink-0 text-teal" /> info@medicoreerp.com
+        <footer className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-t border-black/[0.06] pt-3 text-[11px] text-muted sm:text-xs">
+          <a href="mailto:info@medicoreerp.com" className="inline-flex items-center gap-1.5 hover:text-teal">
+            <Mail className="h-3.5 w-3.5 text-teal" /> info@medicoreerp.com
           </a>
-          <span className="hidden text-black/20 sm:inline">|</span>
-          <a href="https://medicoreerp.com" className="inline-flex items-center gap-2 hover:text-teal">
-            <Globe className="h-4 w-4 shrink-0 text-teal" /> www.medicoreerp.com
+          <span className="text-black/20">|</span>
+          <a href="https://medicoreerp.com" className="inline-flex items-center gap-1.5 hover:text-teal">
+            <Globe className="h-3.5 w-3.5 text-teal" /> www.medicoreerp.com
           </a>
-          <span className="hidden text-black/20 sm:inline">|</span>
-          <a href="tel:+919966411913" className="inline-flex items-center gap-2 hover:text-teal">
-            <Phone className="h-4 w-4 shrink-0 text-teal" /> +91 99664 11913
+          <span className="text-black/20">|</span>
+          <a href="tel:+919966411913" className="inline-flex items-center gap-1.5 hover:text-teal">
+            <Phone className="h-3.5 w-3.5 text-teal" /> +91 99664 11913
           </a>
         </footer>
       </div>
