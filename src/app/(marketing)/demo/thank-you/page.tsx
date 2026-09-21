@@ -67,28 +67,24 @@ export default async function DemoThankYouPage({
   const reference = ref || "Pending";
 
   return (
-    <div className="relative min-h-dvh bg-[#F7FBFC] text-heading">
+    <div className="relative min-h-dvh overflow-x-hidden bg-[#F7FBFC] text-heading">
       <div className="pointer-events-none absolute -left-24 -top-28 h-56 w-56 rounded-full bg-teal/15 blur-3xl sm:h-72 sm:w-72" />
       <div className="pointer-events-none absolute -right-10 top-8 h-40 w-40 rounded-full bg-clinical/10 blur-3xl sm:h-56 sm:w-56" />
-      <HospitalArt className="pointer-events-none absolute bottom-16 right-2 hidden w-[180px] opacity-90 lg:bottom-20 lg:right-8 lg:block lg:w-[240px] xl:right-16" />
 
-      <div className="relative mx-auto flex min-h-dvh w-full max-w-3xl flex-col px-4 py-6 sm:px-8 sm:py-8 lg:py-10">
-        <header className="grid grid-cols-1 items-start gap-2 sm:grid-cols-[1fr_auto_1fr]">
-          <div className="hidden sm:block" />
-          <div className="flex flex-col items-center">
-            <Logo />
-            <p className="mt-1 text-center text-[10px] font-semibold tracking-[0.18em] text-teal sm:text-[11px]">
-              SMART HEALTHCARE MANAGEMENT
-            </p>
-          </div>
-          <p className={`${caveat.className} text-center text-lg leading-tight text-teal sm:text-right sm:text-xl`}>
+      <div className="relative mx-auto flex min-h-dvh w-full max-w-xl flex-col px-4 py-6 sm:px-6 sm:py-8">
+        <header className="flex flex-col items-center gap-2 sm:relative">
+          <Logo />
+          <p className="text-center text-[10px] font-semibold tracking-[0.18em] text-teal sm:text-[11px]">
+            SMART HEALTHCARE MANAGEMENT
+          </p>
+          <p className={`${caveat.className} text-center text-lg leading-tight text-teal sm:absolute sm:right-0 sm:top-0 sm:text-right sm:text-xl`}>
             Better Care
             <br />
             Smarter Systems
           </p>
         </header>
 
-        <div className="flex flex-1 flex-col items-center justify-center py-8 sm:py-10">
+        <div className="flex flex-1 flex-col items-center pt-8 sm:pt-10">
           <div className="relative grid h-16 w-16 place-items-center sm:h-[88px] sm:w-[88px]">
             <span className="absolute left-1 top-2 h-2 w-2 rounded-full bg-teal/70 sm:h-2.5 sm:w-2.5" />
             <span className="absolute right-0 top-5 h-1.5 w-1.5 rounded-full bg-clinical/80 sm:h-2 sm:w-2" />
@@ -101,45 +97,44 @@ export default async function DemoThankYouPage({
             </div>
           </div>
 
-          <h1 className="mt-5 text-center font-heading text-[28px] font-extrabold tracking-tight text-heading sm:mt-6 sm:text-4xl">
+          <h1 className="mt-5 text-center font-heading text-[26px] font-extrabold tracking-tight text-heading sm:mt-6 sm:text-4xl">
             Demo Request Received!
           </h1>
-          <p className="mt-3 max-w-lg px-2 text-center text-sm leading-relaxed text-muted sm:text-base">
-            Thank you for your interest in MedicoreERP.
-            <br className="hidden sm:block" />
-            {" "}We have received your request and our team will confirm your selected time by email.
+          <p className="mt-3 max-w-md px-1 text-center text-sm leading-relaxed text-muted sm:text-base">
+            Thank you for your interest in MedicoreERP. We have received your request and our team will confirm your selected time by email.
           </p>
 
-          <div className="mt-6 w-full max-w-lg divide-y divide-black/[0.06] overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-card sm:mt-8 sm:rounded-3xl">
+          <div className="mt-6 w-full divide-y divide-black/[0.06] overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-card sm:mt-8 sm:rounded-3xl">
             <DetailRow icon={CalendarDays} label="Scheduled Date & Time" value={scheduled} />
             <DetailRow icon={Video} label="Meeting Details" value="Meeting details will follow after confirmation" />
             <DetailRow icon={FileText} label="Reference ID" value={reference} />
           </div>
 
-          <p className={`${caveat.className} mt-6 text-center text-2xl leading-tight text-teal sm:mt-8 lg:self-start lg:pl-4`}>
-            Thank you
-            <br />
-            for choosing
-            <br />
-            MedicoreERP!
-          </p>
+          <div className="mt-8 flex w-full flex-col items-center gap-4 sm:mt-10 sm:flex-row sm:items-center sm:justify-between">
+            <p className={`${caveat.className} text-center text-[26px] leading-tight text-teal sm:text-left sm:text-3xl`}>
+              Thank you
+              <br />
+              for choosing
+              <br />
+              MedicoreERP!
+            </p>
+            <HospitalArt className="h-auto w-28 shrink-0 sm:w-36" />
+          </div>
 
-          <HospitalArt className="mt-2 w-40 lg:hidden" />
-
-          <p className="mt-4 max-w-md px-2 text-center text-sm text-muted">
+          <p className="mt-5 max-w-md text-center text-sm leading-relaxed text-muted">
             We&apos;re excited to show you how MedicoreERP can simplify and manage your healthcare operations.
           </p>
 
           <Link
             href="/"
-            className="mt-5 inline-flex h-11 items-center gap-2 rounded-pill bg-teal px-6 text-sm font-bold text-white shadow-soft transition hover:bg-teal-dark sm:mt-6 sm:h-12 sm:px-7 sm:text-[15px]"
+            className="mt-5 inline-flex h-11 w-full max-w-xs items-center justify-center gap-2 rounded-pill bg-teal px-6 text-sm font-bold text-white shadow-soft transition hover:bg-teal-dark sm:mt-6 sm:h-12 sm:w-auto sm:px-8 sm:text-[15px]"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Website
           </Link>
         </div>
 
-        <footer className="flex flex-col items-center gap-2 border-t border-black/[0.06] pt-4 text-xs text-muted sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-5 sm:gap-y-2 sm:pt-6 sm:text-sm">
+        <footer className="mt-8 flex flex-col items-center gap-2 border-t border-black/[0.06] py-5 text-xs text-muted sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4 sm:gap-y-2 sm:text-sm">
           <a href="mailto:info@medicoreerp.com" className="inline-flex items-center gap-2 hover:text-teal">
             <Mail className="h-4 w-4 shrink-0 text-teal" /> info@medicoreerp.com
           </a>
