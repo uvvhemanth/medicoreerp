@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/input";
 import { sendLeadWithEmailJs } from "@/lib/emailjs";
-import { CheckCircle2, CalendarCheck } from "lucide-react";
 
 type Variant = "demo" | "contact" | "sandbox";
 
@@ -23,11 +23,12 @@ function readStoredUtm(): Record<string, string> {
 }
 
 export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [serverError, setServerError] = useState("");
   const [utm, setUtm] = useState<Record<string, string>>({});
+  const submittingRef = useRef(false);
 
   useEffect(() => {
     // Persist first-touch UTMs and attach page context (§7.3)
@@ -54,6 +55,7 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submittingRef.current || loading) return;
     setServerError("");
     const form = new FormData(e.currentTarget);
     const data = Object.fromEntries(form.entries()) as Record<string, string>;
@@ -64,6 +66,7 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
     setErrors(errs);
     if (Object.keys(errs).length) return;
 
+    submittingRef.current = true;
     setLoading(true);
     try {
       await sendLeadWithEmailJs({
@@ -74,38 +77,20 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
         variant,
         consent: "marketing-demo",
       });
-      setSubmitted(true);
+      router.replace(
+        variant === "contact"
+          ? "/contact/thank-you"
+          : variant === "sandbox"
+            ? "/thank-you?from=sandbox"
+            : "/demo/thank-you",
+      );
     } catch (error) {
+      submittingRef.current = false;
       console.error("[lead-email-failed]", error);
       setServerError("We could not deliver your request. Please email info@medicoreerp.com or call +91 99664 11913.");
-    } finally {
       setLoading(false);
     }
   };
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col items-center justify-center rounded-card border-2 border-teal/25 bg-teal/[0.04] p-10 text-center">
-        <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-success/12 text-success">
-          <CheckCircle2 className="h-9 w-9" />
-        </div>
-        <h3 className="font-heading text-2xl font-bold text-heading">
-          {variant === "sandbox" ? "Request received" : "Thank you — your request was sent."}
-        </h3>
-        <p className="mt-2 max-w-sm text-muted">
-          {variant === "sandbox"
-            ? "Our team will contact you with the next steps."
-            : "Our team will reach out within one business day."}
-        </p>
-        {variant !== "sandbox" && (
-          <div className="mt-6 flex items-center gap-2 rounded-lg bg-card px-4 py-3 text-sm">
-            <CalendarCheck className="h-5 w-5 text-teal" />
-            <span className="text-body">Our team will confirm the next step by email</span>
-          </div>
-        )}
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-4 rounded-card border bg-card p-7 shadow-soft">

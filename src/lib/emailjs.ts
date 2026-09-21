@@ -39,6 +39,7 @@ export async function sendLeadWithEmailJs(lead: EmailLead) {
   const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    signal: AbortSignal.timeout(8000),
     body: JSON.stringify({
       service_id: serviceId,
       template_id: templateId,

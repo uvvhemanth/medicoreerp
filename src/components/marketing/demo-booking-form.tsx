@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/input";
 import { sendLeadWithEmailJs } from "@/lib/emailjs";
 import { cn } from "@/lib/utils";
-import { CalendarCheck, CheckCircle2, Clock, Video } from "lucide-react";
+import { Clock } from "lucide-react";
 
 type Errors = Record<string, string>;
 
@@ -52,17 +53,17 @@ function readStoredUtm(): Record<string, string> {
 }
 
 export function DemoBookingForm() {
+  const router = useRouter();
   const dates = useMemo(() => nextBusinessDays(8), []);
   const [step, setStep] = useState<1 | 2>(1);
   const [meetingDate, setMeetingDate] = useState(dates[0]?.value ?? "");
   const [meetingTime, setMeetingTime] = useState("11:00 AM");
   const [timezone, setTimezone] = useState("Asia/Kolkata (IST)");
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [serverError, setServerError] = useState("");
   const [utm, setUtm] = useState<Record<string, string>>({});
-  const [booking, setBooking] = useState<{ leadId?: string; when?: string }>({});
+  const submittingRef = useRef(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -84,6 +85,7 @@ export function DemoBookingForm() {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submittingRef.current || loading) return;
     setServerError("");
     const form = new FormData(e.currentTarget);
     const data = Object.fromEntries(form.entries()) as Record<string, string>;
@@ -96,6 +98,7 @@ export function DemoBookingForm() {
     setErrors(errs);
     if (Object.keys(errs).length) return;
 
+    submittingRef.current = true;
     setLoading(true);
     try {
       const result = await sendLeadWithEmailJs({
@@ -109,41 +112,18 @@ export function DemoBookingForm() {
         timezone,
         consent: "marketing-demo-meeting",
       });
-      setBooking({
-        leadId: result.leadId,
+      const params = new URLSearchParams({
         when: `${selectedLabel} · ${meetingTime} · ${timezone}`,
       });
-      setSubmitted(true);
+      if (result.leadId) params.set("ref", result.leadId);
+      router.replace(`/demo/thank-you?${params.toString()}`);
     } catch (error) {
+      submittingRef.current = false;
       console.error("[demo-email-failed]", error);
       setServerError("We could not deliver your request. Please email info@medicoreerp.com or call +91 99664 11913.");
-    } finally {
       setLoading(false);
     }
   };
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col items-center justify-center rounded-card border-2 border-teal/25 bg-teal/[0.04] p-10 text-center">
-        <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-success/12 text-success">
-          <CheckCircle2 className="h-9 w-9" />
-        </div>
-        <h3 className="font-heading text-2xl font-bold text-heading">Demo request received</h3>
-        <p className="mt-2 max-w-sm text-muted">
-          We sent your request to info@medicoreerp.com. Our team will confirm your selected time by email.
-        </p>
-        <div className="mt-6 w-full max-w-sm space-y-2 rounded-card border bg-card p-4 text-left text-sm">
-          <p className="flex items-center gap-2 font-semibold text-heading">
-            <CalendarCheck className="h-4 w-4 text-teal" /> {booking.when}
-          </p>
-          <p className="flex items-center gap-2 text-muted">
-            <Video className="h-4 w-4 text-teal" /> Meeting details will follow after confirmation
-          </p>
-          {booking.leadId && <p className="text-xs text-muted">Ref: {booking.leadId}</p>}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="rounded-card border bg-card p-6 shadow-soft sm:p-7">
@@ -247,7 +227,7 @@ export function DemoBookingForm() {
       )}
 
       {step === 2 && (
-        <form onSubmit={onSubmit} noValidate className="space-y-4">
+        <form onSubmit={onSubmit} noValidate className="space-y-4" aria-busy={loading}>
           <div className="rounded-xl border border-teal/25 bg-teal/[0.05] px-3 py-2 text-sm font-semibold text-teal">
             Meeting: {selectedLabel} · {meetingTime} · {timezone}
           </div>
@@ -301,7 +281,7 @@ export function DemoBookingForm() {
             <Button type="button" variant="outline" className="sm:w-1/3" onClick={() => setStep(1)}>
               Back
             </Button>
-            <Button type="submit" loading={loading} className="sm:flex-1" size="lg">
+            <Button type="submit" loading={loading} disabled={loading} className="sm:flex-1" size="lg">
               Confirm demo meeting
             </Button>
           </div>
