@@ -5,29 +5,82 @@ export function absoluteUrl(path = "") {
   return path.startsWith("http") ? path : `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-export function organizationJsonLd() {
+/** Site-wide schema graph for the document head. */
+export function siteGraphJsonLd() {
+  const origin = `${SITE_URL}/`;
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: SITE_NAME,
-    url: SITE_URL,
-    logo: absoluteUrl("/favicon.ico"),
-    description:
-      "AI-native hospital operating system for clinical, operational, and financial workflows.",
-    sameAs: [],
-  };
-}
-
-export function softwareApplicationJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: SITE_NAME,
-    applicationCategory: "HealthApplication",
-    operatingSystem: "Web",
-    url: SITE_URL,
-    description:
-      "Run the entire hospital on one AI-native platform — clinical, operational, and financial.",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${origin}#organization`,
+        name: SITE_NAME,
+        url: origin,
+        description:
+          "MedicoreERP provides integrated hospital management and hospital information system software for hospitals, clinics, and healthcare organizations.",
+        email: "info@medicoreerp.com",
+        telephone: "+91 99664 11913",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+91 99664 11913",
+          email: "info@medicoreerp.com",
+          contactType: "sales",
+          availableLanguage: ["English"],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${origin}#website`,
+        url: origin,
+        name: SITE_NAME,
+        publisher: { "@id": `${origin}#organization` },
+        inLanguage: "en-IN",
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${origin}#webpage`,
+        url: origin,
+        name: "Hospital Management System Software | MedicoreERP",
+        description:
+          "MedicoreERP provides hospital management software to help healthcare organizations manage patient registration, appointments, OPD, IPD, electronic medical records, laboratory, radiology, pharmacy, billing, insurance, inventory, and hospital operations.",
+        isPartOf: { "@id": `${origin}#website` },
+        about: { "@id": `${origin}#software` },
+        publisher: { "@id": `${origin}#organization` },
+        inLanguage: "en-IN",
+        mainEntity: { "@id": `${origin}#software` },
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${origin}#software`,
+        name: SITE_NAME,
+        url: origin,
+        description:
+          "An integrated hospital management system and hospital information system designed to support clinical, administrative, diagnostic, pharmacy, billing, and financial workflows.",
+        applicationCategory: "BusinessApplication",
+        applicationSubCategory: "Hospital Management System",
+        operatingSystem: "Web-based",
+        publisher: { "@id": `${origin}#organization` },
+        featureList: [
+          "Patient registration and management",
+          "Appointment scheduling and patient queues",
+          "Electronic Medical Records (EMR)",
+          "Outpatient Department (OPD) management",
+          "Inpatient Department (IPD) management",
+          "Clinical documentation and workflows",
+          "Laboratory Information System (LIS)",
+          "Radiology and medical imaging workflows",
+          "Pharmacy and prescription management",
+          "Hospital billing and insurance claims",
+          "Ward and bed management",
+          "Nursing and patient care management",
+          "Inventory and supply chain management",
+          "Patient communication and reminders",
+          "Hospital dashboards and analytics",
+          "Healthcare system integrations",
+        ],
+        inLanguage: "en-IN",
+      },
+    ],
   };
 }
 

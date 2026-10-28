@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ToastProvider } from "@/components/ui/toast";
 import { JsonLd } from "@/components/marketing/json-ld";
 import { HideNextDevBadge } from "@/components/marketing/hide-next-dev-badge";
-import { organizationJsonLd, softwareApplicationJsonLd } from "@/lib/seo";
+import { siteGraphJsonLd } from "@/lib/seo";
 import { SITE_URL } from "@/lib/content/marketing";
 
 const GA_MEASUREMENT_ID = "G-Q82LRBQGTP";
@@ -87,9 +87,9 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
+        <JsonLd data={siteGraphJsonLd()} />
       </head>
       <body className={`${inter.variable} ${manrope.variable} font-sans antialiased`}>
-        <JsonLd data={[organizationJsonLd(), softwareApplicationJsonLd()]} />
         <ThemeProvider>
           <HideNextDevBadge />
           <ToastProvider>{children}</ToastProvider>
