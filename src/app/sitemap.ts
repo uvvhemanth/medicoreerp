@@ -1,8 +1,16 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/content/marketing";
+import { BLOG_ARTICLES } from "@/lib/content/blog-articles";
 
 const DEFAULT_LASTMOD = new Date("2026-09-19T16:04:15+01:00");
 const BLOG_LASTMOD = new Date("2026-09-19T16:04:22+01:00");
+
+/** Blog posts report the date their content was last substantively updated. */
+function blogLastMod(path: string) {
+  const slug = path.replace("/resources/blog/", "");
+  const updated = BLOG_ARTICLES[slug]?.updated;
+  return updated ? new Date(`${updated}T00:00:00+05:30`) : BLOG_LASTMOD;
+}
 
 type Entry = {
   path: string;
@@ -64,14 +72,14 @@ const ENTRIES: Entry[] = [
   { path: "/interoperability/abdm", priority: 0.8 },
   { path: "/interoperability/migration", priority: 0.8 },
   { path: "/resources", priority: 1.0 },
-  { path: "/resources/blog/electronic-medical-records-guide", priority: 0.6, lastModified: BLOG_LASTMOD },
-  { path: "/resources/blog/hospital-appointment-scheduling", priority: 0.6, lastModified: BLOG_LASTMOD },
-  { path: "/resources/blog/patient-billing-and-invoices", priority: 0.6, lastModified: BLOG_LASTMOD },
-  { path: "/resources/blog/patient-appointment-reminders", priority: 0.6, lastModified: BLOG_LASTMOD },
-  { path: "/resources/blog/ambient-ai-clinical-documentation", priority: 0.6, lastModified: BLOG_LASTMOD },
-  { path: "/resources/blog/reducing-claim-denials-with-ai", priority: 0.6, lastModified: BLOG_LASTMOD },
-  { path: "/resources/blog/fhir-first-interoperability", priority: 0.6, lastModified: BLOG_LASTMOD },
-  { path: "/resources/blog/abdm-ready-hospital", priority: 0.6, lastModified: BLOG_LASTMOD },
+  { path: "/resources/blog/electronic-medical-records-guide", priority: 0.7, lastModified: blogLastMod("/resources/blog/electronic-medical-records-guide") },
+  { path: "/resources/blog/hospital-appointment-scheduling", priority: 0.7, lastModified: blogLastMod("/resources/blog/hospital-appointment-scheduling") },
+  { path: "/resources/blog/patient-billing-and-invoices", priority: 0.7, lastModified: blogLastMod("/resources/blog/patient-billing-and-invoices") },
+  { path: "/resources/blog/patient-appointment-reminders", priority: 0.7, lastModified: blogLastMod("/resources/blog/patient-appointment-reminders") },
+  { path: "/resources/blog/ambient-ai-clinical-documentation", priority: 0.7, lastModified: blogLastMod("/resources/blog/ambient-ai-clinical-documentation") },
+  { path: "/resources/blog/reducing-claim-denials-with-ai", priority: 0.7, lastModified: blogLastMod("/resources/blog/reducing-claim-denials-with-ai") },
+  { path: "/resources/blog/fhir-first-interoperability", priority: 0.7, lastModified: blogLastMod("/resources/blog/fhir-first-interoperability") },
+  { path: "/resources/blog/abdm-ready-hospital", priority: 0.7, lastModified: blogLastMod("/resources/blog/abdm-ready-hospital") },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

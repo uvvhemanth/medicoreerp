@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ doc: string }> }): Promise<Metadata> {
   const { doc } = await params;
   const d = DOCS[doc];
-  return d ? { title: d.title } : {};
+  return d ? { title: d.title, description: d.intro, alternates: { canonical: `/legal/${doc}` } } : {};
 }
 
 export default async function LegalPage({ params }: { params: Promise<{ doc: string }> }) {

@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Section, SectionHeading, CTABand, Reveal } from "@/components/marketing/blocks";
 import { HOME_STATS } from "@/lib/content/marketing";
 
-export const metadata: Metadata = { title: "About", description: "About MedicoreERP — medical ERP / HIS that clinicians actually want to use." };
+export const metadata: Metadata = {
+  title: "About Us — Hospital Management Software Company in Hyderabad",
+  description: "About MedicoreERP — the hospital management system and medical ERP built in Hyderabad for hospitals, clinics, diagnostic labs and pharmacies across India.",
+  alternates: { canonical: "/company/about" },
+};
 
 const VALUES = [
   ["Clinicians first", "We design for the 10th consult of a 12-hour shift, not the demo."],

@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Solutions by edition & persona",
   description: "Whether you're a clinic, hospital, lab, pharmacy chain, enterprise network, or government payer — MedicoreERP fits.",
+  alternates: { canonical: "/solutions" },
 };
 
 export default function SolutionsHub() {

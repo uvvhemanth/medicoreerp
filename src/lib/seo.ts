@@ -5,6 +5,29 @@ export function absoluteUrl(path = "") {
   return path.startsWith("http") ? path : `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/**
+ * Real business details for structured data. Fill these in with the exact
+ * address and profile URLs used on Google Business Profile — empty values are
+ * left out of the schema rather than published as placeholders.
+ */
+export const ORG_PROFILE = {
+  address: {
+    streetAddress: "",
+    addressLocality: "Hyderabad",
+    addressRegion: "Telangana",
+    postalCode: "",
+    addressCountry: "IN",
+  },
+  /** LinkedIn, Facebook, Instagram, YouTube, X, Google Business Profile, Crunchbase… */
+  sameAs: [] as string[],
+};
+
+function orgAddress() {
+  const a = ORG_PROFILE.address;
+  if (!a.streetAddress) return undefined;
+  return { "@type": "PostalAddress", ...a };
+}
+
 /** Site-wide schema graph for the document head. */
 export function siteGraphJsonLd() {
   const origin = `${SITE_URL}/`;
@@ -16,6 +39,9 @@ export function siteGraphJsonLd() {
         "@id": `${origin}#organization`,
         name: SITE_NAME,
         url: origin,
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
+        ...(orgAddress() ? { address: orgAddress() } : {}),
+        ...(ORG_PROFILE.sameAs.length ? { sameAs: ORG_PROFILE.sameAs } : {}),
         description:
           "MedicoreERP provides integrated hospital management and hospital information system software for hospitals, clinics, and healthcare organizations.",
         email: "info@medicoreerp.com",
@@ -104,17 +130,35 @@ export function articleJsonLd(input: {
   date: string;
   author: string;
   image?: string;
+  dateModified?: string;
+  keywords?: string[];
+  wordCount?: number;
+  section?: string;
 }) {
+  const organizationAuthor = input.author.startsWith(SITE_NAME);
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: input.title,
     description: input.description,
     datePublished: input.date,
-    author: { "@type": "Person", name: input.author },
+    dateModified: input.dateModified ?? input.date,
+    author: organizationAuthor
+      ? { "@type": "Organization", name: input.author, url: absoluteUrl("/company/about") }
+      : { "@type": "Person", name: input.author },
     image: input.image,
+    keywords: input.keywords?.join(", "),
+    wordCount: input.wordCount,
+    articleSection: input.section,
+    inLanguage: "en-IN",
     mainEntityOfPage: absoluteUrl(input.path),
-    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
+    },
   };
 }
 

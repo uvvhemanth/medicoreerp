@@ -3,7 +3,11 @@ import { LeadForm } from "@/components/marketing/lead-form";
 import { Section, SectionHeading } from "@/components/marketing/blocks";
 import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 
-export const metadata: Metadata = { title: "Contact", description: "Get in touch with the MedicoreERP team." };
+export const metadata: Metadata = {
+  title: "Contact Us — Hospital Software Sales & Support",
+  description: "Contact MedicoreERP for hospital management software pricing, demos and support. Call or WhatsApp +91 99664 11913 or email info@medicoreerp.com.",
+  alternates: { canonical: "/contact" },
+};
 
 export default function ContactPage() {
   return (
