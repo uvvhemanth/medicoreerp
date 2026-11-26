@@ -153,11 +153,15 @@ export function SiteHeader() {
                   </Link>
                 )}
 
-                {hasChildren && isOpen && (
+                {/* Always rendered (hidden until opened) so the menu links are in the
+                    server HTML that search engines crawl; they never hover to open it. */}
+                {hasChildren && (
                   <div
                     role="menu"
+                    hidden={!isOpen}
                     className={cn(
                       "absolute top-full z-[110] pt-2",
+                      !isOpen && "hidden",
                       alignRight ? "right-0" : "left-0",
                       twoCol ? "w-[560px]" : "w-[380px]",
                       item.label === "Solutions" && "w-[580px]",

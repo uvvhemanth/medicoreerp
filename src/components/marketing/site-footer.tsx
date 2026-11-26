@@ -20,10 +20,10 @@ const columns = [
   {
     title: "Solutions",
     links: [
-      ["Clinics", "/solutions/clinic-management-software"],
-      ["Hospitals", "/solutions/hospital-management-software"],
-      ["Diagnostics", "/solutions/diagnostic-lab-management-software"],
-      ["Pharmacy", "/solutions/pharmacy-management-software"],
+      ["Hospital Management Software", "/solutions/hospital-management-software"],
+      ["Clinic Management Software", "/solutions/clinic-management-software"],
+      ["Pharmacy & Medical Store Software", "/solutions/pharmacy-management-software"],
+      ["Diagnostic Lab Software (LIS)", "/solutions/diagnostic-lab-management-software"],
       ["Enterprise", "/solutions/enterprise-healthcare-erp"],
       ["Government", "/solutions/government-payer-management"],
     ],
