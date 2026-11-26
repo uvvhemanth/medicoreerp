@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
 import { COMPLIANCE_BADGES } from "@/lib/content/marketing";
-import { Linkedin, Instagram, Facebook, Youtube, Twitter, Mail, Phone } from "lucide-react";
-import { SOCIAL_PROFILES } from "@/lib/seo";
+import { Linkedin, Instagram, Facebook, Youtube, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { OFFICE_ADDRESS, OFFICE_MAP_URL, SOCIAL_PROFILES } from "@/lib/seo";
 
 const SOCIAL_ICONS = { LinkedIn: Linkedin, Instagram, Facebook, YouTube: Youtube, X: Twitter } as const;
 
@@ -81,6 +81,16 @@ export function SiteFooter() {
               <a href="tel:+919966411913" className="flex items-center gap-2 font-semibold text-heading hover:text-teal">
                 <Phone className="h-4 w-4 text-teal" /> +91 99664 11913
               </a>
+              <address className="not-italic">
+                <a
+                  href={OFFICE_MAP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2 text-muted hover:text-teal"
+                >
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" /> {OFFICE_ADDRESS}
+                </a>
+              </address>
             </div>
             <div className="flex gap-2">
               {SOCIAL_PROFILES.map(({ network, url }) => {

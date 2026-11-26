@@ -25,20 +25,26 @@ export function absoluteUrl(path = "") {
  */
 export const ORG_PROFILE = {
   address: {
-    streetAddress: "",
+    streetAddress: "504 Tasula Residency, Road No. 2B, Ayyappa Society, Madhapur",
     addressLocality: "Hyderabad",
     addressRegion: "Telangana",
-    postalCode: "",
+    postalCode: "500081",
     addressCountry: "IN",
   },
 };
+
+/** One-line office address for display, e.g. in the footer and on the contact page. */
+export const OFFICE_ADDRESS = `${ORG_PROFILE.address.streetAddress}, ${ORG_PROFILE.address.addressLocality}, ${ORG_PROFILE.address.addressRegion} ${ORG_PROFILE.address.postalCode}`;
+
+/** Google Maps search link for the office address. */
+export const OFFICE_MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`MedicoreERP, ${OFFICE_ADDRESS}`)}`;
 
 /**
  * Official social profiles. Used for the footer icons and the Organization
  * `sameAs` list. Add Instagram, Facebook, YouTube, X or Google Business Profile here.
  */
 export const SOCIAL_PROFILES: { network: "LinkedIn" | "Instagram" | "Facebook" | "YouTube" | "X"; url: string }[] = [
-  { network: "LinkedIn", url: "https://www.linkedin.com/company/145227276/" },
+  { network: "LinkedIn", url: "https://www.linkedin.com/company/medicore-erp/" },
   { network: "Instagram", url: "https://www.instagram.com/medicoreerp/" },
   // Share link from the page owner; replace with the permanent page URL (facebook.com/<page-name>) when available.
   { network: "Facebook", url: "https://www.facebook.com/share/1FEvmCVXhC/" },

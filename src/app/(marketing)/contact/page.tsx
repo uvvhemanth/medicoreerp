@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { LeadForm } from "@/components/marketing/lead-form";
 import { Section, SectionHeading } from "@/components/marketing/blocks";
-import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare, Globe } from "lucide-react";
+import { OFFICE_ADDRESS, OFFICE_MAP_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact Us — Hospital Software Sales & Support",
@@ -19,7 +20,8 @@ export default function ContactPage() {
             {[
               { icon: Mail, label: "Official email", value: "info@medicoreerp.com", href: "mailto:info@medicoreerp.com" },
               { icon: Phone, label: "Phone", value: "+91 99664 11913", href: "tel:+919966411913" },
-              { icon: MapPin, label: "Service region", value: "India · MENA · SEA" },
+              { icon: MapPin, label: "Office", value: OFFICE_ADDRESS, href: OFFICE_MAP_URL },
+              { icon: Globe, label: "Service region", value: "India · MENA · SEA" },
               { icon: MessageSquare, label: "Enquiries", value: "Demo, sales, support and partnerships" },
             ].map(({ icon: Icon, label, value, href }) => (
               <div key={label} className="flex items-center gap-4 rounded-card border bg-card p-4 shadow-soft">
