@@ -36,6 +36,12 @@ export const ORG_PROFILE = {
 /** One-line office address for display, e.g. in the footer and on the contact page. */
 export const OFFICE_ADDRESS = `${ORG_PROFILE.address.streetAddress}, ${ORG_PROFILE.address.addressLocality}, ${ORG_PROFILE.address.addressRegion} ${ORG_PROFILE.address.postalCode}`;
 
+/**
+ * Other ways people write the brand. Google uses WebSite/Organization
+ * alternateName to recognise brand searches such as "medicore erp".
+ */
+export const BRAND_ALTERNATE_NAMES = ["MediCoreERP", "Medicore ERP", "MediCore ERP", "medicoreerp"];
+
 /** Office map pin, from the location shared by the owner (Madhapur, Hyderabad). */
 export const OFFICE_GEO = { latitude: 17.445256, longitude: 78.391354 };
 
@@ -85,6 +91,7 @@ export function siteGraphJsonLd() {
         "@type": "Organization",
         "@id": `${origin}#organization`,
         name: SITE_NAME,
+        alternateName: BRAND_ALTERNATE_NAMES,
         url: origin,
         logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
         ...(orgAddress() ? { address: orgAddress(), location: orgLocation() } : {}),
@@ -106,6 +113,7 @@ export function siteGraphJsonLd() {
         "@id": `${origin}#website`,
         url: origin,
         name: SITE_NAME,
+        alternateName: BRAND_ALTERNATE_NAMES,
         publisher: { "@id": `${origin}#organization` },
         inLanguage: "en-IN",
       },
