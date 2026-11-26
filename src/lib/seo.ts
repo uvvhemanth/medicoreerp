@@ -36,8 +36,15 @@ export const ORG_PROFILE = {
 /** One-line office address for display, e.g. in the footer and on the contact page. */
 export const OFFICE_ADDRESS = `${ORG_PROFILE.address.streetAddress}, ${ORG_PROFILE.address.addressLocality}, ${ORG_PROFILE.address.addressRegion} ${ORG_PROFILE.address.postalCode}`;
 
-/** Google Maps search link for the office address. */
-export const OFFICE_MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`MedicoreERP, ${OFFICE_ADDRESS}`)}`;
+/** Office map pin, from the location shared by the owner (Madhapur, Hyderabad). */
+export const OFFICE_GEO = { latitude: 17.445256, longitude: 78.391354 };
+
+/**
+ * Google Maps link to the exact office pin. When the Google Business Profile is
+ * live, replace this with its place link (google.com/maps/place/MedicoreERP/...)
+ * and add that link to the Organization sameAs.
+ */
+export const OFFICE_MAP_URL = `https://www.google.com/maps/search/?api=1&query=${OFFICE_GEO.latitude},${OFFICE_GEO.longitude}`;
 
 /**
  * Official social profiles. Used for the footer icons and the Organization
@@ -56,6 +63,18 @@ function orgAddress() {
   return { "@type": "PostalAddress", ...a };
 }
 
+function orgLocation() {
+  const address = orgAddress();
+  if (!address) return undefined;
+  return {
+    "@type": "Place",
+    name: "MedicoreERP office",
+    address,
+    geo: { "@type": "GeoCoordinates", ...OFFICE_GEO },
+    hasMap: OFFICE_MAP_URL,
+  };
+}
+
 /** Site-wide schema graph for the document head. */
 export function siteGraphJsonLd() {
   const origin = `${SITE_URL}/`;
@@ -68,7 +87,7 @@ export function siteGraphJsonLd() {
         name: SITE_NAME,
         url: origin,
         logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
-        ...(orgAddress() ? { address: orgAddress() } : {}),
+        ...(orgAddress() ? { address: orgAddress(), location: orgLocation() } : {}),
         ...(SOCIAL_PROFILES.length ? { sameAs: SOCIAL_PROFILES.map((p) => p.url) } : {}),
         description:
           "MedicoreERP provides integrated hospital management and hospital information system software for hospitals, clinics, and healthcare organizations.",
