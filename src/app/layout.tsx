@@ -27,7 +27,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    default: "MedicoreERP | Best Hospital Management System in Hyderabad",
     template: "%s | MedicoreERP",
   },
   description:
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   // No site-wide canonical: child pages would inherit "/" and be treated as homepage duplicates.
   // The homepage sets its own canonical in (marketing)/page.tsx.
   openGraph: {
-    title: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    title: "MedicoreERP | Best Hospital Management System in Hyderabad",
     description:
       "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
     type: "website",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    title: "MedicoreERP | Best Hospital Management System in Hyderabad",
     description:
       "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
   },

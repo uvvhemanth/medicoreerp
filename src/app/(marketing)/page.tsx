@@ -15,14 +15,14 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    absolute: "MedicoreERP | Best Hospital Management System in Hyderabad",
   },
   description:
     "MedicoreERP is a hospital management system in Hyderabad for EMR, OPD, IPD, billing, pharmacy, laboratory, radiology and inventory, all in one platform.",
   alternates: { canonical: "/" },
   openGraph: {
     images: DEFAULT_OG_IMAGES,
-    title: "Best Hospital Management System in Hyderabad | MedicoreERP",
+    title: "MedicoreERP | Best Hospital Management System in Hyderabad",
     description:
       "MedicoreERP is a hospital management system in Hyderabad for EMR, OPD, IPD, billing, pharmacy, laboratory, radiology and inventory, all in one platform.",
   },
@@ -85,10 +85,8 @@ export default function HomePage() {
         <div className="container-page relative z-10 grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-16">
           <Reveal>
             <div>
-              <p className="font-heading text-[13px] font-extrabold uppercase tracking-[0.18em] text-teal">
-                MedicoreERP
-              </p>
-              <h1 className="text-heading-display mt-4 max-w-xl">
+              <h1 className="text-heading-display max-w-xl">
+                <span className="block text-teal">MedicoreERP</span>{" "}
                 Best Hospital Management System Software in Hyderabad
               </h1>
               <p className="mt-3 text-xl font-semibold text-teal">

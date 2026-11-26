@@ -121,7 +121,7 @@ export function siteGraphJsonLd() {
         "@type": "WebPage",
         "@id": `${origin}#webpage`,
         url: origin,
-        name: "Hospital Management System Software | MedicoreERP",
+        name: "MedicoreERP | Best Hospital Management System in Hyderabad",
         description:
           "MedicoreERP provides hospital management software to help healthcare organizations manage patient registration, appointments, OPD, IPD, electronic medical records, laboratory, radiology, pharmacy, billing, insurance, inventory, and hospital operations.",
         isPartOf: { "@id": `${origin}#website` },
