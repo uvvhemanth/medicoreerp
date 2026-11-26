@@ -14,7 +14,7 @@ export default function SolutionsHub() {
   return (
     <>
       <Section>
-        <SectionHeading center eyebrow="Solutions" title="Is this for me? Yes." subtitle="Tuned bundles and proof for your kind of organization." className="mb-14" />
+        <SectionHeading as="h1" center eyebrow="Solutions" title="Software for clinics, hospitals, labs, and pharmacies" subtitle="Hospital management software editions tuned for your kind of healthcare organization." className="mb-14" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SOLUTIONS.map((s, i) => (
             <Reveal key={s.slug} delay={i * 0.05}>

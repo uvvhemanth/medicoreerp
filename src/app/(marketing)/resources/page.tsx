@@ -5,7 +5,7 @@ import { BookOpen, Building2, Mail, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Resources",
-  description: "Blog, about us, and contact for MedicoreERP.",
+  description: "Hospital management guides on EMR, billing, ABDM and AI, plus MedicoreERP company information and contact details for hospitals and clinics in India.",
   alternates: { canonical: "/resources" },
 };
 
@@ -19,7 +19,7 @@ export default function ResourcesHub() {
   return (
     <>
       <Section>
-        <SectionHeading center eyebrow="Resources" title="Learn and connect" className="mb-12" />
+        <SectionHeading as="h1" center eyebrow="Resources" title="Hospital management guides, company, and contact" className="mb-12" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {TILES.map((t, i) => (
             <Reveal key={t.title} delay={i * 0.05}>

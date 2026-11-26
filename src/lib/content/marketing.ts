@@ -1138,6 +1138,10 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
     slug: "platform",
     name: "Platform & Admin",
     tagline: "Configure, don't customize.",
+    seo: {
+      title: "Platform & Admin — No-Code Hospital Software Configuration | MedicoreERP",
+      description: "Configure MedicoreERP without custom code: workflow studio, form builder, roles and permissions, masters and audit settings for hospitals and clinics.",
+    },
     problem: "Every change to a legacy HIS means a consultant and a six-month project.",
     features: [
       { title: "Workflow Studio", desc: "Drag-drop approval chains and care pathways with live preview." },
@@ -2953,11 +2957,16 @@ export const BLOG_POSTS: BlogPost[] = [
 
 export const COMPLIANCE_BADGES = ["HIPAA", "GDPR", "ABDM", "SOC 2 Type II", "ISO 27001", "NABH"];
 
+/**
+ * Platform facts shown on the homepage and About page. Only product facts belong
+ * here; add customer outcomes (time saved, denial rates, client counts, uptime)
+ * only once they are measured and can be backed up.
+ */
 export const HOME_STATS = [
-  { value: "62%", label: "less documentation time" },
-  { value: "45%", label: "fewer claim denials" },
-  { value: "400+", label: "care teams served" },
-  { value: "99.98%", label: "platform uptime" },
+  { value: "10", label: "patient-journey steps, from registration to discharge, in one system" },
+  { value: "OPD + IPD", label: "outpatient and inpatient workflows on one platform" },
+  { value: "FHIR R4", label: "native APIs, plus HL7 v2, DICOM and ABDM integration" },
+  { value: "100% web", label: "browser-based — no software to install for your staff" },
 ];
 
 /** Home “Main Features” grid — maps to product pages (reference HIS layout). */
@@ -3067,7 +3076,12 @@ export const MAIN_FEATURES: MainFeature[] = [
   },
 ];
 
-export const LOGO_WALL = ["Sunrise Health", "Metro Network", "CityCare", "Wellness Labs", "Apollo-ish", "Rural Trust", "CarePlus", "MediGroup"];
+/**
+ * Client logo names for the (currently hidden) /customers page. These are
+ * placeholders, not real clients — replace with actual customers who have
+ * agreed to be named before re-enabling that page or showing a logo wall.
+ */
+export const LOGO_WALL: string[] = [];
 
 export const FAQ_PRICING = [
   { q: "How is MedicoreERP priced?", a: "Clinics pay a flat monthly fee; hospitals pay per active bed; enterprise is custom. All plans include updates, support, and the AI features at their tier." },

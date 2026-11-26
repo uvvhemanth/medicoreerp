@@ -12,7 +12,7 @@ import { Clock } from "lucide-react";
 export const metadata: Metadata = {
   title: "Hospital Management Blog: EMR, Billing, ABDM & AI Guides",
   description:
-    "Practical guides for Indian hospitals and clinics on EMR adoption, OPD scheduling, hospital billing and GST, claim denials, ABDM compliance, FHIR interoperability and AI documentation.",
+    "Practical guides for Indian hospitals and clinics on EMR adoption, OPD scheduling, billing and GST, claim denials, ABDM compliance and AI documentation.",
   alternates: { canonical: "/resources/blog" },
   openGraph: {
     images: DEFAULT_OG_IMAGES,

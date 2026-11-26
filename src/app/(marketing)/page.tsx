@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Section, SectionHeading, CTABand, Reveal, LogoWall, Eyebrow } from "@/components/marketing/blocks";
+import { Section, SectionHeading, CTABand, Reveal } from "@/components/marketing/blocks";
 import { HisDashboard } from "@/components/marketing/his-dashboard";
+import { WhatsAppIcon } from "@/components/marketing/whatsapp-fab";
+import { WHATSAPP_URL } from "@/lib/content/contact";
 import { PATIENT_JOURNEY } from "@/lib/content/dashboard";
-import { HOME_STATS, LOGO_WALL, TESTIMONIALS, PRODUCT_DOMAINS, CASE_STUDIES, COMPLIANCE_BADGES, MAIN_FEATURES } from "@/lib/content/marketing";
+import { HOME_STATS, PRODUCT_DOMAINS, COMPLIANCE_BADGES, MAIN_FEATURES } from "@/lib/content/marketing";
 import {
-  Sparkles, Zap, Network, ArrowRight, Star,
+  Sparkles, Zap, Network, ArrowRight,
   Stethoscope, Building2, CheckCircle2, Receipt, Users,
 } from "lucide-react";
 
@@ -16,13 +18,13 @@ export const metadata: Metadata = {
     absolute: "Best Hospital Management System in Hyderabad | MedicoreERP",
   },
   description:
-    "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
+    "MedicoreERP is a hospital management system in Hyderabad for EMR, OPD, IPD, billing, pharmacy, laboratory, radiology and inventory, all in one platform.",
   alternates: { canonical: "/" },
   openGraph: {
     images: DEFAULT_OG_IMAGES,
     title: "Best Hospital Management System in Hyderabad | MedicoreERP",
     description:
-      "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
+      "MedicoreERP is a hospital management system in Hyderabad for EMR, OPD, IPD, billing, pharmacy, laboratory, radiology and inventory, all in one platform.",
   },
 };
 
@@ -30,8 +32,8 @@ const MOATS = [
   {
     icon: Sparkles,
     title: "AI in every workflow",
-    stat: "↓62% doc time",
-    desc: "Ambient scribe drafts SOAP notes in the consult. Autonomous RCM codes, scrubs, and appeals — denials down ~45%. Predictive ops flags no-shows, LOS, and bed demand before they become chaos.",
+    stat: "Scribe · RCM · Predictive ops",
+    desc: "Ambient scribe drafts SOAP notes during the consult for the doctor to review and sign. Autonomous RCM helps code, scrub and appeal claims. Predictive ops flags no-shows, length of stay and bed demand early.",
   },
   {
     icon: Network,
@@ -43,7 +45,7 @@ const MOATS = [
     icon: Zap,
     title: "Live in weeks",
     stat: "6–10 wk go-live",
-    desc: "Clinics in 2–3 weeks, hospitals typically 6–10. Workflow Studio and Form Builder replace year-long consultant projects. Average customer go-live: ~9 weeks across branches.",
+    desc: "Clinics typically go live in 2–3 weeks and hospitals in 6–10, depending on modules and data migration. Workflow Studio and Form Builder replace year-long consultant projects.",
   },
 ];
 
@@ -107,12 +109,14 @@ export default function HomePage() {
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link href="/dashboard">Open full dashboard</Link>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" data-track="hero-whatsapp">
+                    <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
+                  </a>
                 </Button>
               </div>
               <p className="mt-6 flex items-center gap-1.5 text-base text-muted">
-                <Star className="h-4 w-4 fill-warning text-warning" />
-                Trusted by hospitals, clinics and healthcare teams
+                <CheckCircle2 className="h-4 w-4 text-teal" />
+                Free 30-minute demo · We reply within 1 business day
               </p>
             </div>
           </Reveal>
@@ -160,10 +164,9 @@ export default function HomePage() {
       {/* TRUST BAR */}
       <Section className="!py-10">
         <p className="mb-6 text-center text-xs font-bold uppercase tracking-[0.16em] text-muted">
-          Powering care teams across India, MENA & SEA
+          Built around healthcare standards and compliance frameworks
         </p>
-        <LogoWall logos={LOGO_WALL} />
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           {COMPLIANCE_BADGES.map((b) => (
             <span key={b} className="rounded-pill border bg-card px-3 py-1 text-[11px] font-semibold text-muted">
               {b}
@@ -320,14 +323,11 @@ export default function HomePage() {
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <SectionHeading
             center
-            eyebrow="Proven outcomes"
-            title="Results That Matter to Hospitals"
+            eyebrow="Platform at a glance"
+            title="Built to Run the Whole Hospital"
             subtitle="Improve operational efficiency, patient experience and financial visibility with one connected hospital platform."
             className="mb-0 max-w-3xl"
           />
-          <p className="text-subtitle mx-auto mt-5 max-w-2xl font-medium">
-            For this section, I recommend using only verified MedicoreERP statistics.
-          </p>
         </div>
         <div className="relative overflow-hidden rounded-[28px] border bg-gradient-to-br from-ink via-teal-deep to-teal px-8 py-12 text-white shadow-pop sm:px-14 sm:py-16">
           <div className="bg-grid absolute inset-0 opacity-10" />
@@ -345,56 +345,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </Section>
-
-      {/* CASE + TESTIMONIALS */}
-      <Section muted>
-        <SectionHeading center title="Loved by the people who use it daily" className="mb-12" />
-        <div className="mb-8 grid gap-5 lg:grid-cols-3">
-          {CASE_STUDIES.slice(0, 1).map((c) => (
-            <Reveal key={c.slug} className="lg:col-span-3">
-              <div className="group grid overflow-hidden rounded-card border bg-card shadow-soft lg:grid-cols-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={c.image} alt={c.org} className="aspect-[16/11] h-full w-full object-cover lg:aspect-auto" />
-                <div className="flex flex-col justify-center p-8 sm:p-10">
-                  <Eyebrow>{c.edition} · {c.region}</Eyebrow>
-                  <h3 className="mt-4 font-heading text-2xl font-extrabold text-heading sm:text-3xl">{c.org}</h3>
-                  <p className="mt-3 text-muted">{c.challenge}</p>
-                  <div className="mt-6 flex flex-wrap gap-4">
-                    {c.metrics.slice(0, 3).map((m) => (
-                      <div key={m.label}>
-                        <p className="font-heading text-2xl font-extrabold text-teal">{m.value}</p>
-                        <p className="text-xs text-muted">{m.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <div className="grid gap-5 lg:grid-cols-3">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.08}>
-              <figure className="flex h-full flex-col rounded-card border bg-card p-6 shadow-soft">
-                <div className="mb-3 flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-warning text-warning" />
-                  ))}
-                </div>
-                <blockquote className="flex-1 text-body">“{t.quote}”</blockquote>
-                <figcaption className="mt-5 flex items-center gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={t.avatar} alt={t.name} className="h-11 w-11 rounded-full object-cover" />
-                  <div>
-                    <p className="font-semibold text-heading">{t.name}</p>
-                    <p className="text-xs text-muted">{t.role}, {t.org}</p>
-                  </div>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
         </div>
       </Section>
 

@@ -257,11 +257,19 @@ export function generateStaticParams() {
   return STANDARDS.map((s) => ({ standard: s.slug }));
 }
 
+/** Search descriptions (120–160 chars) for standards whose on-page summary is too short. */
+const META_DESCRIPTIONS: Record<string, string> = {
+  migration: "Move to MedicoreERP from your old HIS with planned data migration and guaranteed standard-format exports, so your hospital data always stays yours.",
+  dicom: "Zero-footprint medical imaging in MedicoreERP: DICOM modality worklist, PACS integration and a browser-based viewer for radiology teams. No installs.",
+  hl7: "Bidirectional HL7 v2 interfaces in MedicoreERP for lab analyzers, ADT feeds and legacy hospital systems: orders go out and results flow into the EMR.",
+  abdm: "ABDM integration in MedicoreERP: ABHA creation and verification, Scan and Share registration, HFR and HPR registries, and consent-based record sharing.",
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ standard: string }> }): Promise<Metadata> {
   const { standard } = await params;
   const s = STANDARDS.find((x) => x.slug === standard);
   return s
-    ? { title: `${s.name} — Interoperability`, description: s.desc, alternates: { canonical: `/interoperability/${s.slug}` } }
+    ? { title: `${s.name} — Interoperability`, description: META_DESCRIPTIONS[s.slug] ?? s.desc, alternates: { canonical: `/interoperability/${s.slug}` } }
     : {};
 }
 

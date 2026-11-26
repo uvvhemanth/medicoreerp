@@ -15,6 +15,7 @@ export default function ProductHub() {
     <>
       <Section>
         <SectionHeading
+          as="h1"
           center
           eyebrow="Product"
           title="One platform. Every workflow."

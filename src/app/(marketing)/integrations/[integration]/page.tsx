@@ -24,6 +24,8 @@ type IntegrationPage = {
   eyebrow: string;
   tagline: string;
   intro: string;
+  /** Search description (120–160 chars); falls back to intro. */
+  metaDescription?: string;
   image: string;
   icon: LucideIcon;
   highlights: string[];
@@ -39,6 +41,7 @@ const INTEGRATIONS: Record<string, IntegrationPage> = {
     title: "Third-party API Integrations",
     eyebrow: "Connected medical ERP",
     tagline: "Connect every clinical, financial, and operational system.",
+    metaDescription: "Connect MedicoreERP to labs, imaging, payment gateways, insurers and ABDM through secure FHIR, HL7, DICOM and REST APIs, OAuth 2.0 and real-time webhooks.",
     intro:
       "MedicoreERP provides secure FHIR, HL7, DICOM, REST API, and webhook connections for laboratories, imaging systems, payment gateways, insurers, ABDM services, and your existing hospital applications.",
     image:
@@ -129,6 +132,7 @@ const INTEGRATIONS: Record<string, IntegrationPage> = {
     title: "WhatsApp Integration",
     eyebrow: "Patient communication",
     tagline: "Keep patients informed before, during, and after care.",
+    metaDescription: "Send appointment updates, reminders, report links, invoices and follow-ups to patients on WhatsApp from MedicoreERP, using the official Business Platform.",
     intro:
       "Connect MedicoreERP with the official WhatsApp Business Platform to automate appointment updates, reminders, secure report links, invoices, payment requests, discharge instructions, and follow-up communication.",
     image:
@@ -229,7 +233,7 @@ export async function generateMetadata({
   const { integration } = await params;
   const page = INTEGRATIONS[integration];
   return page
-    ? { title: page.title, description: page.intro, alternates: { canonical: `/integrations/${integration}` } }
+    ? { title: page.title, description: page.metaDescription ?? page.intro, alternates: { canonical: `/integrations/${integration}` } }
     : {};
 }
 

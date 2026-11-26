@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { DemoBookingForm } from "@/components/marketing/demo-booking-form";
 import { Section, SectionHeading } from "@/components/marketing/blocks";
-import { TESTIMONIALS } from "@/lib/content/marketing";
-import { CheckCircle2, Clock, ShieldCheck, Video, Calendar } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/content/contact";
+import { CheckCircle2, Clock, ShieldCheck, Video, Calendar, Phone, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Book a Demo Meeting",
@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function DemoPage() {
-  const t = TESTIMONIALS[0];
   return (
     <Section>
       <div className="grid gap-12 lg:grid-cols-2">
@@ -36,13 +35,18 @@ export default function DemoPage() {
               </li>
             ))}
           </ul>
-          <figure className="mt-10 rounded-card border-l-4 border-teal bg-mist/40 p-6">
-            <blockquote className="font-heading text-lg font-bold text-heading">“{t.quote}”</blockquote>
-            <figcaption className="mt-2 flex items-center gap-3 text-sm text-muted">
-              <img src={t.avatar} alt={t.name} className="h-9 w-9 rounded-full object-cover" />
-              {t.name}, {t.role} · {t.org}
-            </figcaption>
-          </figure>
+          <div className="mt-10 rounded-card border-l-4 border-teal bg-mist/40 p-6">
+            <p className="font-heading text-lg font-bold text-heading">Prefer to talk right now?</p>
+            <p className="mt-1 text-sm text-muted">Call or WhatsApp our team and we&apos;ll answer your questions directly.</p>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
+              <a href="tel:+919966411913" data-track="demo-call" className="inline-flex items-center gap-2 rounded-control border bg-card px-4 py-2 text-heading hover:border-teal/40 hover:text-teal">
+                <Phone className="h-4 w-4 text-teal" /> +91 99664 11913
+              </a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" data-track="demo-whatsapp" className="inline-flex items-center gap-2 rounded-control border bg-card px-4 py-2 text-heading hover:border-teal/40 hover:text-teal">
+                <MessageCircle className="h-4 w-4 text-teal" /> WhatsApp us
+              </a>
+            </div>
+          </div>
         </div>
         <DemoBookingForm />
       </div>

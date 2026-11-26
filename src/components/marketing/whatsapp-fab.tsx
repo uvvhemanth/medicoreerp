@@ -1,7 +1,8 @@
 "use client";
 
-export const WHATSAPP_URL =
-  "https://wa.me/919966411913?text=Hello%20MedicoreERP%2C%20I%20would%20like%20to%20know%20more%20about%20your%20medical%20ERP.";
+import { WHATSAPP_URL } from "@/lib/content/contact";
+
+export { WHATSAPP_URL };
 
 export function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (

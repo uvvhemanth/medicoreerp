@@ -18,7 +18,7 @@ const VALUES = [
 const TIMELINE = [
   ["2024", "Founded with a simple thesis: usability is the moat in health IT."],
   ["2025", "First clinic goes live in 3 weeks. Ambient scribe ships."],
-  ["2026", "50+ modules, command-center digital twin, 400+ care teams."],
+  ["2026", "50+ modules and a command-center digital twin on one platform."],
 ];
 
 export default function AboutPage() {
