@@ -3,6 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   // Hide the floating Next.js "N" badge in local development
   devIndicators: false,
+  experimental: {
+    agentUpgrade: "security",
+  },
   // Pricing + Resources dropdown pages temporarily removed from the marketing site
   async redirects() {
     return [
