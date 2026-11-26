@@ -43,6 +43,9 @@ const nextConfig = {
       { source: "/product/hrm", destination: "/product/workforce-hrm", permanent: true },
     ];
   },
+  async rewrites() {
+    return [{ source: "/favicon.ico", destination: "/icon.png" }];
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
