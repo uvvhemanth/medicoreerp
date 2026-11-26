@@ -53,10 +53,10 @@ export const NAV: NavItem[] = [
     menuIcon: Building2,
     featured: { title: "Find your edition", desc: "Clinic to government — see the fit", href: "/solutions", icon: ArrowRight },
     children: [
-      { label: "Clinics", href: "/solutions/clinic-management-software", desc: "OPD, billing & patient access", icon: Stethoscope },
-      { label: "Hospitals", href: "/solutions/hospital-management-software", desc: "Full hospital operations", icon: Building2 },
-      { label: "Diagnostics / Labs", href: "/solutions/diagnostic-lab-management-software", desc: "LIS, RIS & reporting", icon: Microscope },
-      { label: "Pharmacy Chains", href: "/solutions/pharmacy-management-software", desc: "Multi-store inventory & POS", icon: Pill },
+      { label: "Clinic Management Software", href: "/solutions/clinic-management-software", desc: "For doctors & clinics: OPD, EMR & billing", icon: Stethoscope },
+      { label: "Hospital Management Software", href: "/solutions/hospital-management-software", desc: "HMS for complete hospital operations", icon: Building2 },
+      { label: "Diagnostic Lab Software (LIS)", href: "/solutions/diagnostic-lab-management-software", desc: "Pathology labs & diagnostic centres", icon: Microscope },
+      { label: "Pharmacy & Medical Store Software", href: "/solutions/pharmacy-management-software", desc: "Billing, batch, expiry & multi-store stock", icon: Pill },
       { label: "Enterprise Networks", href: "/solutions/enterprise-healthcare-erp", desc: "Multi-branch · custom rollout", icon: Network },
       { label: "Government / Payer", href: "/solutions/government-payer-management", desc: "ABDM-ready · program-based", icon: Landmark },
     ],
@@ -1175,24 +1175,27 @@ export const SOLUTIONS: Solution[] = [
 
 export const CLINIC_LANDING = {
   seo: {
-    title: "Clinic Management Software in Hyderabad | MedicoreERP",
+    title: "Clinic Management Software for Doctors, Hyderabad | MedicoreERP",
     description:
-      "Manage appointments, EMR, prescriptions, billing, diagnostics and patient follow-ups with MedicoreERP Clinic Management Software in Hyderabad.",
+      "Clinic management software for doctors in Hyderabad and India: appointments, EMR, digital prescriptions, OPD billing and patient follow-ups in one system.",
     keywords: [
-      "Clinic Management Software in Hyderabad",
-      "Clinic management system",
-      "clinic ERP software",
-      "clinic software Hyderabad",
-      "EMR software for clinics",
-      "polyclinic management software",
-      "doctor clinic software",
+      "clinic management software",
+      "clinic management system",
+      "clinic software for doctors",
+      "doctor software",
+      "clinic management software India",
+      "clinic management software Hyderabad",
       "OPD management software",
+      "e-prescription software",
+      "patient management software",
+      "appointment software for doctors",
       "clinic billing software",
-      "medical practice management software",
+      "polyclinic management software",
+      "EMR software for clinics",
     ],
     canonical: "/solutions/clinic-management-software",
   },
-  heroTitle: "Clinic Management Software Built Around the Patient Visit",
+  heroTitle: "Clinic Management Software for Doctors and Clinics",
   heroSubtitle: "From Appointment to Follow-Up—Manage Your Clinic in One Place.",
   overview: [
     "Running a clinic should not mean switching between appointment books, paper records, billing applications and spreadsheets.",
@@ -1342,6 +1345,14 @@ export const CLINIC_LANDING = {
   ],
   faqs: [
     {
+      q: "Is clinic management software suitable for a single-doctor clinic?",
+      a: "Yes. MedicoreERP's clinic edition supports single-doctor clinics, specialty clinics, polyclinics and multi-location clinic networks, so you can start small and add doctors or branches later.",
+    },
+    {
+      q: "Can doctors write digital prescriptions?",
+      a: "Yes. Doctors write prescriptions in the EMR during the consultation and can print or share them with the patient, with the visit's notes, diagnoses and orders kept in one record.",
+    },
+    {
       q: "What is clinic management software?",
       a: "Clinic management software connects patient registration, appointments, clinical records, prescriptions, billing, diagnostics, reports and day-to-day clinic administration in one digital system.",
     },
@@ -1374,24 +1385,28 @@ export const CLINIC_LANDING = {
 
 export const HOSPITAL_LANDING = {
   seo: {
-    title: "Hospital Management System in Hyderabad | MedicoreERP",
+    title: "Hospital Management Software (HMS) in Hyderabad | MedicoreERP",
     description:
-      "Connect OPD, IPD, EMR, laboratory, radiology, pharmacy, insurance and billing with MedicoreERP Hospital Management Software in Hyderabad.",
+      "MedicoreERP hospital management software (HMS) connects OPD, IPD, EMR, lab, radiology, pharmacy, insurance and billing for hospitals in Hyderabad and India.",
     keywords: [
-      "Hospital Management System in Hyderabad",
-      "Hospital Management Software Hyderabad",
-      "hospital ERP software",
-      "HMS software Hyderabad",
+      "hospital management software",
+      "hospital management system",
+      "HMS software",
+      "hospital management system software India",
+      "hospital management software Hyderabad",
       "HIS software",
-      "healthcare ERP",
       "hospital information system",
-      "multi-specialty hospital software",
+      "hospital ERP software",
       "hospital billing software",
+      "OPD and IPD management software",
+      "cloud hospital management software",
+      "multi-specialty hospital software",
+      "ABDM hospital software",
     ],
     canonical: "/solutions/hospital-management-software",
   },
-  heroTitle: "Run Your Entire Hospital on One Connected Platform",
-  heroSubtitle: "One Patient Journey. Every Department Connected.",
+  heroTitle: "Hospital Management Software (HMS) for Hospitals in India",
+  heroSubtitle: "Run your entire hospital on one connected platform — every department, one patient journey.",
   overview: [
     "Hospitals become difficult to manage when clinical, operational and financial information sits across different systems.",
     "MedicoreERP Hospital Management System connects patient registration, OPD, IPD, EMR, nursing, diagnostics, radiology, pharmacy, inventory, insurance, billing and discharge through one integrated healthcare platform.",
@@ -1570,6 +1585,14 @@ export const HOSPITAL_LANDING = {
   ],
   faqs: [
     {
+      q: "What is the difference between HMS and HIS?",
+      a: "The terms are often used interchangeably. A hospital management system (HMS) usually refers to operations such as registration, billing, pharmacy, inventory and administration, while a hospital information system (HIS) emphasises clinical and patient information. MedicoreERP covers both in one platform.",
+    },
+    {
+      q: "Is MedicoreERP hospital management software web-based?",
+      a: "Yes. MedicoreERP runs in a web browser, so doctors, nurses, front-office and billing staff can use it on desktops and tablets without installing software on each computer.",
+    },
+    {
       q: "What is a Hospital Management System?",
       a: "A Hospital Management System connects clinical, administrative and financial hospital processes through one information platform.",
     },
@@ -1598,23 +1621,26 @@ export const HOSPITAL_LANDING = {
 
 export const DIAGNOSTIC_LAB_LANDING = {
   seo: {
-    title: "Diagnostic Lab Management Software Hyderabad | MedicoreERP",
+    title: "Diagnostic Lab Software & LIS for Pathology Labs | MedicoreERP",
     description:
-      "Manage test orders, sample tracking, analyzer integration, reporting, billing and multi-location labs with MedicoreERP Diagnostic Lab Management Software.",
+      "Diagnostic lab management software and LIS for pathology labs and diagnostic centres: sample tracking, analyzer integration, digital reports and billing.",
     keywords: [
-      "Diagnostic Lab Management Software in Hyderabad",
-      "Laboratory management software",
-      "LIMS software Hyderabad",
-      "diagnostic centre software",
+      "laboratory information system",
+      "LIS software",
+      "lab management software",
+      "diagnostic lab software",
       "pathology lab software",
+      "diagnostic centre software",
+      "LIMS software",
+      "lab report software",
       "lab billing software",
       "sample tracking software",
-      "laboratory information system",
+      "diagnostic lab management software Hyderabad",
       "multi-location lab software",
     ],
     canonical: "/solutions/diagnostic-lab-management-software",
   },
-  heroTitle: "Diagnostic & Laboratory Management Software",
+  heroTitle: "Diagnostic Lab Management Software & LIS",
   heroSubtitle: "From Test Order to Final Report—Manage Every Step in One Connected System.",
   overview: [
     "MedicoreERP helps diagnostic centres, pathology laboratories and hospital labs manage the complete diagnostic workflow from patient registration and test booking to sample collection, processing, result validation, reporting and billing.",
@@ -1775,6 +1801,14 @@ export const DIAGNOSTIC_LAB_LANDING = {
   ],
   faqs: [
     {
+      q: "What is the difference between LIS and LIMS?",
+      a: "A laboratory information system (LIS) manages patient testing in clinical labs: orders, samples, results and reports. LIMS is a broader term often used for sample-heavy and research labs. For diagnostic centres and pathology labs, MedicoreERP works as an LIS with billing and patient records built in.",
+    },
+    {
+      q: "Can lab reports be sent to patients digitally?",
+      a: "Yes. Validated reports are generated digitally and can be shared with patients and referring doctors, so they do not need to collect printed copies.",
+    },
+    {
       q: "What is Diagnostic Lab Management Software?",
       a: "Diagnostic Lab Management Software helps laboratories manage patient registration, test orders, sample collection, processing, results, reports, billing and inventory.",
     },
@@ -1811,23 +1845,28 @@ export const DIAGNOSTIC_LAB_LANDING = {
 
 export const PHARMACY_LANDING = {
   seo: {
-    title: "Pharmacy Management Software Hyderabad | MedicoreERP",
+    title: "Pharmacy Software & Medical Store Billing Software | MedicoreERP",
     description:
-      "Connect dispensing, inventory, batch, expiry, procurement and billing with MedicoreERP Pharmacy Management Software in Hyderabad.",
+      "Pharmacy management and medical store billing software with GST billing, batch and expiry tracking, stock control and multi-store inventory for India.",
     keywords: [
-      "Pharmacy Management Software in Hyderabad",
-      "Pharmacy ERP software",
+      "pharmacy management software",
+      "pharmacy software",
+      "pharmacy billing software",
+      "medical store software",
+      "medical store billing software",
+      "medical shop billing software",
+      "chemist software",
+      "pharmacy inventory management software",
+      "batch and expiry management software",
       "hospital pharmacy software",
       "pharmacy chain software",
-      "medicine inventory software",
-      "pharmacy billing software",
-      "pharmacy stock management",
-      "batch expiry software",
+      "GST billing software for pharmacy",
+      "pharmacy management software Hyderabad",
     ],
     canonical: "/solutions/pharmacy-management-software",
   },
-  heroTitle: "One Pharmacy Platform. From Prescription to Dispensing and Stock.",
-  heroSubtitle: "Pharmacy Management Software in Hyderabad",
+  heroTitle: "Pharmacy Management & Medical Store Billing Software",
+  heroSubtitle: "From prescription to dispensing, billing and stock — for hospital pharmacies, medical stores and pharmacy chains.",
   overview: [
     "MedicoreERP connects prescriptions with verification, dispensing, inventory, batches, expiry dates and billing so pharmacy teams always know what was prescribed, what was dispensed and what remains in stock.",
     "Whether you're managing a hospital pharmacy or multiple pharmacy locations, gain better visibility without maintaining separate billing and stock systems.",
@@ -1920,6 +1959,14 @@ export const PHARMACY_LANDING = {
     },
   ],
   faqs: [
+    {
+      q: "Can MedicoreERP be used as medical store billing software?",
+      a: "Yes. It handles counter billing with GST invoices, batch selection, returns and receipts, together with stock and purchase management, for a single medical store or a pharmacy chain.",
+    },
+    {
+      q: "Does it track medicine batches and expiry dates?",
+      a: "Yes. Every purchase and sale is tracked by batch, and near-expiry stock is flagged so your team can act before medicines expire.",
+    },
     {
       q: "What is pharmacy management software?",
       a: "Pharmacy management software connects prescriptions, dispensing, billing, purchasing and medicine inventory.",
