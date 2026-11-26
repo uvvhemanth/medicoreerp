@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Product — 50+ modules on one platform",
   description: "Explore every MedicoreERP module: clinical core, revenue cycle, pharmacy, lab, radiology, HRM, analytics and the no-code platform.",
+  alternates: { canonical: "/product" },
 };
 
 export default function ProductHub() {

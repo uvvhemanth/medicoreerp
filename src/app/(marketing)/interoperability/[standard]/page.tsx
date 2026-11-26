@@ -260,7 +260,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ standard: string }> }): Promise<Metadata> {
   const { standard } = await params;
   const s = STANDARDS.find((x) => x.slug === standard);
-  return s ? { title: `${s.name} — Interoperability`, description: s.desc } : {};
+  return s
+    ? { title: `${s.name} — Interoperability`, description: s.desc, alternates: { canonical: `/interoperability/${s.slug}` } }
+    : {};
 }
 
 function DetailedStandardPage({ detail }: { detail: StandardDetail }) {

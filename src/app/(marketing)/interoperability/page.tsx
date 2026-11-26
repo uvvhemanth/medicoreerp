@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button";
 import { STANDARDS } from "@/lib/content/marketing";
 import { Network, ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = { title: "Interoperability", description: "FHIR-native by default. HL7, DICOM, ABDM/TEFCA/EHDS ready, with guaranteed data-freedom." };
+export const metadata: Metadata = {
+  title: "Healthcare Interoperability — FHIR, HL7, DICOM & ABDM",
+  description: "FHIR-native by default. HL7, DICOM, ABDM/TEFCA/EHDS ready, with guaranteed data-freedom.",
+  alternates: { canonical: "/interoperability" },
+};
 
 export default function InteroperabilityHub() {
   return (

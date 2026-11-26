@@ -228,7 +228,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { integration } = await params;
   const page = INTEGRATIONS[integration];
-  return page ? { title: page.title, description: page.intro } : {};
+  return page
+    ? { title: page.title, description: page.intro, alternates: { canonical: `/integrations/${integration}` } }
+    : {};
 }
 
 export default async function IntegrationPage({

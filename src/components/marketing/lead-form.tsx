@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/input";
-import { sendLeadWithEmailJs } from "@/lib/emailjs";
+import { isValidPhone, submitLead } from "@/lib/leads";
+import { trackLead } from "@/lib/analytics";
 
 type Variant = "demo" | "contact" | "sandbox";
 
@@ -61,7 +62,8 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
     const data = Object.fromEntries(form.entries()) as Record<string, string>;
     const errs: Errors = {};
     if (!data.name?.trim()) errs.name = "Please enter your name.";
-    if (!data.email?.includes("@")) errs.email = "Enter a valid work email.";
+    if (!isValidPhone(data.phone)) errs.phone = "Enter a valid mobile number.";
+    if (!data.email?.includes("@")) errs.email = "Enter a valid email.";
     if (variant !== "contact" && !data.org?.trim()) errs.org = "Organization is required.";
     setErrors(errs);
     if (Object.keys(errs).length) return;
@@ -69,7 +71,7 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
     submittingRef.current = true;
     setLoading(true);
     try {
-      await sendLeadWithEmailJs({
+      await submitLead({
         ...data,
         ...utm,
         name: data.name,
@@ -77,6 +79,7 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
         variant,
         consent: "marketing-demo",
       });
+      trackLead(`${variant}-form`, { edition: data.edition, org_size: data.size });
       router.replace(
         variant === "contact"
           ? "/contact/thank-you"
@@ -98,10 +101,14 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
         <Field label="Full name" htmlFor="name" required error={errors.name}>
           <Input id="name" name="name" aria-invalid={!!errors.name} placeholder="Dr. Jane Doe" />
         </Field>
-        <Field label="Work email" htmlFor="email" required error={errors.email}>
-          <Input id="email" name="email" type="email" aria-invalid={!!errors.email} placeholder="jane@hospital.org" />
+        <Field label="Mobile / WhatsApp number" htmlFor="phone" required error={errors.phone}>
+          <Input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" aria-invalid={!!errors.phone} placeholder="+91 98765 43210" />
         </Field>
       </div>
+
+      <Field label="Email" htmlFor="email" required error={errors.email}>
+        <Input id="email" name="email" type="email" autoComplete="email" aria-invalid={!!errors.email} placeholder="jane@hospital.org" />
+      </Field>
 
       {variant !== "contact" && (
         <div className="grid gap-4 sm:grid-cols-2">
@@ -147,7 +154,7 @@ export function LeadForm({ variant = "demo" }: { variant?: Variant }) {
         {variant === "sandbox" ? "Create my sandbox" : variant === "contact" ? "Send message" : "Book my demo"}
       </Button>
       <p className="text-center text-xs text-muted">
-        By submitting you agree to our privacy policy.
+        We reply within 1 business day · No spam · By submitting you agree to our privacy policy.
       </p>
     </form>
   );

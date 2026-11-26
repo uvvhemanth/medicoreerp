@@ -43,7 +43,8 @@ export const metadata: Metadata = {
     "hospital software India",
     "clinic management software",
   ],
-  alternates: { canonical: "/" },
+  // No site-wide canonical: child pages would inherit "/" and be treated as homepage duplicates.
+  // The homepage sets its own canonical in (marketing)/page.tsx.
   openGraph: {
     title: "Best Hospital Management System in Hyderabad | MedicoreERP",
     description:
@@ -59,8 +60,9 @@ export const metadata: Metadata = {
       "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
   },
   robots: { index: true, follow: true },
+  // Google Search Console is verified by public/googlea42bc3bc7d85ea98.html; the meta tag
+  // needs the token from the "HTML tag" method, not that filename, so it is omitted here.
   verification: {
-    google: "googlea42bc3bc7d85ea98.html",
     other: {
       "msvalidate.01": "6AB545078D151CCA74FADD1EEDA0555B",
     },

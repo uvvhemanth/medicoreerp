@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ edition: string }> }): Promise<Metadata> {
   const { edition } = await params;
   const s = SOLUTIONS.find((x) => x.slug === edition);
-  return s ? { title: `${s.name} — Solutions`, description: s.hero } : {};
+  return s ? { title: `${s.name} — Solutions`, description: s.hero, alternates: { canonical: `/solutions/${edition}` } } : {};
 }
 
 export default async function EditionPage({ params }: { params: Promise<{ edition: string }> }) {
