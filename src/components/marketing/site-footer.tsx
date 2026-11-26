@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
 import { COMPLIANCE_BADGES } from "@/lib/content/marketing";
-import { Github, Linkedin, Twitter, Globe, Mail, Phone } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Youtube, Twitter, Mail, Phone } from "lucide-react";
+import { SOCIAL_PROFILES } from "@/lib/seo";
+
+const SOCIAL_ICONS = { LinkedIn: Linkedin, Instagram, Facebook, YouTube: Youtube, X: Twitter } as const;
 
 const columns = [
   {
@@ -80,11 +83,23 @@ export function SiteFooter() {
               </a>
             </div>
             <div className="flex gap-2">
-              {[Twitter, Linkedin, Github, Globe].map((Icon, i) => (
-                <a key={i} href="#" className="grid h-9 w-9 place-items-center rounded-lg border text-muted hover:text-teal" aria-label="social">
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+              {SOCIAL_PROFILES.map(({ network, url }) => {
+                const Icon = SOCIAL_ICONS[network];
+                return (
+                  <a
+                    key={network}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer me"
+                    data-track={`footer-${network.toLowerCase()}`}
+                    className="grid h-9 w-9 place-items-center rounded-lg border text-muted hover:text-teal"
+                    aria-label={`MedicoreERP on ${network}`}
+                    title={`MedicoreERP on ${network}`}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
           {columns.map((col) => (

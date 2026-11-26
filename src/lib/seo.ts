@@ -31,9 +31,15 @@ export const ORG_PROFILE = {
     postalCode: "",
     addressCountry: "IN",
   },
-  /** LinkedIn, Facebook, Instagram, YouTube, X, Google Business Profile, Crunchbase… */
-  sameAs: [] as string[],
 };
+
+/**
+ * Official social profiles. Used for the footer icons and the Organization
+ * `sameAs` list. Add Instagram, Facebook, YouTube, X or Google Business Profile here.
+ */
+export const SOCIAL_PROFILES: { network: "LinkedIn" | "Instagram" | "Facebook" | "YouTube" | "X"; url: string }[] = [
+  { network: "LinkedIn", url: "https://www.linkedin.com/company/145227276/" },
+];
 
 function orgAddress() {
   const a = ORG_PROFILE.address;
@@ -54,7 +60,7 @@ export function siteGraphJsonLd() {
         url: origin,
         logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
         ...(orgAddress() ? { address: orgAddress() } : {}),
-        ...(ORG_PROFILE.sameAs.length ? { sameAs: ORG_PROFILE.sameAs } : {}),
+        ...(SOCIAL_PROFILES.length ? { sameAs: SOCIAL_PROFILES.map((p) => p.url) } : {}),
         description:
           "MedicoreERP provides integrated hospital management and hospital information system software for hospitals, clinics, and healthcare organizations.",
         email: "info@medicoreerp.com",
