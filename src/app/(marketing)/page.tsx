@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Reveal, LogoWall, Eyebrow } from "@/components/marketing/blocks";
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",
   alternates: { canonical: "/" },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: "Best Hospital Management System in Hyderabad | MedicoreERP",
     description:
       "Looking for the best Hospital Management System in Hyderabad? MedicoreERP simplifies EMR, OPD, IPD, billing, pharmacy, laboratory, radiology, inventory and complete hospital operations.",

@@ -61,19 +61,22 @@ export function SectionHeading({
   subtitle,
   center,
   className,
+  as: Heading = "h2",
 }: {
   eyebrow?: string;
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   center?: boolean;
   className?: string;
+  /** Use "h1" when this is the page's main heading. */
+  as?: "h1" | "h2";
 }) {
   return (
     <div className={cn(center && "mx-auto text-center", "max-w-2xl", className)}>
       {eyebrow && <div className="mb-4"><Eyebrow>{eyebrow}</Eyebrow></div>}
-      <h2 className="text-heading-display">
+      <Heading className="text-heading-display">
         {title}
-      </h2>
+      </Heading>
       {subtitle && <p className="text-subtitle mt-4">{subtitle}</p>}
     </div>
   );

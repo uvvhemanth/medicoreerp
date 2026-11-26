@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { Server, MapPin, Eye, ShieldCheck, Network, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/security/data-residency" },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: "Healthcare Data Residency & Governance | MedicoreERP",
     description:
       "Keep healthcare data within approved regions and strengthen control over where patient and hospital information is stored with MedicoreERP.",

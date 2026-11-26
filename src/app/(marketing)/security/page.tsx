@@ -4,7 +4,7 @@ import { COMPLIANCE_BADGES } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { ShieldCheck, Lock, Eye, Server, FileText, Activity, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/security" },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: "Healthcare Data Security Solutions | MedicoreERP",
     description:
       "Protect patient, clinical and financial data with encryption, access control, audit trails and secure healthcare data management.",

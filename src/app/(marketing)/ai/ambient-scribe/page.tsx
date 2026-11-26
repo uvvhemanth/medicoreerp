@@ -4,7 +4,7 @@ import { AMBIENT_SCRIBE_LANDING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { ArrowRight, CheckCircle2, ShieldCheck, Star } from "lucide-react";
 
 const PAGE = AMBIENT_SCRIBE_LANDING;
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   keywords: PAGE.seo.keywords,
   alternates: { canonical: PAGE.seo.canonical },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: PAGE.seo.title,
     description: PAGE.seo.description,
     url: PAGE.seo.canonical,

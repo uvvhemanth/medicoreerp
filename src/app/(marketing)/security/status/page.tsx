@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { Activity, CheckCircle2, Globe, Code2, Users, Sparkles, Zap, Mail, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/security/status" },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: "MedicoreERP System Status & Service Availability",
     description:
       "Check MedicoreERP platform availability, service performance, maintenance updates and operational status across key healthcare services.",

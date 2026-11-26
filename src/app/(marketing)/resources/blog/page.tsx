@@ -5,7 +5,7 @@ import { BLOG_POSTS } from "@/lib/content/marketing";
 import { BLOG_ARTICLES, articleReadMins } from "@/lib/content/blog-articles";
 import { Section, Reveal } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 import { Clock } from "lucide-react";
 
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "Practical guides for Indian hospitals and clinics on EMR adoption, OPD scheduling, hospital billing and GST, claim denials, ABDM compliance, FHIR interoperability and AI documentation.",
   alternates: { canonical: "/resources/blog" },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: "Hospital Management Blog | MedicoreERP",
     description:
       "Practical guides for Indian hospitals and clinics on EMR, billing, ABDM, claims, interoperability and AI.",

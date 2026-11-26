@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { FileText, User, ShieldCheck, Search, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/security/audit-trails" },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: "Healthcare Audit Trails & Activity Tracking | MedicoreERP",
     description:
       "Track logins, patient record access, edits, exports, and other important user activity with secure audit trails in MedicoreERP.",

@@ -4,7 +4,7 @@ import { CLINIC_LANDING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal, FAQ } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
-import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { HisDashboard } from "@/components/marketing/his-dashboard";
 import { ArrowRight, CheckCircle2, Star } from "lucide-react";
 
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   keywords: PAGE.seo.keywords,
   alternates: { canonical: PAGE.seo.canonical },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: PAGE.seo.title,
     description: PAGE.seo.description,
     url: PAGE.seo.canonical,

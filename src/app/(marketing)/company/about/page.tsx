@@ -26,7 +26,7 @@ export default function AboutPage() {
     <>
       <section className="border-b">
         <div className="container-page py-16 text-center">
-          <SectionHeading center eyebrow="About MedicoreERP" title="Healthcare software people actually want to use" subtitle="MedicoreERP is the medical ERP for modern hospitals — AI-native HIS, interoperable, and genuinely usable." className="mx-auto" />
+          <SectionHeading as="h1" center eyebrow="About MedicoreERP" title="Healthcare software people actually want to use" subtitle="MedicoreERP is the medical ERP for modern hospitals — AI-native HIS, interoperable, and genuinely usable." className="mx-auto" />
         </div>
       </section>
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { BadgeCheck, ShieldCheck, FolderOpen, FileText, Lock, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/security/compliance" },
   openGraph: {
+    images: DEFAULT_OG_IMAGES,
     title: "Healthcare Compliance & Data Protection | MedicoreERP",
     description:
       "Support healthcare compliance requirements with secure data controls, auditability, privacy management and regulatory-ready workflows.",

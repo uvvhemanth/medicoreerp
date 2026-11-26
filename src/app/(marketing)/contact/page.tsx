@@ -14,7 +14,7 @@ export default function ContactPage() {
     <Section>
       <div className="grid gap-12 lg:grid-cols-2">
         <div>
-          <SectionHeading eyebrow="Contact" title="Let's talk" subtitle="Sales, support, partnerships, or press — we'll route you to the right person." />
+          <SectionHeading as="h1" eyebrow="Contact" title="Let's talk" subtitle="Sales, support, partnerships, or press — we'll route you to the right person." />
           <div className="mt-8 space-y-4">
             {[
               { icon: Mail, label: "Official email", value: "info@medicoreerp.com", href: "mailto:info@medicoreerp.com" },

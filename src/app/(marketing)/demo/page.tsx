@@ -17,6 +17,7 @@ export default function DemoPage() {
       <div className="grid gap-12 lg:grid-cols-2">
         <div>
           <SectionHeading
+            as="h1"
             eyebrow="Book a Demo Meeting"
             title="Pick a slot. See MedicoreERP live."
             subtitle="A focused 30-minute video walkthrough tailored to your edition and workflows — free, no obligation."
