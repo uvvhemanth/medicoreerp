@@ -39,6 +39,9 @@ export const ORG_PROFILE = {
  */
 export const SOCIAL_PROFILES: { network: "LinkedIn" | "Instagram" | "Facebook" | "YouTube" | "X"; url: string }[] = [
   { network: "LinkedIn", url: "https://www.linkedin.com/company/145227276/" },
+  { network: "Instagram", url: "https://www.instagram.com/medicoreerp/" },
+  // Share link from the page owner; replace with the permanent page URL (facebook.com/<page-name>) when available.
+  { network: "Facebook", url: "https://www.facebook.com/share/1FEvmCVXhC/" },
 ];
 
 function orgAddress() {
