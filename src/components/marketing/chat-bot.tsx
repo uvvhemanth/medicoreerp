@@ -18,7 +18,7 @@ const QUICK = [
   "What is MedicoreERP?",
   "Book a demo",
   "AI Ambient Scribe",
-  "Is it HIPAA / ABDM ready?",
+  "Is it ABDM ready?",
 ];
 
 function botReply(input: string): string {
@@ -63,7 +63,7 @@ function botReply(input: string): string {
     return "For plans and quotes, book a demo — our team will walk you through options for your hospital or clinic.";
   }
   if (/(hipaa|abdm|gdpr|soc|compliance|security)/.test(q)) {
-    return "Yes — built for HIPAA, GDPR, ABDM, SOC 2 Type II, ISO 27001, and NABH contexts. Visit /security or /security/compliance for details.";
+    return "MedicoreERP supports ABDM/ABHA, FHIR R4, HL7 v2 and DICOM, with role-based access, encryption and audit trails. Visit /security or /security/compliance for details.";
   }
   if (/(scribe|ambient|documentation|soap)/.test(q)) {
     return "Ambient Scribe turns a consult into a signed, coded SOAP note — human always signs. Hospitals cut documentation time ~62%. See /ai/ambient-scribe.";

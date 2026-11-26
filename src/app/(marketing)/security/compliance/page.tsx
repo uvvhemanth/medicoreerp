@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   keywords: [
     "Healthcare Compliance Software",
     "hospital compliance software",
-    "HIPAA healthcare software",
     "healthcare data compliance",
     "healthcare privacy management",
     "medical software compliance",
@@ -52,12 +51,10 @@ const CAPABILITIES = [
 ];
 
 const FRAMEWORKS = [
-  { name: "HIPAA", scope: "US health data privacy & security", status: "Compliant", items: ["BAA available", "Encryption & access controls", "Audit logging", "Breach notification process"] },
-  { name: "GDPR", scope: "EU data protection", status: "Compliant", items: ["DPA available", "Data subject request (DSR) tooling", "Consent ledger", "Right to erasure & portability"] },
-  { name: "ABDM", scope: "India — Ayushman Bharat Digital Mission", status: "Ready", items: ["ABHA linkage", "Health facility registry", "Consent manager integration", "FHIR-based data exchange"] },
-  { name: "SOC 2 Type II", scope: "Security, availability, confidentiality", status: "Certified", items: ["Annual independent audit", "Continuous monitoring", "Vendor risk management"] },
-  { name: "ISO 27001", scope: "Information security management", status: "Certified", items: ["ISMS in place", "Risk assessments", "Documented controls"] },
-  { name: "NABH", scope: "India hospital accreditation support", status: "Supported", items: ["Auto-collected accreditation evidence", "Real-time quality dashboards", "Incident & CAPA tracking"] },
+  { name: "ABDM / ABHA", scope: "India — Ayushman Bharat Digital Mission", status: "Ready", items: ["ABHA linkage", "Health facility registry", "Consent manager integration", "FHIR-based data exchange"] },
+  { name: "FHIR R4", scope: "Standard API for exchanging health records", status: "Supported", items: ["Patient, Encounter and Observation resources", "Consent-based record sharing", "Structured data export"] },
+  { name: "HL7 v2", scope: "Interfaces for labs and existing hospital systems", status: "Supported", items: ["Bidirectional lab and analyzer interfaces", "Orders and results messaging", "Connections to legacy systems"] },
+  { name: "DICOM", scope: "Medical imaging and radiology", status: "Supported", items: ["DICOM modality worklist", "PACS integration", "Browser-based image viewer"] },
 ];
 
 export default function CompliancePage() {
@@ -125,9 +122,9 @@ export default function CompliancePage() {
       <Section muted>
         <SectionHeading
           center
-          eyebrow="Frameworks"
-          title="Certified, audited, and regionally ready"
-          subtitle="Compliance is part of the product — not a PDF you never see."
+          eyebrow="Standards"
+          title="Healthcare standards MedicoreERP supports"
+          subtitle="Ask our team for the security and data-protection documentation your hospital needs."
           className="mb-14"
         />
         <div className="grid gap-5 lg:grid-cols-2">

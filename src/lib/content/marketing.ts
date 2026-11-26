@@ -3002,7 +3002,7 @@ export const BLOG_POSTS: BlogPost[] = [
   { slug: "abdm-ready-hospital", title: "The ABDM-ready hospital: a compliance checklist", excerpt: "Everything you need to know to make your hospital ABDM-compliant without slowing down clinicians.", category: "Compliance", author: "MedicoreERP Editorial Team", date: "2026-05-18", readMins: 8, image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=70" },
 ];
 
-export const COMPLIANCE_BADGES = ["HIPAA", "GDPR", "ABDM", "SOC 2 Type II", "ISO 27001", "NABH"];
+export const STANDARD_BADGES = ["FHIR R4", "HL7 v2", "DICOM", "ABDM / ABHA"];
 
 /**
  * Platform facts shown on the homepage and About page. Only product facts belong

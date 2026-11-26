@@ -70,7 +70,7 @@ export default async function EditionPage({ params }: { params: Promise<{ editio
       <Section muted>
         <SectionHeading center title="Built for your region" subtitle="Compliant, localized, and interoperable by default — India, MENA & SEA ready." className="mb-8" />
         <div className="mx-auto flex max-w-2xl flex-wrap justify-center gap-2">
-          {["ABDM-ready", "GST/VAT billing", "Multi-currency", "RTL & multilingual", "Data residency", "SOC 2 / ISO 27001"].map((t) => (
+          {["ABDM-ready", "GST/VAT billing", "Multi-currency", "RTL & multilingual", "Data residency", "Role-based access"].map((t) => (
             <span key={t} className="rounded-pill border bg-card px-4 py-1.5 text-sm font-semibold text-body">{t}</span>
           ))}
         </div>

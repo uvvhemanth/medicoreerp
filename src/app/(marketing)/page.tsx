@@ -7,7 +7,7 @@ import { HisDashboard } from "@/components/marketing/his-dashboard";
 import { WhatsAppIcon } from "@/components/marketing/whatsapp-fab";
 import { WHATSAPP_URL } from "@/lib/content/contact";
 import { PATIENT_JOURNEY } from "@/lib/content/dashboard";
-import { HOME_STATS, PRODUCT_DOMAINS, COMPLIANCE_BADGES, MAIN_FEATURES } from "@/lib/content/marketing";
+import { HOME_STATS, PRODUCT_DOMAINS, STANDARD_BADGES, MAIN_FEATURES } from "@/lib/content/marketing";
 import {
   Sparkles, Zap, Network, ArrowRight,
   Stethoscope, Building2, CheckCircle2, Receipt, Users,
@@ -162,10 +162,10 @@ export default function HomePage() {
       {/* TRUST BAR */}
       <Section className="!py-10">
         <p className="mb-6 text-center text-xs font-bold uppercase tracking-[0.16em] text-muted">
-          Built around healthcare standards and compliance frameworks
+          Built on open healthcare standards
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2">
-          {COMPLIANCE_BADGES.map((b) => (
+          {STANDARD_BADGES.map((b) => (
             <span key={b} className="rounded-pill border bg-card px-3 py-1 text-[11px] font-semibold text-muted">
               {b}
             </span>

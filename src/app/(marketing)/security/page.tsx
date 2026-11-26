@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { COMPLIANCE_BADGES } from "@/lib/content/marketing";
+import { STANDARD_BADGES } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal } from "@/components/marketing/blocks";
 import { JsonLd } from "@/components/marketing/json-ld";
@@ -132,9 +132,9 @@ export default function SecurityPage() {
       </Section>
 
       <Section muted>
-        <SectionHeading center title="Certifications & compliance" className="mb-10" />
+        <SectionHeading center title="Healthcare standards we support" className="mb-10" />
         <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-3">
-          {COMPLIANCE_BADGES.map((b) => (
+          {STANDARD_BADGES.map((b) => (
             <span key={b} className="flex items-center gap-2 rounded-card border bg-card px-5 py-3 font-heading font-bold text-heading shadow-soft">
               <ShieldCheck className="h-4 w-4 text-teal" /> {b}
             </span>

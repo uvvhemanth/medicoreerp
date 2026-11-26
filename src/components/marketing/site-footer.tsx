@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
-import { COMPLIANCE_BADGES } from "@/lib/content/marketing";
+import { STANDARD_BADGES } from "@/lib/content/marketing";
 import { Linkedin, Instagram, Facebook, Youtube, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { OFFICE_ADDRESS, OFFICE_MAP_URL, SOCIAL_PROFILES } from "@/lib/seo";
 
@@ -129,7 +129,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-wrap items-center gap-2 border-t pt-6">
-          {COMPLIANCE_BADGES.map((b) => (
+          {STANDARD_BADGES.map((b) => (
             <span key={b} className="rounded-pill border px-3 py-1 text-xs font-semibold text-muted">
               {b}
             </span>
