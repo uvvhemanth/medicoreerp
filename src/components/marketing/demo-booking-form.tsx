@@ -4,7 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/input";
-import { sendLeadWithEmailJs } from "@/lib/emailjs";
+import { isValidPhone, submitLead } from "@/lib/leads";
+import { trackLead } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { Clock } from "lucide-react";
 
@@ -91,7 +92,8 @@ export function DemoBookingForm() {
     const data = Object.fromEntries(form.entries()) as Record<string, string>;
     const errs: Errors = {};
     if (!data.name?.trim()) errs.name = "Please enter your name.";
-    if (!data.email?.includes("@")) errs.email = "Enter a valid work email.";
+    if (!isValidPhone(data.phone)) errs.phone = "Enter a valid mobile number.";
+    if (!data.email?.includes("@")) errs.email = "Enter a valid email.";
     if (!data.org?.trim()) errs.org = "Organization is required.";
     if (!meetingDate) errs.meetingDate = "Pick a date.";
     if (!meetingTime) errs.meetingTime = "Pick a time.";
@@ -101,7 +103,7 @@ export function DemoBookingForm() {
     submittingRef.current = true;
     setLoading(true);
     try {
-      const result = await sendLeadWithEmailJs({
+      const result = await submitLead({
         ...data,
         ...utm,
         name: data.name,
@@ -112,6 +114,7 @@ export function DemoBookingForm() {
         timezone,
         consent: "marketing-demo-meeting",
       });
+      trackLead("demo-booking", { edition: data.edition, org_size: data.size, meeting_date: meetingDate });
       const params = new URLSearchParams({
         when: `${selectedLabel} · ${meetingTime} · ${timezone}`,
       });
@@ -236,10 +239,14 @@ export function DemoBookingForm() {
             <Field label="Full name" htmlFor="name" required error={errors.name}>
               <Input id="name" name="name" aria-invalid={!!errors.name} placeholder="Dr. Jane Doe" />
             </Field>
-            <Field label="Work email" htmlFor="email" required error={errors.email}>
-              <Input id="email" name="email" type="email" aria-invalid={!!errors.email} placeholder="jane@hospital.org" />
+            <Field label="Mobile / WhatsApp number" htmlFor="phone" required error={errors.phone}>
+              <Input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" aria-invalid={!!errors.phone} placeholder="+91 98765 43210" />
             </Field>
           </div>
+
+          <Field label="Email" htmlFor="email" required error={errors.email}>
+            <Input id="email" name="email" type="email" autoComplete="email" aria-invalid={!!errors.email} placeholder="jane@hospital.org" />
+          </Field>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Organization" htmlFor="org" required error={errors.org}>
@@ -286,7 +293,7 @@ export function DemoBookingForm() {
             </Button>
           </div>
           <p className="text-center text-xs text-muted">
-            Free 30-minute video demo.
+            Free 30-minute video demo · We confirm by phone or WhatsApp within 1 business day.
           </p>
         </form>
       )}

@@ -43,7 +43,8 @@ export const metadata: Metadata = {
     "hospital software India",
     "clinic management software",
   ],
-  alternates: { canonical: "/" },
+  // No site-wide canonical: child pages would inherit "/" and be treated as homepage duplicates.
+  // The homepage sets its own canonical in (marketing)/page.tsx.
   openGraph: {
     title: "Best Hospital Management System in Hyderabad | MedicoreERP",
     description:

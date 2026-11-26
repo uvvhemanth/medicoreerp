@@ -13,19 +13,23 @@ export async function sendLeadWithEmailJs(lead: EmailLead) {
     throw new Error("Email delivery is not configured.");
   }
 
-  const leadId = `lead_${Date.now()}`;
+  const leadId = lead.leadId || `lead_${Date.now()}`;
   const receivedAt = new Date().toISOString();
+  const replyTo = lead.email || "info@medicoreerp.com";
   const meeting = lead.meetingDate
     ? `${lead.meetingDate} at ${lead.meetingTime || "Not selected"} (${lead.timezone || "Not selected"})`
     : "Not selected";
   const subject =
     lead.variant === "demo"
       ? `New MedicoreERP demo request — ${lead.org || lead.name}`
-      : `New MedicoreERP ${lead.variant} enquiry — ${lead.name}`;
+      : lead.variant === "chatbot-callback"
+        ? `New MedicoreERP callback request — ${lead.name} (${lead.phone || "no phone"})`
+        : `New MedicoreERP ${lead.variant} enquiry — ${lead.name}`;
   const message = [
     `Reference: ${leadId}`,
     `Name: ${lead.name}`,
-    `Email: ${lead.email}`,
+    `Phone: ${lead.phone || "Not provided"}`,
+    `Email: ${lead.email || "Not provided"}`,
     `Organization: ${lead.org || "Not provided"}`,
     `Role: ${lead.role || "Not provided"}`,
     `Organization size: ${lead.size || "Not provided"}`,
@@ -48,11 +52,12 @@ export async function sendLeadWithEmailJs(lead: EmailLead) {
         to_email: "info@medicoreerp.com",
         to_name: "MedicoreERP Team",
         from_name: lead.name,
-        from_email: lead.email,
-        reply_to: lead.email,
+        from_email: replyTo,
+        reply_to: replyTo,
         subject,
         name: lead.name,
-        email: lead.email,
+        email: lead.email || "Not provided",
+        phone: lead.phone || "Not provided",
         organization: lead.org || "Not provided",
         org: lead.org || "Not provided",
         role: lead.role || "Not provided",

@@ -4,11 +4,17 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { MessageCircle, X, Send, Calendar, Sparkles, Minimize2 } from "lucide-react";
+import { MessageCircle, X, Send, Calendar, Sparkles, Minimize2, PhoneCall } from "lucide-react";
+import { isValidPhone, submitLead } from "@/lib/leads";
+import { trackEvent, trackLead } from "@/lib/analytics";
 
 type ChatMsg = { id: string; role: "bot" | "user"; text: string };
 
+/** Buying-intent questions that should offer an instant callback form. */
+const CALLBACK_INTENT = /(demo|meeting|book|schedule|call|price|pricing|cost|₹|rupee|quote|callback|contact|talk|sales)/i;
+
 const QUICK = [
+  "Get a callback",
   "What is MedicoreERP?",
   "Book a demo",
   "AI Ambient Scribe",
@@ -17,6 +23,9 @@ const QUICK = [
 
 function botReply(input: string): string {
   const q = input.toLowerCase();
+  if (/(callback|call me|talk to sales)/.test(q)) {
+    return "Sure — leave your name and mobile number below and our team will call or WhatsApp you within 1 business day.";
+  }
   if (/(dashboard|his|module tile|hospital management)/.test(q)) {
     return "The MedicoreERP HIS Dashboard gives one view of hospital KPIs, OPD/IPD, occupancy, revenue and department performance. See /product/his-dashboard, or open the live module tiles at /dashboard.";
   }
@@ -98,8 +107,44 @@ export function ChatBot() {
     },
   ]);
   const endRef = useRef<HTMLDivElement>(null);
+  const [showCallback, setShowCallback] = useState(false);
+  const [callbackDone, setCallbackDone] = useState(false);
+  const [callbackBusy, setCallbackBusy] = useState(false);
+  const [callbackError, setCallbackError] = useState("");
+  const lastQuestion = useRef("");
 
   const canSend = useMemo(() => input.trim().length > 0 && !busy, [input, busy]);
+
+  const submitCallback = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (callbackBusy) return;
+    const form = new FormData(e.currentTarget);
+    const name = String(form.get("cb_name") ?? "").trim();
+    const phone = String(form.get("cb_phone") ?? "").trim();
+    if (!name) return setCallbackError("Please enter your name.");
+    if (!isValidPhone(phone)) return setCallbackError("Enter a valid mobile number.");
+    setCallbackError("");
+    setCallbackBusy(true);
+    try {
+      await submitLead({
+        name,
+        phone,
+        email: "",
+        variant: "chatbot-callback",
+        message: lastQuestion.current || "Callback requested from chat",
+        page: window.location.pathname,
+      });
+      trackLead("chatbot-callback");
+      setCallbackDone(true);
+      setShowCallback(false);
+      push("bot", `Thanks, ${name}! Our team will call or WhatsApp you on ${phone} within 1 business day.`);
+    } catch (error) {
+      console.error("[chat-callback-failed]", error);
+      setCallbackError("Could not send. Please WhatsApp or call +91 99664 11913.");
+    } finally {
+      setCallbackBusy(false);
+    }
+  };
 
   useEffect(() => {
     const openFromHeader = () => setOpen(true);
@@ -119,10 +164,13 @@ export function ChatBot() {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
     push("user", trimmed);
+    lastQuestion.current = trimmed;
     setInput("");
     setBusy(true);
+    trackEvent("chat_message", { intent: CALLBACK_INTENT.test(trimmed) ? "buying" : "info" });
     await new Promise((r) => setTimeout(r, 450));
     push("bot", botReply(trimmed));
+    if (!callbackDone && CALLBACK_INTENT.test(trimmed)) setShowCallback(true);
     setBusy(false);
   };
 
@@ -174,6 +222,38 @@ export function ChatBot() {
             ))}
             {busy && (
               <div className="text-xs font-semibold text-muted">MedicoreERP Assist is typing…</div>
+            )}
+            {showCallback && !busy && (
+              <form
+                onSubmit={submitCallback}
+                noValidate
+                className="space-y-2 rounded-2xl border border-teal/30 bg-card p-3 shadow-soft"
+                aria-label="Request a callback"
+              >
+                <p className="flex items-center gap-1.5 text-sm font-bold text-heading">
+                  <PhoneCall className="h-4 w-4 text-teal" /> Get a free callback
+                </p>
+                <input
+                  name="cb_name"
+                  autoComplete="name"
+                  placeholder="Your name"
+                  aria-label="Your name"
+                  className="h-9 w-full rounded-control border bg-card px-3 text-sm text-heading placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
+                />
+                <input
+                  name="cb_phone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder="Mobile / WhatsApp number"
+                  aria-label="Mobile or WhatsApp number"
+                  className="h-9 w-full rounded-control border bg-card px-3 text-sm text-heading placeholder:text-muted focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
+                />
+                {callbackError && <p className="text-xs text-danger">{callbackError}</p>}
+                <Button type="submit" size="sm" loading={callbackBusy} className="w-full">
+                  Call me back
+                </Button>
+              </form>
             )}
             <div ref={endRef} />
           </div>

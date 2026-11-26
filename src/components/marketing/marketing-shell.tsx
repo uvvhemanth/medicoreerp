@@ -6,13 +6,19 @@ import { SiteFooter } from "./site-footer";
 import { ChatBot } from "./chat-bot";
 import { DemoFab } from "./demo-fab";
 import { WhatsAppFab } from "./whatsapp-fab";
+import { ContactClickTracker } from "./contact-click-tracker";
 
 export function MarketingShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const confirmationPage = pathname === "/demo/thank-you";
 
   if (confirmationPage) {
-    return <main id="main">{children}</main>;
+    return (
+      <>
+        <ContactClickTracker />
+        <main id="main">{children}</main>
+      </>
+    );
   }
 
   return (
@@ -23,6 +29,7 @@ export function MarketingShell({ children }: { children: React.ReactNode }) {
       >
         Skip to content
       </a>
+      <ContactClickTracker />
       <SiteHeader />
       <main id="main">{children}</main>
       <SiteFooter />
