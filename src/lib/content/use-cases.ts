@@ -17,7 +17,7 @@ export const USE_CASES: UseCase[] = [
   {
     slug: "50-bed-multi-specialty-hospital",
     seo: {
-      title: "50-Bed Hospital on MedicoreERP: Example Workflow",
+      title: "50-Bed Hospital Workflow Example",
       description:
         "How a 50-bed multi-specialty hospital in India can run OPD, IPD, lab, pharmacy, insurance and billing on one MedicoreERP patient record.",
       keywords: [
@@ -73,7 +73,7 @@ export const USE_CASES: UseCase[] = [
   {
     slug: "clinic-going-paperless",
     seo: {
-      title: "How a Small Clinic Goes Paperless: Example Workflow",
+      title: "Paperless Clinic Workflow Example",
       description:
         "An example of how a 2–4 doctor clinic in India can move appointments, e-prescriptions, records and billing from paper to MedicoreERP.",
       keywords: [
@@ -125,7 +125,7 @@ export const USE_CASES: UseCase[] = [
   {
     slug: "diagnostic-lab-sample-to-report",
     seo: {
-      title: "Diagnostic Lab Workflow: Sample to Report Example",
+      title: "Diagnostic Lab Workflow: Sample to Report",
       description:
         "An example of how a diagnostic lab can manage registration, barcoded samples, analyzer results, approvals and digital reports in MedicoreERP.",
       keywords: [
@@ -175,7 +175,7 @@ export const USE_CASES: UseCase[] = [
   {
     slug: "nursing-home-insurance-billing",
     seo: {
-      title: "Nursing Home Insurance & TPA Billing: Example Workflow",
+      title: "Nursing Home TPA Billing Workflow",
       description:
         "An example of how a nursing home in India can manage packages, running IPD bills, insurance pre-authorisation and TPA claims in MedicoreERP.",
       keywords: [
