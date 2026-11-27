@@ -26,6 +26,9 @@ const columns = [
       ["Diagnostic Lab Software (LIS)", "/solutions/diagnostic-lab-management-software"],
       ["Enterprise", "/solutions/enterprise-healthcare-erp"],
       ["Government", "/solutions/government-payer-management"],
+      ["HMS in Hyderabad", "/hospital-management-software-hyderabad"],
+      ["Clinic Software in Telangana", "/clinic-management-software-telangana"],
+      ["ABDM-Ready HMS", "/abdm-hospital-management-software"],
     ],
   },
   {

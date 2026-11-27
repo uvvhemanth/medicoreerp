@@ -4,6 +4,7 @@ import { BLOG_ARTICLES } from "@/lib/content/blog-articles";
 
 const DEFAULT_LASTMOD = new Date("2026-09-19T16:04:15+01:00");
 const BLOG_LASTMOD = new Date("2026-09-19T16:04:22+01:00");
+const LOCAL_LANDING_LASTMOD = new Date("2026-11-27T00:00:00+05:30");
 
 /** Blog posts report the date their content was last substantively updated. */
 function blogLastMod(path: string) {
@@ -43,6 +44,9 @@ const ENTRIES: Entry[] = [
   { path: "/solutions/pharmacy-management-software", priority: 0.8 },
   { path: "/solutions/enterprise-healthcare-erp", priority: 0.8 },
   { path: "/solutions/government-payer-management", priority: 0.8 },
+  { path: "/hospital-management-software-hyderabad", priority: 0.9, lastModified: LOCAL_LANDING_LASTMOD },
+  { path: "/clinic-management-software-telangana", priority: 0.9, lastModified: LOCAL_LANDING_LASTMOD },
+  { path: "/abdm-hospital-management-software", priority: 0.9, lastModified: LOCAL_LANDING_LASTMOD },
   { path: "/resources/blog", priority: 0.8 },
   { path: "/company/about", priority: 0.8 },
   { path: "/contact", priority: 1.0 },

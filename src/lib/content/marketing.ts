@@ -1385,9 +1385,9 @@ export const CLINIC_LANDING = {
 
 export const HOSPITAL_LANDING = {
   seo: {
-    title: "Hospital Management Software (HMS) in Hyderabad | MedicoreERP",
+    title: "Hospital Management Software (HMS) in India | MedicoreERP",
     description:
-      "MedicoreERP hospital management software (HMS) connects OPD, IPD, EMR, lab, radiology, pharmacy, insurance and billing for hospitals in Hyderabad and India.",
+      "MedicoreERP hospital management software (HMS) connects OPD, IPD, EMR, lab, radiology, pharmacy, insurance and billing for hospitals across India.",
     keywords: [
       "hospital management software",
       "hospital management system",

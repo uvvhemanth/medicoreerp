@@ -47,7 +47,7 @@ export default function HospitalManagementSoftwarePage() {
         <div className="container-page relative z-10 grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-16">
           <Reveal>
             <div>
-              <Eyebrow>Hospital Management System in Hyderabad</Eyebrow>
+              <Eyebrow>Hospital Management System in India</Eyebrow>
               <h1 className="text-heading-display mt-5 max-w-xl">{PAGE.heroTitle}</h1>
               <p className="mt-3 text-xl font-semibold text-teal">{PAGE.heroSubtitle}</p>
               <div className="mt-4 max-w-xl space-y-3">
@@ -181,7 +181,7 @@ export default function HospitalManagementSoftwarePage() {
 
       <CTABand
         title="Ready to run your hospital on one platform?"
-        subtitle="Looking for a Hospital Management System in Hyderabad? Request a demo to see how MedicoreERP connects OPD, IPD, EMR, laboratory, radiology, pharmacy, insurance and billing."
+        subtitle="Looking for a Hospital Management System for your hospital in India? Request a demo to see how MedicoreERP connects OPD, IPD, EMR, laboratory, radiology, pharmacy, insurance and billing."
       />
     </>
   );
