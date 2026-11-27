@@ -4,7 +4,7 @@ import { Section, SectionHeading, CTABand, Reveal } from "@/components/marketing
 import { BookOpen, Building2, Mail, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Resources",
+  title: "Hospital Software Resources & Guides",
   description: "Hospital management guides on EMR, billing, ABDM and AI, plus MedicoreERP company information and contact details for hospitals and clinics in India.",
   alternates: { canonical: "/resources" },
 };

@@ -267,7 +267,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
       },
     ],
     seo: {
-      title: "EMR Software in India | Electronic Medical Records | MedicoreERP",
+      title: "EMR Software India: Electronic Medical Records | MedicoreERP",
       description: "Manage patient history, diagnoses, prescriptions, clinical notes and reports digitally with MedicoreERP Electronic Medical Records Software.",
       keywords: [
         "Electronic Medical Records Software",
@@ -1139,7 +1139,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
     name: "Platform & Admin",
     tagline: "Configure, don't customize.",
     seo: {
-      title: "Platform & Admin — No-Code Hospital Software Configuration | MedicoreERP",
+      title: "No-Code Hospital Software Platform | MedicoreERP",
       description: "Configure MedicoreERP without custom code: workflow studio, form builder, roles and permissions, masters and audit settings for hospitals and clinics.",
     },
     problem: "Every change to a legacy HIS means a consultant and a six-month project.",
@@ -1175,7 +1175,7 @@ export const SOLUTIONS: Solution[] = [
 
 export const CLINIC_LANDING = {
   seo: {
-    title: "Clinic Management Software for Doctors, Hyderabad | MedicoreERP",
+    title: "Clinic Management Software for Doctors | MedicoreERP",
     description:
       "Clinic management software for doctors in Hyderabad and India: appointments, EMR, digital prescriptions, OPD billing and patient follow-ups in one system.",
     keywords: [
@@ -1621,7 +1621,7 @@ export const HOSPITAL_LANDING = {
 
 export const DIAGNOSTIC_LAB_LANDING = {
   seo: {
-    title: "Diagnostic Lab Software & LIS for Pathology Labs | MedicoreERP",
+    title: "Diagnostic Lab Management Software (LIS) | MedicoreERP",
     description:
       "Diagnostic lab management software and LIS for pathology labs and diagnostic centres: sample tracking, analyzer integration, digital reports and billing.",
     keywords: [
@@ -1845,7 +1845,7 @@ export const DIAGNOSTIC_LAB_LANDING = {
 
 export const PHARMACY_LANDING = {
   seo: {
-    title: "Pharmacy Software & Medical Store Billing Software | MedicoreERP",
+    title: "Pharmacy & Medical Store Billing Software | MedicoreERP",
     description:
       "Pharmacy management and medical store billing software with GST billing, batch and expiry tracking, stock control and multi-store inventory for India.",
     keywords: [
@@ -1996,7 +1996,7 @@ export const PHARMACY_LANDING = {
 
 export const ENTERPRISE_LANDING = {
   seo: {
-    title: "Enterprise Healthcare ERP for Hospital Networks | MedicoreERP",
+    title: "Enterprise Healthcare ERP for Hospitals | MedicoreERP",
     description:
       "Connect hospitals, clinics and healthcare facilities with MedicoreERP Enterprise Healthcare ERP for centralized workflows, analytics and integrations.",
     keywords: [
@@ -2114,7 +2114,7 @@ export const ENTERPRISE_LANDING = {
 
 export const GOVERNMENT_PAYER_LANDING = {
   seo: {
-    title: "Government & Healthcare Payer Management Software | MedicoreERP",
+    title: "Healthcare Payer Management Software | MedicoreERP",
     description:
       "Manage eligibility, pre-authorizations, insurance, TPA claims, settlements and government healthcare workflows with MedicoreERP.",
     keywords: [
@@ -2954,11 +2954,12 @@ export const CASE_STUDIES: CaseStudy[] = [
   { slug: "citycare-clinics", org: "CityCare Clinics", edition: "Clinic", region: "North India", challenge: "A fast-growing clinic group with paper registers, no-shows, and no follow-up recall.", solution: "Standardized on MedicoreERP's clinic edition with ML no-show scoring and recall campaigns.", metrics: [{ label: "No-shows", value: "-33%" }, { label: "Recall revenue", value: "+22%" }, { label: "Go-live", value: "3 wks" }], quote: "We recovered the subscription cost in the first month from recalls alone.", author: "Sana Khan, COO", image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1200&q=70" },
 ];
 
-export interface BlogPost { slug: string; title: string; excerpt: string; category: string; author: string; date: string; readMins: number; image: string }
+export interface BlogPost { slug: string; title: string; seoTitle?: string; excerpt: string; category: string; author: string; date: string; readMins: number; image: string }
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "hospital-management-software-price-india",
     title: "Hospital management software price in India: a cost guide",
+    seoTitle: "Hospital Management Software Price in India",
     excerpt: "How HMS is priced in India, what drives the cost, the charges buyers miss, and how to compare quotes fairly.",
     category: "Buying Guide",
     author: "MedicoreERP Editorial Team",
@@ -2969,6 +2970,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "how-to-choose-hospital-management-software",
     title: "How to choose hospital management software: a practical guide",
+    seoTitle: "How to Choose Hospital Management Software",
     excerpt: "Map your workflows, shortlist vendors, run scripted demos and check references before you sign.",
     category: "Buying Guide",
     author: "MedicoreERP Editorial Team",
@@ -2979,6 +2981,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "software-for-small-hospitals-nursing-homes",
     title: "Best software for small hospitals and nursing homes",
+    seoTitle: "Software for Small Hospitals & Nursing Homes",
     excerpt: "The modules a 10 to 50 bed hospital really needs, what to add later, and how to go digital without disrupting care.",
     category: "Buying Guide",
     author: "MedicoreERP Editorial Team",
@@ -2989,6 +2992,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "nabh-accreditation-software-documentation",
     title: "NABH accreditation: how hospital software helps with documentation",
+    seoTitle: "NABH Accreditation Software & Documentation",
     excerpt: "What NABH assessors look for, where software helps most, and how to turn standards into system settings.",
     category: "Compliance",
     author: "MedicoreERP Editorial Team",
@@ -3009,6 +3013,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "electronic-medical-records-guide",
     title: "Electronic medical records that clinicians will actually use",
+    seoTitle: "EMR Guide: Records Clinicians Will Actually Use",
     excerpt: "How a modern EMR cuts chart dig time, keeps a full audit trail, and stays FHIR-ready for ABDM and referrals.",
     category: "EMR",
     author: "MedicoreERP Editorial Team",
@@ -3019,6 +3024,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "hospital-appointment-scheduling",
     title: "Appointment scheduling that cuts no-shows and OPD chaos",
+    seoTitle: "Hospital Appointment Scheduling Guide",
     excerpt: "Multi-doctor calendars, online booking, token boards, and ML no-show scores — a practical playbook for clinics and hospitals.",
     category: "Appointments",
     author: "MedicoreERP Editorial Team",
@@ -3029,6 +3035,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "patient-billing-and-invoices",
     title: "Patient billing & invoices: clarity that improves collections",
+    seoTitle: "Patient Billing & Invoices for Hospitals",
     excerpt: "Itemized GST invoices, point-of-care charges, UPI/card receipts, and how clean bills reduce disputes at the counter.",
     category: "Billing",
     author: "MedicoreERP Editorial Team",
@@ -3039,6 +3046,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "patient-appointment-reminders",
     title: "Patient reminders that reduce no-shows without nagging",
+    seoTitle: "Patient Appointment Reminders That Work",
     excerpt: "SMS and WhatsApp appointment nudges, follow-up recalls, and medication refill reminders that respect consent.",
     category: "Patient Engagement",
     author: "MedicoreERP Editorial Team",
@@ -3046,10 +3054,10 @@ export const BLOG_POSTS: BlogPost[] = [
     readMins: 5,
     image: "https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&w=1200&q=70",
   },
-  { slug: "ambient-ai-clinical-documentation", title: "How ambient AI is ending the clinical documentation crisis", excerpt: "Physicians spend two hours on paperwork for every hour of care. Ambient scribes flip that ratio — here's how.", category: "AI", author: "MedicoreERP Editorial Team", date: "2026-06-28", readMins: 7, image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=70" },
+  { slug: "ambient-ai-clinical-documentation", title: "How ambient AI is ending the clinical documentation crisis", seoTitle: "Ambient AI for Clinical Documentation", excerpt: "Physicians spend two hours on paperwork for every hour of care. Ambient scribes flip that ratio — here's how.", category: "AI", author: "MedicoreERP Editorial Team", date: "2026-06-28", readMins: 7, image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=70" },
   { slug: "reducing-claim-denials-with-ai", title: "Reducing claim denials with predictive RCM", excerpt: "A practical playbook for cutting your denial rate in half using AI-assisted coding and scrubbing.", category: "Revenue Cycle", author: "MedicoreERP Editorial Team", date: "2026-06-15", readMins: 9, image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=70" },
   { slug: "fhir-first-interoperability", title: "Why FHIR-first beats bolt-on integration", excerpt: "Interoperability shouldn't be an afterthought. Building on FHIR from day one changes everything.", category: "Interoperability", author: "MedicoreERP Editorial Team", date: "2026-05-30", readMins: 6, image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=70" },
-  { slug: "abdm-ready-hospital", title: "The ABDM-ready hospital: a compliance checklist", excerpt: "Everything you need to know to make your hospital ABDM-compliant without slowing down clinicians.", category: "Compliance", author: "MedicoreERP Editorial Team", date: "2026-05-18", readMins: 8, image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=70" },
+  { slug: "abdm-ready-hospital", title: "The ABDM-ready hospital: a compliance checklist", seoTitle: "ABDM-Ready Hospital Compliance Checklist", excerpt: "Everything you need to know to make your hospital ABDM-compliant without slowing down clinicians.", category: "Compliance", author: "MedicoreERP Editorial Team", date: "2026-05-18", readMins: 8, image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=70" },
 ];
 
 export const STANDARD_BADGES = ["FHIR R4", "HL7 v2", "DICOM", "ABDM / ABHA"];

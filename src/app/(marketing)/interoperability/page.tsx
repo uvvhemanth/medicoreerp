@@ -6,7 +6,7 @@ import { STANDARDS } from "@/lib/content/marketing";
 import { Network, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Healthcare Interoperability — FHIR, HL7, DICOM & ABDM",
+  title: "Interoperability: FHIR, HL7, DICOM & ABDM",
   description: "Connect MedicoreERP to labs, imaging, insurers and ABDM with FHIR R4 APIs, HL7 v2 interfaces, DICOM imaging and guaranteed data exports. No lock-in.",
   alternates: { canonical: "/interoperability" },
 };

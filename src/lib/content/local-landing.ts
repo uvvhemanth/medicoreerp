@@ -423,7 +423,7 @@ export const HYDERABAD_HMS: LocalLanding = {
 
 export const TELANGANA_CLINICS: LocalLanding = {
   seo: {
-    title: "Clinic Management Software in Hyderabad & Telangana | MedicoreERP",
+    title: "Clinic Management Software Telangana | MedicoreERP",
     description:
       "Clinic management software for doctors in Hyderabad and Telangana: appointments, OPD, e-prescriptions, billing and WhatsApp reminders. Book a free demo.",
     keywords: [

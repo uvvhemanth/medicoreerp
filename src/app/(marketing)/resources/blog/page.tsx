@@ -10,7 +10,7 @@ import { formatDate } from "@/lib/utils";
 import { Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Hospital Management Blog: EMR, Billing, ABDM & AI Guides",
+  title: "Hospital Management Blog: EMR, ABDM & AI",
   description:
     "Practical guides for Indian hospitals and clinics on EMR adoption, OPD scheduling, billing and GST, claim denials, ABDM compliance and AI documentation.",
   alternates: { canonical: "/resources/blog" },

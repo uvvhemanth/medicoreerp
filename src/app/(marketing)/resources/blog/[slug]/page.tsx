@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const article = BLOG_ARTICLES[p.slug];
   const path = `/resources/blog/${p.slug}`;
   return {
-    title: p.title,
+    title: p.seoTitle ?? p.title,
     description: p.excerpt,
     keywords: article?.keywords,
     authors: [{ name: p.author, url: "/company/about" }],

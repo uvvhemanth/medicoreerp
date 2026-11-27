@@ -3,7 +3,7 @@ import { Section, SectionHeading, CTABand, Reveal } from "@/components/marketing
 import { HOME_STATS } from "@/lib/content/marketing";
 
 export const metadata: Metadata = {
-  title: "About Us — Hospital Management Software Company in Hyderabad",
+  title: "About Us — HMS Company in Hyderabad",
   description: "About MedicoreERP — the hospital management system and medical ERP built in Hyderabad for hospitals, clinics, diagnostic labs and pharmacies across India.",
   alternates: { canonical: "/company/about" },
 };

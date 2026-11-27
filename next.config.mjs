@@ -43,6 +43,20 @@ const nextConfig = {
       { source: "/product/hrm", destination: "/product/workforce-hrm", permanent: true },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), geolocation=(), payment=(), usb=()" },
+          { key: "Content-Security-Policy", value: "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [{ source: "/favicon.ico", destination: "/icon.png" }];
   },
