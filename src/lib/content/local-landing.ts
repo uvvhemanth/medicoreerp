@@ -171,7 +171,7 @@ export const CITY_PAGES: LocalLanding[] = [
     state: "Telangana",
     slug: "warangal",
     intro: [
-      "Warangal, Telangana's second-largest city, is a major healthcare centre for the northern districts of the state. Many are moving from paper and standalone billing software to a connected hospital system.",
+      "Warangal, Telangana's second-largest city, is a major healthcare centre for the northern districts of the state. Many of its hospitals and nursing homes are moving from paper and standalone billing software to a connected hospital system.",
       "MedicoreERP brings OPD, IPD, EMR, laboratory, pharmacy, insurance and billing onto one patient record. Warangal is within easy reach of our Hyderabad team, so implementation visits are simple to arrange.",
     ],
     areaTitle: "Hospitals across Warangal",
