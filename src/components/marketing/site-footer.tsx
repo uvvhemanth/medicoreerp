@@ -26,7 +26,6 @@ const columns = [
       ["Diagnostic Lab Software (LIS)", "/solutions/diagnostic-lab-management-software"],
       ["Enterprise", "/solutions/enterprise-healthcare-erp"],
       ["Government", "/solutions/government-payer-management"],
-      ["HMS in Hyderabad", "/hospital-management-software-hyderabad"],
       ["Clinic Software in Telangana", "/clinic-management-software-telangana"],
       ["ABDM-Ready HMS", "/abdm-hospital-management-software"],
     ],
@@ -35,8 +34,21 @@ const columns = [
     title: "Resources",
     links: [
       ["Blog", "/resources/blog"],
-      ["About Us", "/company/about"],
-      ["Contact", "/contact"],
+      ["HMS Price Guide", "/resources/blog/hospital-management-software-price-india"],
+      ["How to Choose an HMS", "/resources/blog/how-to-choose-hospital-management-software"],
+      ["HMS vs HIS vs EMR", "/resources/blog/hms-vs-his-vs-emr"],
+    ],
+  },
+  {
+    title: "Locations",
+    links: [
+      ["Hyderabad", "/hospital-management-software-hyderabad"],
+      ["Warangal", "/hospital-management-software-warangal"],
+      ["Vijayawada", "/hospital-management-software-vijayawada"],
+      ["Visakhapatnam", "/hospital-management-software-visakhapatnam"],
+      ["Bangalore", "/hospital-management-software-bangalore"],
+      ["Chennai", "/hospital-management-software-chennai"],
+      ["Pune", "/hospital-management-software-pune"],
     ],
   },
   {
@@ -66,7 +78,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t bg-card">
       <div className="container-page py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.4fr_repeat(6,1fr)]">
           <div className="space-y-4">
             <Logo />
             <div className="max-w-sm space-y-2">

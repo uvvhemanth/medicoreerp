@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ENTERPRISE_LANDING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal, FAQ } from "@/components/marketing/blocks";
+import { RelatedGuides } from "@/components/marketing/related-guides";
 import { JsonLd } from "@/components/marketing/json-ld";
 import { breadcrumbJsonLd, faqJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { HisDashboard } from "@/components/marketing/his-dashboard";
@@ -121,6 +122,8 @@ export default function EnterpriseHealthcareErpPage() {
         <SectionHeading center eyebrow="Enterprise FAQs" title="Questions hospital networks ask before they switch" className="mb-12" />
         <FAQ items={PAGE.faqs} />
       </Section>
+
+      <RelatedGuides muted slugs={["hms-vs-his-vs-emr", "how-to-choose-hospital-management-software", "fhir-first-interoperability"]} />
 
       <CTABand
         title="Ready to run one platform across your network?"

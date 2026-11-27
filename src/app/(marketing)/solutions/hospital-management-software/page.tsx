@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HOSPITAL_LANDING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal, FAQ } from "@/components/marketing/blocks";
+import { RelatedGuides } from "@/components/marketing/related-guides";
 import { JsonLd } from "@/components/marketing/json-ld";
 import { breadcrumbJsonLd, faqJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { HisDashboard } from "@/components/marketing/his-dashboard";
@@ -178,6 +179,8 @@ export default function HospitalManagementSoftwarePage() {
         <SectionHeading center eyebrow="Hospital FAQs" title="Questions hospitals ask before they switch" className="mb-12" />
         <FAQ items={PAGE.faqs} />
       </Section>
+
+      <RelatedGuides muted slugs={["how-to-choose-hospital-management-software", "hospital-management-software-price-india", "hms-vs-his-vs-emr"]} />
 
       <CTABand
         title="Ready to run your hospital on one platform?"

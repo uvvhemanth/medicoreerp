@@ -267,7 +267,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
       },
     ],
     seo: {
-      title: "Electronic Medical Records EMR Software | MedicoreERP",
+      title: "EMR Software in India | Electronic Medical Records | MedicoreERP",
       description: "Manage patient history, diagnoses, prescriptions, clinical notes and reports digitally with MedicoreERP Electronic Medical Records Software.",
       keywords: [
         "Electronic Medical Records Software",
@@ -409,7 +409,7 @@ export const PRODUCT_DOMAINS: ProductDomain[] = [
       },
     ],
     seo: {
-      title: "Hospital Billing & Invoice Software | MedicoreERP",
+      title: "Hospital Billing Software in India | MedicoreERP",
       description: "Manage OPD, IPD, pharmacy, laboratory, patient invoices, payments and outstanding balances with MedicoreERP Hospital Billing Software.",
       keywords: [
         "Hospital Billing Software",
@@ -2956,6 +2956,56 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export interface BlogPost { slug: string; title: string; excerpt: string; category: string; author: string; date: string; readMins: number; image: string }
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "hospital-management-software-price-india",
+    title: "Hospital management software price in India: a cost guide",
+    excerpt: "How HMS is priced in India, what drives the cost, the charges buyers miss, and how to compare quotes fairly.",
+    category: "Buying Guide",
+    author: "MedicoreERP Editorial Team",
+    date: "2026-11-27",
+    readMins: 8,
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=70",
+  },
+  {
+    slug: "how-to-choose-hospital-management-software",
+    title: "How to choose hospital management software: a practical guide",
+    excerpt: "Map your workflows, shortlist vendors, run scripted demos and check references before you sign.",
+    category: "Buying Guide",
+    author: "MedicoreERP Editorial Team",
+    date: "2026-11-27",
+    readMins: 8,
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=70",
+  },
+  {
+    slug: "software-for-small-hospitals-nursing-homes",
+    title: "Best software for small hospitals and nursing homes",
+    excerpt: "The modules a 10 to 50 bed hospital really needs, what to add later, and how to go digital without disrupting care.",
+    category: "Buying Guide",
+    author: "MedicoreERP Editorial Team",
+    date: "2026-11-27",
+    readMins: 7,
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=70",
+  },
+  {
+    slug: "nabh-accreditation-software-documentation",
+    title: "NABH accreditation: how hospital software helps with documentation",
+    excerpt: "What NABH assessors look for, where software helps most, and how to turn standards into system settings.",
+    category: "Compliance",
+    author: "MedicoreERP Editorial Team",
+    date: "2026-11-27",
+    readMins: 7,
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=70",
+  },
+  {
+    slug: "hms-vs-his-vs-emr",
+    title: "HMS vs HIS vs EMR: what is the difference?",
+    excerpt: "A plain-language guide to HMS, HIS, EMR, EHR, LIS, RIS, PACS and hospital ERP, and which ones your hospital needs.",
+    category: "Buying Guide",
+    author: "MedicoreERP Editorial Team",
+    date: "2026-11-27",
+    readMins: 6,
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=70",
+  },
   {
     slug: "electronic-medical-records-guide",
     title: "Electronic medical records that clinicians will actually use",

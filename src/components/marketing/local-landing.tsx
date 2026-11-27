@@ -5,7 +5,7 @@ import { Section, SectionHeading, CTABand, Eyebrow, Reveal, FAQ } from "@/compon
 import { JsonLd } from "@/components/marketing/json-ld";
 import { breadcrumbJsonLd, faqJsonLd, DEFAULT_OG_IMAGES, OFFICE_ADDRESS, OFFICE_MAP_URL } from "@/lib/seo";
 import { WHATSAPP_URL } from "@/lib/content/contact";
-import type { LocalLanding } from "@/lib/content/local-landing";
+import { CITY_PAGES, type LocalLanding } from "@/lib/content/local-landing";
 import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const RELATED = [
@@ -13,6 +13,8 @@ const RELATED = [
   { label: "Hospital Management Software in Hyderabad", href: "/hospital-management-software-hyderabad" },
   { label: "Clinic Management Software in Telangana", href: "/clinic-management-software-telangana" },
   { label: "ABDM-Ready Hospital Management Software", href: "/abdm-hospital-management-software" },
+  ...CITY_PAGES.map((c) => ({ label: c.breadcrumb, href: c.seo.canonical })),
+  { label: "Hospital software price guide", href: "/resources/blog/hospital-management-software-price-india" },
 ];
 
 export function localLandingMetadata(page: LocalLanding): Metadata {

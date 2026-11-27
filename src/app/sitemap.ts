@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/content/marketing";
 import { BLOG_ARTICLES } from "@/lib/content/blog-articles";
+import { CITY_PAGES } from "@/lib/content/local-landing";
 
 const DEFAULT_LASTMOD = new Date("2026-09-19T16:04:15+01:00");
 const BLOG_LASTMOD = new Date("2026-09-19T16:04:22+01:00");
@@ -84,6 +85,12 @@ const ENTRIES: Entry[] = [
   { path: "/resources/blog/reducing-claim-denials-with-ai", priority: 0.7, lastModified: blogLastMod("/resources/blog/reducing-claim-denials-with-ai") },
   { path: "/resources/blog/fhir-first-interoperability", priority: 0.7, lastModified: blogLastMod("/resources/blog/fhir-first-interoperability") },
   { path: "/resources/blog/abdm-ready-hospital", priority: 0.7, lastModified: blogLastMod("/resources/blog/abdm-ready-hospital") },
+  { path: "/resources/blog/hospital-management-software-price-india", priority: 0.8, lastModified: blogLastMod("/resources/blog/hospital-management-software-price-india") },
+  { path: "/resources/blog/how-to-choose-hospital-management-software", priority: 0.8, lastModified: blogLastMod("/resources/blog/how-to-choose-hospital-management-software") },
+  { path: "/resources/blog/software-for-small-hospitals-nursing-homes", priority: 0.8, lastModified: blogLastMod("/resources/blog/software-for-small-hospitals-nursing-homes") },
+  { path: "/resources/blog/nabh-accreditation-software-documentation", priority: 0.8, lastModified: blogLastMod("/resources/blog/nabh-accreditation-software-documentation") },
+  { path: "/resources/blog/hms-vs-his-vs-emr", priority: 0.8, lastModified: blogLastMod("/resources/blog/hms-vs-his-vs-emr") },
+  ...CITY_PAGES.map((c) => ({ path: c.seo.canonical, priority: 0.8, lastModified: LOCAL_LANDING_LASTMOD })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

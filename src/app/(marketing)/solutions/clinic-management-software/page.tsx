@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CLINIC_LANDING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal, FAQ } from "@/components/marketing/blocks";
+import { RelatedGuides } from "@/components/marketing/related-guides";
 import { JsonLd } from "@/components/marketing/json-ld";
 import { breadcrumbJsonLd, faqJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { HisDashboard } from "@/components/marketing/his-dashboard";
@@ -183,6 +184,8 @@ export default function ClinicManagementSoftwarePage() {
         <SectionHeading center eyebrow="Clinic FAQs" title="Questions clinics ask before they switch" className="mb-12" />
         <FAQ items={PAGE.faqs} />
       </Section>
+
+      <RelatedGuides muted slugs={["hospital-management-software-price-india", "hospital-appointment-scheduling", "patient-appointment-reminders"]} />
 
       <CTABand
         title="Ready to run your clinic in one place?"

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PHARMACY_LANDING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal, FAQ } from "@/components/marketing/blocks";
+import { RelatedGuides } from "@/components/marketing/related-guides";
 import { JsonLd } from "@/components/marketing/json-ld";
 import { breadcrumbJsonLd, faqJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { HisDashboard } from "@/components/marketing/his-dashboard";
@@ -128,6 +129,8 @@ export default function PharmacyManagementSoftwarePage() {
         <SectionHeading center eyebrow="Pharmacy FAQs" title="Questions pharmacy teams ask before they switch" className="mb-12" />
         <FAQ items={PAGE.faqs} />
       </Section>
+
+      <RelatedGuides muted slugs={["hospital-management-software-price-india", "patient-billing-and-invoices", "software-for-small-hospitals-nursing-homes"]} />
 
       <CTABand
         title="Ready to connect dispensing and stock?"

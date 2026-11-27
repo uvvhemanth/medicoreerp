@@ -17,6 +17,295 @@ export type LocalLanding = {
   cta: { title: string; subtitle: string };
 };
 
+const CITY_MODULES: LocalLanding["modules"] = [
+  { title: "Patient registration & UHID", desc: "Front-desk registration, returning-patient lookup and digital profiles.", href: "/product/patient-access" },
+  { title: "Appointments & queues", desc: "Doctor schedules, walk-ins, token queues and reminders.", href: "/product/appointments" },
+  { title: "OPD & IPD", desc: "Consultations, admissions, beds, nursing, transfers and discharge.", href: "/product/clinical-emr-opd-ipd" },
+  { title: "Electronic medical records", desc: "Longitudinal clinical history across every visit.", href: "/product/electronic-medical-records" },
+  { title: "Laboratory & radiology", desc: "Lab orders, analyzer results, imaging worklists and digital reports.", href: "/product/laboratory" },
+  { title: "Pharmacy", desc: "E-prescriptions, batches, expiry tracking and dispensing.", href: "/product/pharmacy" },
+  { title: "Billing & insurance", desc: "OPD, IPD and package billing with insurance and TPA claims.", href: "/product/billing-invoices" },
+  { title: "HIS dashboard", desc: "Occupancy, revenue, collections and department KPIs.", href: "/product/his-dashboard" },
+];
+
+function cityPage(input: {
+  city: string;
+  state: string;
+  slug: string;
+  intro: string[];
+  areaTitle: string;
+  areaSubtitle: string;
+  areas: string[];
+  localReasons: LocalLanding["reasons"];
+  localFaqs: LocalLanding["faqs"];
+  extraKeywords: string[];
+}): LocalLanding {
+  const { city, state } = input;
+  return {
+    seo: {
+      title: `Hospital Management Software in ${city} | MedicoreERP`,
+      description: `Hospital management software for hospitals and nursing homes in ${city}, ${state}: OPD, IPD, EMR, lab, pharmacy, insurance and billing on one platform.`,
+      keywords: [
+        `hospital management software ${city}`,
+        `hospital management system ${city}`,
+        `HMS software ${city}`,
+        `hospital software ${city}`,
+        `clinic management software ${city}`,
+        ...input.extraKeywords,
+      ],
+      canonical: `/hospital-management-software-${input.slug}`,
+    },
+    breadcrumb: `Hospital Management Software in ${city}`,
+    eyebrow: `For hospitals in ${city}`,
+    heroTitle: `Hospital Management Software in ${city}`,
+    heroSubtitle: `One connected platform for hospitals, nursing homes and clinics in ${city}.`,
+    intro: input.intro,
+    areas: { title: input.areaTitle, subtitle: input.areaSubtitle, items: input.areas },
+    reasons: [
+      ...input.localReasons,
+      {
+        title: "One record from OPD to discharge",
+        desc: "Doctors, nurses, labs, pharmacy and billing work from the same patient record instead of separate systems.",
+      },
+      {
+        title: "Indian billing built in",
+        desc: "Cash, package, insurance and TPA billing alongside OPD, IPD, pharmacy and lab charges, with GST invoices.",
+      },
+      {
+        title: "ABDM and ABHA ready",
+        desc: "Link patient ABHA IDs and support consent-based health-record exchange as your hospital adopts ABDM.",
+      },
+      {
+        title: "Web-based, no server room",
+        desc: "Runs in the browser on desktops and tablets, with hosting, backups and updates handled for you.",
+      },
+    ],
+    modules: CITY_MODULES,
+    faqs: [
+      ...input.localFaqs,
+      {
+        q: `How much does hospital management software cost in ${city}?`,
+        a: "Pricing depends on your beds, users and modules. Book a demo and the team will send a written quote with implementation, training and integrations listed separately.",
+      },
+      {
+        q: "Can we move our existing patient data to MedicoreERP?",
+        a: "Yes. The team helps migrate patient masters and history from your current system or spreadsheets during implementation.",
+      },
+    ],
+    cta: {
+      title: `Looking for hospital software in ${city}?`,
+      subtitle: `Book an online demo and see how MedicoreERP connects OPD, IPD, EMR, lab, pharmacy and billing for hospitals in ${city}.`,
+    },
+  };
+}
+
+export const CITY_PAGES: LocalLanding[] = [
+  cityPage({
+    city: "Vijayawada",
+    state: "Andhra Pradesh",
+    slug: "vijayawada",
+    intro: [
+      "Vijayawada is one of the main healthcare centres of coastal Andhra Pradesh, with hospitals and nursing homes serving patients from across the Krishna and Godavari regions. Many of them still run OPD on paper registers and keep billing in separate software.",
+      "MedicoreERP brings registration, OPD, IPD, EMR, laboratory, pharmacy, insurance and billing onto one patient record. Our team is based in Hyderabad, within easy travelling distance of Vijayawada, and supports hospitals here online with visits for implementation on request.",
+    ],
+    areaTitle: "Hospitals across Vijayawada",
+    areaSubtitle: "Supporting hospitals and nursing homes across the city and nearby towns.",
+    areas: ["Benz Circle", "Governorpet", "Labbipet", "Moghalrajpuram", "Patamata", "Gunadala", "Suryaraopet", "Auto Nagar", "Poranki", "Gollapudi", "Guntur", "Mangalagiri"],
+    localReasons: [
+      {
+        title: "Close to our Hyderabad team",
+        desc: "Implementation visits to Vijayawada are straightforward to arrange, and day-to-day support happens on phone, WhatsApp and video.",
+      },
+      {
+        title: "Built for busy OPDs",
+        desc: "Token queues, quick registration and prescription templates keep high-volume outpatient days moving.",
+      },
+    ],
+    localFaqs: [
+      {
+        q: "Does MedicoreERP have an office in Vijayawada?",
+        a: "No. Our office is in Madhapur, Hyderabad. We implement and support Vijayawada hospitals online, and the team can visit for implementation and training on request.",
+      },
+      {
+        q: "Is MedicoreERP suitable for nursing homes in Vijayawada?",
+        a: "Yes. Nursing homes can start with registration, OPD, IPD, billing and pharmacy and add laboratory or radiology later.",
+      },
+    ],
+    extraKeywords: ["hospital software Andhra Pradesh", "nursing home software Vijayawada"],
+  }),
+  cityPage({
+    city: "Visakhapatnam",
+    state: "Andhra Pradesh",
+    slug: "visakhapatnam",
+    intro: [
+      "Visakhapatnam has a growing mix of corporate hospitals, specialty centres and nursing homes serving north coastal Andhra Pradesh. As hospitals add beds and departments, keeping OPD, IPD, diagnostics and billing in step becomes harder without a single system.",
+      "MedicoreERP connects every department on one patient record. Our team works from Hyderabad and supports Visakhapatnam hospitals online, with on-site visits for implementation and training on request.",
+    ],
+    areaTitle: "Hospitals across Visakhapatnam",
+    areaSubtitle: "Supporting hospitals and nursing homes across Vizag and the surrounding region.",
+    areas: ["Dwaraka Nagar", "MVP Colony", "Seethammadhara", "Maddilapalem", "Asilmetta", "Siripuram", "Gajuwaka", "Madhurawada", "Pendurthi", "Rushikonda", "Anakapalle", "Vizianagaram"],
+    localReasons: [
+      {
+        title: "Ready for growing hospitals",
+        desc: "Add beds, departments or a second facility without changing software or migrating data again.",
+      },
+      {
+        title: "Diagnostics connected",
+        desc: "Lab and imaging results flow straight into the patient record and the bill, instead of arriving as printouts.",
+      },
+    ],
+    localFaqs: [
+      {
+        q: "Does MedicoreERP have an office in Visakhapatnam?",
+        a: "No. Our office is in Madhapur, Hyderabad. We implement and support Visakhapatnam hospitals online, and the team can visit for implementation and training on request.",
+      },
+      {
+        q: "Can MedicoreERP manage a multi-specialty hospital in Vizag?",
+        a: "Yes. OPD, IPD, OT, ICU, laboratory, radiology, pharmacy, insurance and analytics all run on the same platform.",
+      },
+    ],
+    extraKeywords: ["hospital management software Vizag", "HMS software Vizag"],
+  }),
+  cityPage({
+    city: "Warangal",
+    state: "Telangana",
+    slug: "warangal",
+    intro: [
+      "Warangal, Telangana's second-largest city, is a major healthcare centre for the northern districts of the state. Many are moving from paper and standalone billing software to a connected hospital system.",
+      "MedicoreERP brings OPD, IPD, EMR, laboratory, pharmacy, insurance and billing onto one patient record. Warangal is within easy reach of our Hyderabad team, so implementation visits are simple to arrange.",
+    ],
+    areaTitle: "Hospitals across Warangal",
+    areaSubtitle: "Supporting hospitals and nursing homes in the tri-city area and nearby districts.",
+    areas: ["Hanamkonda", "Kazipet", "Hunter Road", "Subedari", "Nakkalagutta", "Mulugu Road", "Naimnagar", "Fathima Nagar", "Jangaon", "Mahabubabad", "Narsampet", "Parkal"],
+    localReasons: [
+      {
+        title: "Same-state support",
+        desc: "Our Hyderabad team supports Warangal hospitals on phone, WhatsApp and video, and can visit for implementation and training.",
+      },
+      {
+        title: "Simple for small teams",
+        desc: "Screens are quick to learn for staff who handle registration, billing and the bed register together.",
+      },
+    ],
+    localFaqs: [
+      {
+        q: "Does MedicoreERP have an office in Warangal?",
+        a: "No. Our office is in Madhapur, Hyderabad. We support Warangal hospitals online, and the team can visit for implementation and training on request.",
+      },
+      {
+        q: "Is MedicoreERP suitable for nursing homes in Hanamkonda and Kazipet?",
+        a: "Yes. Nursing homes can start with registration, OPD, IPD, billing and pharmacy and add other modules as they grow.",
+      },
+    ],
+    extraKeywords: ["hospital software Hanamkonda", "nursing home software Warangal"],
+  }),
+  cityPage({
+    city: "Bangalore",
+    state: "Karnataka",
+    slug: "bangalore",
+    intro: [
+      "Bangalore has one of India's largest private healthcare markets, from multi-specialty hospitals and hospital chains to day-care centres and specialty clinics. Hospitals here often expect modern, integrated software that works across branches and connects to labs, imaging and insurance.",
+      "MedicoreERP runs every department on one patient record, with FHIR R4, HL7 and DICOM integration for connected diagnostics. Our team is based in Hyderabad and supports Bangalore hospitals online, with on-site visits for implementation on request.",
+    ],
+    areaTitle: "Hospitals across Bangalore",
+    areaSubtitle: "Supporting hospitals, chains and clinics across Bengaluru.",
+    areas: ["Whitefield", "Koramangala", "Indiranagar", "Jayanagar", "JP Nagar", "HSR Layout", "Electronic City", "Bannerghatta Road", "Hebbal", "Yelahanka", "Rajajinagar", "Malleshwaram", "Marathahalli", "Sarjapur Road"],
+    localReasons: [
+      {
+        title: "Built for multi-branch groups",
+        desc: "Run several hospitals or clinics on one platform with central reporting and standard processes.",
+      },
+      {
+        title: "Standards-based integration",
+        desc: "FHIR R4, HL7 v2 and DICOM connect labs, imaging and other systems without one-off interfaces.",
+      },
+    ],
+    localFaqs: [
+      {
+        q: "Does MedicoreERP have an office in Bangalore?",
+        a: "No. Our office is in Madhapur, Hyderabad. We implement and support Bangalore hospitals online, and the team can visit for implementation and training on request.",
+      },
+      {
+        q: "Can MedicoreERP support a hospital chain in Bangalore?",
+        a: "Yes. Multiple facilities can run on one platform with central reporting, shared masters and branch-level access control.",
+      },
+    ],
+    extraKeywords: ["hospital management software Bengaluru", "HMS software Bengaluru"],
+  }),
+  cityPage({
+    city: "Chennai",
+    state: "Tamil Nadu",
+    slug: "chennai",
+    intro: [
+      "Chennai is one of India's leading healthcare cities, drawing patients from across Tamil Nadu, other states and abroad. Hospitals here handle high OPD volumes, complex inpatient care and a wide mix of insurance and TPA billing.",
+      "MedicoreERP connects OPD, IPD, EMR, diagnostics, pharmacy, insurance and billing on one patient record. Our team is based in Hyderabad and supports Chennai hospitals online, with on-site visits for implementation on request.",
+    ],
+    areaTitle: "Hospitals across Chennai",
+    areaSubtitle: "Supporting hospitals and nursing homes across Chennai and its suburbs.",
+    areas: ["Anna Nagar", "T Nagar", "Adyar", "Mylapore", "Nungambakkam", "Vadapalani", "Guindy", "Velachery", "OMR", "Porur", "Tambaram", "Chromepet", "Ambattur", "Perambur"],
+    localReasons: [
+      {
+        title: "Handles insurance-heavy billing",
+        desc: "Insurance and TPA pre-authorisation, enhancements, claim tracking and settlement sit inside the IPD bill.",
+      },
+      {
+        title: "Ready for high OPD volumes",
+        desc: "Token queues, quick registration and doctor templates keep busy outpatient departments moving.",
+      },
+    ],
+    localFaqs: [
+      {
+        q: "Does MedicoreERP have an office in Chennai?",
+        a: "No. Our office is in Madhapur, Hyderabad. We implement and support Chennai hospitals online, and the team can visit for implementation and training on request.",
+      },
+      {
+        q: "Does MedicoreERP handle insurance and TPA billing?",
+        a: "Yes. Insurance and TPA billing, pre-authorisation, claim tracking and settlement are part of the billing and revenue cycle modules.",
+      },
+    ],
+    extraKeywords: ["hospital software Tamil Nadu", "nursing home software Chennai"],
+  }),
+  cityPage({
+    city: "Pune",
+    state: "Maharashtra",
+    slug: "pune",
+    intro: [
+      "Pune's healthcare sector has grown with the city, from established hospitals in the centre to new multi-specialty hospitals and clinics in the IT corridors and Pimpri-Chinchwad. Growing hospitals here need software that scales without disrupting care.",
+      "MedicoreERP runs registration, OPD, IPD, EMR, laboratory, pharmacy, insurance and billing on one patient record. Our team is based in Hyderabad and supports Pune hospitals online, with on-site visits for implementation on request.",
+    ],
+    areaTitle: "Hospitals across Pune",
+    areaSubtitle: "Supporting hospitals and nursing homes across Pune and Pimpri-Chinchwad.",
+    areas: ["Kothrud", "Shivajinagar", "Deccan", "Camp", "Aundh", "Baner", "Wakad", "Hinjewadi", "Kharadi", "Viman Nagar", "Hadapsar", "Kondhwa", "Pimpri", "Chinchwad"],
+    localReasons: [
+      {
+        title: "Scales as you grow",
+        desc: "Add beds, departments or a new branch without changing software or migrating data again.",
+      },
+      {
+        title: "Phased go-live",
+        desc: "Start with front office and OPD, then add IPD, diagnostics and pharmacy, so care is never disrupted.",
+      },
+    ],
+    localFaqs: [
+      {
+        q: "Does MedicoreERP have an office in Pune?",
+        a: "No. Our office is in Madhapur, Hyderabad. We implement and support Pune hospitals online, and the team can visit for implementation and training on request.",
+      },
+      {
+        q: "Can MedicoreERP be used by new hospitals in Pune?",
+        a: "Yes. New hospitals can go live with core modules from the start and add others as departments open.",
+      },
+    ],
+    extraKeywords: ["hospital software Pimpri Chinchwad", "nursing home software Pune"],
+  }),
+];
+
+export function cityPageBySlug(slug: string) {
+  const page = CITY_PAGES.find((p) => p.seo.canonical === `/hospital-management-software-${slug}`);
+  if (!page) throw new Error(`Unknown city landing page: ${slug}`);
+  return page;
+}
+
 export const HYDERABAD_HMS: LocalLanding = {
   seo: {
     title: "Hospital Management Software in Hyderabad | MedicoreERP",

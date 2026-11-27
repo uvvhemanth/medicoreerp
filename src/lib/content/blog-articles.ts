@@ -692,6 +692,601 @@ export const BLOG_ARTICLES: Record<string, BlogArticle> = {
       { href: "/security/compliance", label: "Security and compliance" },
     ],
   },
+
+  "hospital-management-software-price-india": {
+    updated: "2026-11-27",
+    keywords: [
+      "hospital management software price in India",
+      "hospital management system cost",
+      "HMS software price",
+      "hospital software cost India",
+      "clinic management software price",
+      "hospital ERP pricing",
+    ],
+    intro: [
+      "\"How much does hospital management software cost?\" is usually the first question a hospital owner asks, and the hardest one to get a straight answer to. Vendor websites rarely publish prices, quotes arrive in different formats, and two proposals for the same hospital can differ several times over once implementation, training and annual charges are added.",
+      "This guide explains how hospital management software (HMS) is priced in India, what actually drives the cost, which charges are easy to miss, and how to compare quotes fairly. It does not list MedicoreERP prices, because the honest answer depends on your beds, users and modules, but it will help you read any quote, including ours, with confidence.",
+    ],
+    sections: [
+      {
+        heading: "The three pricing models you will see",
+        paragraphs: [
+          "Almost every HMS quote in India follows one of three models. Knowing which one you are looking at is the first step to comparing them.",
+        ],
+        bullets: [
+          "Subscription (SaaS): a monthly or yearly fee, usually priced per bed, per user, per doctor or per facility. Hosting, upgrades and standard support are normally included. The upfront cost is low and the cost grows with the hospital.",
+          "One-time licence plus AMC: you pay a large licence fee once, then an Annual Maintenance Contract (AMC) every year for updates and support. The software is often installed on servers at the hospital, which you buy and maintain.",
+          "Module-based pricing: a base package (registration, OPD, billing) plus separately priced modules such as IPD, pharmacy, laboratory, radiology, inventory or HR. This can sit on top of either of the first two models.",
+        ],
+      },
+      {
+        heading: "What drives the price up or down",
+        paragraphs: [
+          "Two hospitals with the same number of beds can receive very different quotes. These are the factors that move the number most:",
+        ],
+        bullets: [
+          "Number of beds and facilities: inpatient workflows, bed management and nursing modules scale with bed count, and multi-branch groups need central reporting and inter-branch transfers.",
+          "Number of concurrent users: front desk, doctors, nurses, lab, pharmacy, billing and management all need logins. Per-user pricing can add up quickly in a busy hospital.",
+          "Modules required: a clinic may need only appointments, OPD, prescriptions and billing. A multi-specialty hospital typically needs IPD, OT, ICU, laboratory, radiology, pharmacy, inventory, insurance/TPA and analytics as well.",
+          "Integrations: connecting lab analyzers, PACS/RIS for radiology, Tally or other accounting software, payment gateways, SMS or WhatsApp providers and ABDM all take configuration and testing effort.",
+          "Customisation: custom forms, specialty templates, report formats and approval workflows. Configurable software keeps this cheaper than software that needs code changes.",
+          "Deployment: cloud deployment avoids buying servers. On-premise deployment shifts that cost to the hospital, along with backups, power and IT staff.",
+          "Data migration: moving patient masters, history and pending bills from an old system or spreadsheets is a project in its own right.",
+        ],
+      },
+      {
+        heading: "Costs that are easy to miss",
+        paragraphs: [
+          "The software fee is rarely the whole cost. When you compare proposals, check whether each of these is included, charged separately or not offered at all:",
+        ],
+        bullets: [
+          "Implementation and configuration fees, often charged once at the start.",
+          "Training for each department, and refresher training when staff change.",
+          "Go-live support: someone on the floor during the first one to two weeks, when most adoption problems appear.",
+          "Hardware: computers, barcode printers, thermal printers, label printers, token displays and network upgrades.",
+          "Messaging charges: SMS and WhatsApp reminders are usually billed per message by the provider.",
+          "Annual price increases on subscriptions or AMC, and the cost of adding beds, users or a new branch later.",
+          "GST: software and IT services in India are generally taxed at 18 percent. Check whether quotes are inclusive or exclusive of GST.",
+          "Exit costs: whether you can export all your data in a usable format if you change vendors.",
+        ],
+      },
+      {
+        heading: "Subscription versus one-time licence: which is cheaper?",
+        paragraphs: [
+          "A one-time licence looks cheaper over many years on paper, but only if you ignore the servers, backups, IT staff, AMC and the upgrades you will eventually need. A subscription costs more over a very long period but removes most of those hidden costs and keeps the software current.",
+          "A fair way to compare is total cost of ownership over five years: add every fee, every year, plus the hardware and staff each option needs. For most small and mid-sized hospitals in India, cloud subscriptions come out simpler to budget and lower in upfront risk. Large hospitals with strong in-house IT teams sometimes prefer on-premise control.",
+        ],
+      },
+      {
+        heading: "How to compare quotes fairly",
+        paragraphs: [
+          "Ask every vendor to quote against the same written requirement. A one-page brief is enough:",
+        ],
+        bullets: [
+          "Beds, facilities and expected growth over three years.",
+          "Departments and modules you need on day one, and those you will add later.",
+          "Number of users by role, and how many will use the system at the same time.",
+          "Integrations you need: lab analyzers, PACS, accounting, payment, messaging and ABDM.",
+          "Data you need migrated, and from which system.",
+          "Your preferred deployment: cloud or on-premise.",
+        ],
+      },
+      {
+        heading: "Questions to ask before you sign",
+        paragraphs: [
+          "These questions surface most of the differences between proposals that look similar:",
+        ],
+        bullets: [
+          "What exactly is included in the price, and what is charged separately?",
+          "How much does it cost to add beds, users, a module or a new branch later?",
+          "Who does the implementation, how long does it take, and is there go-live support on site?",
+          "What are the support hours, response times and escalation process?",
+          "How often is the software updated, and are updates included?",
+          "Where is our data hosted, how is it backed up, and how do we export it if we leave?",
+          "Is the software ABDM-integrated, and does it support FHIR for future data exchange?",
+          "Can we speak to a hospital of similar size that uses the system today?",
+        ],
+      },
+      {
+        heading: "Getting a quote for your hospital",
+        paragraphs: [
+          "The fastest route to an accurate price is a short demo built around your workflows, followed by a written quote against your requirement brief. MedicoreERP quotes are based on your beds, users and modules, with implementation, training and integrations listed separately so you can see where the money goes.",
+        ],
+      },
+    ],
+    takeaways: [
+      "HMS pricing in India follows three models: subscription, one-time licence plus AMC, and module-based pricing.",
+      "Beds, users, modules, integrations and data migration drive most of the cost.",
+      "Compare total cost of ownership over five years, including hardware, training, support and GST.",
+      "Send every vendor the same written requirement so quotes are comparable.",
+    ],
+    faqs: [
+      {
+        q: "How much does hospital management software cost in India?",
+        a: "It depends on beds, users, modules, integrations and deployment. A small clinic needs far fewer modules than a multi-specialty hospital, so quotes vary widely. Ask vendors to price against the same written requirement to compare fairly.",
+      },
+      {
+        q: "Is cloud hospital software cheaper than on-premise?",
+        a: "Usually in the first few years, because there are no servers, backup systems or extra IT staff to pay for. Compare the total cost over five years to decide for your hospital.",
+      },
+      {
+        q: "What is AMC in hospital software?",
+        a: "AMC stands for Annual Maintenance Contract. With one-time licences, it is the yearly fee for updates, bug fixes and support.",
+      },
+      {
+        q: "Is GST charged on hospital management software?",
+        a: "Software and IT services in India are generally taxed at 18 percent GST. Check whether each quote is inclusive or exclusive of GST.",
+      },
+      {
+        q: "Does MedicoreERP publish its prices?",
+        a: "No. MedicoreERP quotes are based on your beds, users and modules. Book a demo and the team will send a written quote with each cost listed separately.",
+      },
+    ],
+    related: [
+      { href: "/solutions/hospital-management-software", label: "Hospital Management Software" },
+      { href: "/solutions/clinic-management-software", label: "Clinic Management Software" },
+      { href: "/demo", label: "Request a quote and demo" },
+    ],
+  },
+
+  "how-to-choose-hospital-management-software": {
+    updated: "2026-11-27",
+    keywords: [
+      "how to choose hospital management software",
+      "hospital management software selection",
+      "HMS buying guide",
+      "best hospital management software India",
+      "hospital software checklist",
+      "HMS vendor evaluation",
+    ],
+    intro: [
+      "Choosing hospital management software is one of the few decisions that touches every person in a hospital, from the security desk that issues tokens to the doctor writing a discharge summary to the accountant closing the month. A good choice quietly saves hours every day. A poor one leaves staff working around the system for years.",
+      "This guide walks through a practical selection process used by hospitals in India: defining what you need, shortlisting vendors, running demos that reveal real differences, checking references and planning the rollout.",
+    ],
+    sections: [
+      {
+        heading: "Start with your workflows, not a feature list",
+        paragraphs: [
+          "Most HMS brochures list the same modules. The difference is how those modules handle your hospital's day. Before you speak to any vendor, map the five or six journeys that matter most to you and who touches each step.",
+        ],
+        bullets: [
+          "Walk-in OPD: registration, token, vitals, consultation, prescription, investigation orders, billing and pharmacy.",
+          "Planned admission: pre-authorisation, admission, bed allocation, nursing, procedures, discharge summary and final bill.",
+          "Emergency: quick registration without full details, triage, treatment and conversion to IPD.",
+          "Diagnostics: order, sample collection, processing, validation and report delivery.",
+          "Insurance and TPA: pre-authorisation, enhancement, claim submission, query handling and settlement.",
+          "Month-end: collections, outstanding balances, department revenue and management reports.",
+        ],
+      },
+      {
+        heading: "Decide which modules you need now and later",
+        paragraphs: [
+          "Split your list into day-one modules and later modules. Buying everything at once raises cost and implementation risk; buying too little leaves gaps that staff fill with paper and spreadsheets.",
+          "A typical day-one set for a mid-sized hospital is registration, appointments, OPD, IPD, billing, pharmacy and laboratory. Radiology, OT scheduling, inventory, HR and advanced analytics can follow once the core is stable. Make sure the vendor can add modules later without a new system or a data migration.",
+        ],
+      },
+      {
+        heading: "The non-negotiables",
+        paragraphs: ["Whatever your size, the software should meet these basics:"],
+        bullets: [
+          "One patient record across OPD, IPD, lab, pharmacy and billing, with a unique ID (UHID).",
+          "Role-based access, so each user sees only what their job requires, with a full audit trail.",
+          "Reliable backups and a clear statement of where data is hosted.",
+          "ABDM and ABHA integration, and support for standards such as FHIR R4 and HL7.",
+          "Configurable forms, templates and reports, so changes do not need custom code.",
+          "Indian billing realities: packages, discounts with approvals, deposits, refunds, insurance, TPA and GST invoices.",
+          "A full data export, so you are not locked in.",
+        ],
+      },
+      {
+        heading: "Shortlist three to five vendors",
+        paragraphs: [
+          "Look for vendors that already serve hospitals of your type and size. A system built for a 20-bed nursing home will struggle in a 300-bed multi-specialty hospital, and an enterprise system may be too heavy for a small facility.",
+          "Check how long the vendor has supported hospitals, where their implementation and support teams are based, and whether they can visit your site. Local support matters more than most buyers expect, especially in the first months after go-live.",
+        ],
+      },
+      {
+        heading: "Run demos that reveal real differences",
+        paragraphs: [
+          "A vendor-led demo shows the software at its best. A scripted demo shows how it handles your hospital. Send each vendor the same two or three journeys from your workflow map and ask them to run those, live, with your staff watching.",
+        ],
+        bullets: [
+          "Ask the front-desk team to register a patient themselves and time it.",
+          "Ask a doctor to write a prescription with three medicines and two investigations.",
+          "Ask billing to raise an IPD bill with a package, an extra procedure and a discount that needs approval.",
+          "Ask management to open the reports they use every morning.",
+          "Note how many clicks, screens and workarounds each step needs.",
+        ],
+      },
+      {
+        heading: "Check references and the implementation plan",
+        paragraphs: [
+          "Speak to at least two hospitals using the system today, ideally of similar size. Ask what went wrong during implementation, how quickly support responds and what they would do differently.",
+          "Then ask each vendor for a written implementation plan: phases, timelines, who from their team will be on site, what your team must provide, how data migration and training will work, and what happens in the first two weeks after go-live.",
+        ],
+      },
+      {
+        heading: "Compare total cost, not just the quote",
+        paragraphs: [
+          "Compare total cost over five years: subscription or licence, AMC, implementation, training, hardware, integrations, messaging charges and GST. Ask what it costs to add beds, users or a branch later. Our hospital management software price guide explains each of these in detail.",
+        ],
+      },
+      {
+        heading: "Plan the rollout before you sign",
+        paragraphs: [
+          "The most common reason HMS projects disappoint is a rushed rollout. Agree on a phased go-live, typically front office and OPD first, then IPD and billing, then diagnostics and pharmacy. Name a project owner inside the hospital, train super-users in each department, and keep vendor staff on the floor for the first days of each phase.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Map your key patient journeys before looking at software.",
+      "Separate day-one modules from later ones, and make sure modules can be added without a new system.",
+      "Use scripted demos with your own staff to see real differences between vendors.",
+      "Check references, the implementation plan and total cost over five years before signing.",
+    ],
+    faqs: [
+      {
+        q: "What should I look for in hospital management software?",
+        a: "One patient record across departments, role-based access with audit trails, ABDM integration, configurable forms and reports, Indian billing and insurance workflows, reliable backups and full data export.",
+      },
+      {
+        q: "How long does it take to implement hospital management software?",
+        a: "It depends on modules, data migration and hospital size. A phased rollout, starting with front office and OPD, is safer than switching every department on the same day.",
+      },
+      {
+        q: "Should we choose cloud or on-premise HMS?",
+        a: "Cloud software avoids buying and maintaining servers and is easier to update. On-premise suits hospitals with strong in-house IT and specific hosting requirements.",
+      },
+      {
+        q: "How many vendors should we evaluate?",
+        a: "Three to five is usually enough. Fewer limits your comparison; more makes scripted demos and reference checks hard to manage.",
+      },
+      {
+        q: "Can we see MedicoreERP with our own workflows?",
+        a: "Yes. Share two or three of your key patient journeys when you book a demo and the team will run them live.",
+      },
+    ],
+    related: [
+      { href: "/solutions/hospital-management-software", label: "Hospital Management Software" },
+      { href: "/resources/blog/hospital-management-software-price-india", label: "HMS price guide for India" },
+      { href: "/demo", label: "Book a scripted demo" },
+    ],
+  },
+
+  "software-for-small-hospitals-nursing-homes": {
+    updated: "2026-11-27",
+    keywords: [
+      "software for small hospitals",
+      "nursing home management software",
+      "hospital software for small hospitals India",
+      "nursing home software India",
+      "20 bed hospital software",
+      "small hospital HMS",
+    ],
+    intro: [
+      "Small hospitals and nursing homes run some of the busiest healthcare operations in India with the smallest teams. The same person may register patients, collect payments and update the bed register. Software built for large corporate hospitals often adds work instead of removing it.",
+      "This guide covers what software a small hospital or nursing home actually needs, which features to skip at first, and how to go digital without disrupting care.",
+    ],
+    sections: [
+      {
+        heading: "What makes small hospitals different",
+        paragraphs: [
+          "A 10 to 50 bed hospital has the same legal, clinical and billing obligations as a large one, but with fewer staff, a smaller budget and usually no dedicated IT person. That changes what good software looks like.",
+        ],
+        bullets: [
+          "Staff wear several hats, so screens must be simple and quick to learn.",
+          "The owner is often a practising doctor who needs reports on a phone, not a long MIS pack.",
+          "Cash flow matters, so a low upfront cost is usually more important than a lower long-term cost.",
+          "There is rarely a server room, so cloud software avoids a whole category of problems.",
+        ],
+      },
+      {
+        heading: "The core modules a small hospital needs",
+        paragraphs: ["Start with the modules that touch every patient:"],
+        bullets: [
+          "Patient registration with a unique ID, so returning patients are found in seconds.",
+          "Appointments and OPD queue, including walk-ins and tokens.",
+          "OPD consultation and e-prescriptions with templates for common conditions.",
+          "IPD admission, bed management, nursing notes and discharge summary.",
+          "Billing for OPD, IPD, packages, deposits and refunds, with GST invoices.",
+          "Pharmacy with stock, batch and expiry tracking, if you run an in-house pharmacy.",
+          "Simple daily reports: OPD count, admissions, occupancy, collections and outstanding.",
+        ],
+      },
+      {
+        heading: "What you can add later",
+        paragraphs: [
+          "Laboratory, radiology, OT scheduling, inventory, insurance/TPA workflows, HR and payroll are valuable, but they can follow once the core is in daily use. Choose software where these can be switched on later without a new system or data migration.",
+        ],
+      },
+      {
+        heading: "Features that save the most time in a small hospital",
+        paragraphs: [
+          "In small facilities, a few features make most of the difference:",
+        ],
+        bullets: [
+          "One bill that pulls OPD, pharmacy, lab and procedure charges automatically, instead of adding them by hand.",
+          "Prescription templates and favourite medicines, so a consultation does not take longer than on paper.",
+          "Discharge summaries generated from the admission record rather than typed from scratch.",
+          "WhatsApp or SMS reminders for follow-ups, which bring patients back without phone calls.",
+          "A dashboard the owner can open on a phone to see the day's numbers.",
+        ],
+      },
+      {
+        heading: "Budgeting for software in a small hospital",
+        paragraphs: [
+          "Subscription pricing usually suits small hospitals because it spreads cost over time and includes hosting, updates and support. Ask vendors to quote for your beds and users today, and for the cost of growing to the next size. Include computers, printers and internet in your budget; reliable internet with a backup connection is essential for cloud software.",
+        ],
+      },
+      {
+        heading: "Going digital without disrupting care",
+        paragraphs: [
+          "Small hospitals cannot pause operations for a big-bang switch. A phased approach works better:",
+        ],
+        bullets: [
+          "Week 1: registration, appointments and OPD billing.",
+          "Week 2: OPD consultations and prescriptions.",
+          "Week 3: IPD admission, beds, nursing and discharge.",
+          "Week 4: pharmacy and any remaining modules.",
+          "Keep the paper process available as a fallback for the first few days of each phase.",
+        ],
+      },
+      {
+        heading: "Preparing for NABH and ABDM",
+        paragraphs: [
+          "Even if accreditation is not on your plan yet, digital records make it far easier later. NABH offers entry-level certification for small healthcare organisations, and much of its documentation, such as consent, medication records and audit trails, is simpler to maintain in software. ABDM integration lets you link patient records to ABHA and share them with consent.",
+        ],
+      },
+    ],
+    takeaways: [
+      "Small hospitals need simple, fast software that staff with several roles can learn quickly.",
+      "Start with registration, OPD, IPD, billing and pharmacy; add lab, radiology and HR later.",
+      "Cloud subscriptions avoid servers and spread cost over time.",
+      "Roll out in phases, one area per week, with paper as a short-term fallback.",
+    ],
+    faqs: [
+      {
+        q: "What is the best software for a small hospital?",
+        a: "Software that covers registration, OPD, IPD, billing and pharmacy on one patient record, is quick to learn, runs in the cloud and lets you add modules later.",
+      },
+      {
+        q: "Is hospital software suitable for a 20-bed nursing home?",
+        a: "Yes. Choose software that lets you start with core modules and pay for the size you are, rather than an enterprise package built for large hospitals.",
+      },
+      {
+        q: "Do small hospitals need an IT person to run HMS software?",
+        a: "Not with cloud software. The vendor handles hosting, backups and updates; you need working computers, printers and reliable internet.",
+      },
+      {
+        q: "Can MedicoreERP be used by small hospitals?",
+        a: "Yes. MedicoreERP lets small hospitals and nursing homes start with core modules and add laboratory, radiology, inventory and others as they grow.",
+      },
+    ],
+    related: [
+      { href: "/solutions/hospital-management-software", label: "Hospital Management Software" },
+      { href: "/solutions/clinic-management-software", label: "Clinic Management Software" },
+      { href: "/resources/blog/hospital-management-software-price-india", label: "HMS price guide for India" },
+    ],
+  },
+
+  "nabh-accreditation-software-documentation": {
+    updated: "2026-11-27",
+    keywords: [
+      "NABH accreditation software",
+      "NABH documentation software",
+      "NABH standards hospital software",
+      "NABH entry level software",
+      "NABH compliance HMS",
+      "hospital quality documentation",
+    ],
+    intro: [
+      "NABH accreditation tells patients, insurers and government schemes that a hospital meets nationally recognised standards for quality and patient safety. For most hospitals, the hardest part is not meeting the standards but proving it: keeping consistent, complete and retrievable records across every department, every day.",
+      "This article explains what NABH looks for, where hospital software helps with documentation, and how to set up your HMS so accreditation evidence is produced as part of normal work rather than as a separate exercise.",
+    ],
+    sections: [
+      {
+        heading: "What NABH is",
+        paragraphs: [
+          "The National Accreditation Board for Hospitals and Healthcare Providers (NABH) is a constituent board of the Quality Council of India. It sets and assesses standards for hospitals and other healthcare organisations. Alongside full accreditation, NABH offers entry-level certification aimed at smaller hospitals and healthcare organisations starting their quality journey.",
+          "Accreditation is assessed against published standards, and assessors look for evidence that policies are followed in practice. That evidence is largely documentation.",
+        ],
+      },
+      {
+        heading: "The areas NABH standards cover",
+        paragraphs: [
+          "The current hospital standards are organised into chapters that span clinical care and hospital management. They include:",
+        ],
+        bullets: [
+          "Access, assessment and continuity of care (AAC).",
+          "Care of patients (COP).",
+          "Management of medication (MOM).",
+          "Patient rights and education (PRE).",
+          "Hospital infection control (HIC).",
+          "Patient safety and quality improvement (PSQ).",
+          "Responsibilities of management (ROM).",
+          "Facility management and safety (FMS).",
+          "Human resource management (HRM).",
+          "Information management system (IMS).",
+        ],
+      },
+      {
+        heading: "Where hospital software helps most",
+        paragraphs: [
+          "Software cannot make a hospital accredited, but it makes the required records consistent and easy to retrieve. The biggest gains are in these areas:",
+        ],
+        bullets: [
+          "Initial assessments: structured OPD and IPD assessment forms with mandatory fields, completed within defined timeframes.",
+          "Consent: digital consent forms linked to the patient record, with date, time and signatures.",
+          "Medication management: prescriptions, administration records, high-alert drug flags and pharmacy dispensing linked together.",
+          "Care continuity: transfer notes, handovers and discharge summaries generated from the record.",
+          "Infection control: tracking of hospital-acquired infections, device days and related indicators.",
+          "Quality indicators: monthly reports on the indicators your hospital monitors, drawn from routine data.",
+          "Information management: role-based access, audit trails, backups and record retention.",
+        ],
+      },
+      {
+        heading: "Turning standards into system settings",
+        paragraphs: [
+          "The most effective approach is to translate each relevant policy into a configuration in your HMS, so the right behaviour becomes the easiest one:",
+        ],
+        bullets: [
+          "Make key assessment fields mandatory before a patient can move to the next step.",
+          "Add approval steps for discounts, high-risk medicines and discharge against medical advice.",
+          "Use templates for consent, discharge summaries and procedure notes so they are complete every time.",
+          "Schedule reports for quality indicators so the quality team receives them automatically.",
+          "Restrict edits after sign-off and keep a full audit trail of changes.",
+        ],
+      },
+      {
+        heading: "Preparing for assessment with software",
+        paragraphs: [
+          "During an assessment, the quality team needs to pull samples of records quickly. With documentation in an HMS, you can retrieve a patient's full journey, from registration to discharge, in one place, check completeness across a sample of files, and show trends in indicators over months instead of assembling paper files.",
+          "Run internal audits on the same system: sample records each month, check them against the standards and track corrective actions.",
+        ],
+      },
+      {
+        heading: "Common documentation gaps",
+        paragraphs: ["Assessors frequently find the same gaps, many of which software can prevent:"],
+        bullets: [
+          "Incomplete initial assessments or missing timestamps.",
+          "Consent forms not signed, not dated or not specific to the procedure.",
+          "Medication administration not recorded against the prescription.",
+          "Discharge summaries missing follow-up advice or pending results.",
+          "Indicators collected manually, inconsistently or not at all.",
+        ],
+      },
+    ],
+    takeaways: [
+      "NABH accreditation depends on consistent, retrievable documentation across departments.",
+      "Hospital software helps most with assessments, consent, medication records, discharge and quality indicators.",
+      "Configure mandatory fields, templates, approvals and scheduled reports to match your policies.",
+      "Use the same system for monthly internal audits before the assessment.",
+    ],
+    faqs: [
+      {
+        q: "Is software required for NABH accreditation?",
+        a: "NABH does not require a particular software product, but consistent digital documentation makes it much easier to show that standards are followed.",
+      },
+      {
+        q: "What is NABH entry-level certification?",
+        a: "It is a certification from NABH aimed at smaller hospitals and healthcare organisations beginning their quality journey, before full accreditation.",
+      },
+      {
+        q: "Which NABH chapters does hospital software support?",
+        a: "Software helps across many chapters, especially assessment and continuity of care, care of patients, medication management, patient rights, infection control, quality improvement and information management.",
+      },
+      {
+        q: "Is MedicoreERP NABH certified?",
+        a: "NABH accredits hospitals, not software. MedicoreERP helps hospitals maintain the documentation NABH assessors look for through structured forms, templates, approvals, audit trails and reports.",
+      },
+    ],
+    related: [
+      { href: "/solutions/hospital-management-software", label: "Hospital Management Software" },
+      { href: "/security/audit-trails", label: "Audit trails" },
+      { href: "/product/electronic-medical-records", label: "Electronic Medical Records" },
+    ],
+  },
+
+  "hms-vs-his-vs-emr": {
+    updated: "2026-11-27",
+    keywords: [
+      "HMS vs HIS",
+      "HMS vs EMR",
+      "difference between HMS and HIS",
+      "hospital information system vs hospital management system",
+      "EMR vs EHR",
+      "hospital software types",
+    ],
+    intro: [
+      "Hospital software comes with a lot of overlapping acronyms. HMS, HIS, EMR, EHR, LIS, RIS, PACS and ERP all appear in proposals, sometimes describing the same thing and sometimes not. That makes it hard to know what you are buying.",
+      "This guide explains what each term means, how they relate to each other, and which ones a hospital in India actually needs.",
+    ],
+    sections: [
+      {
+        heading: "HMS: hospital management system",
+        paragraphs: [
+          "A hospital management system (HMS) is software that runs the operational side of a hospital: registration, appointments, admissions, beds, billing, pharmacy, inventory and administration. The emphasis is on managing the hospital as an organisation, including its money, stock and staff.",
+        ],
+      },
+      {
+        heading: "HIS: hospital information system",
+        paragraphs: [
+          "A hospital information system (HIS) is a broader term for the information systems that support a hospital, with more emphasis on clinical and patient information alongside administration. In practice, many vendors in India use HMS and HIS interchangeably to describe a single integrated platform.",
+        ],
+      },
+      {
+        heading: "EMR and EHR: the patient record",
+        paragraphs: [
+          "An electronic medical record (EMR) is the digital chart a facility keeps for each patient: history, diagnoses, prescriptions, allergies, vitals, notes and results. An electronic health record (EHR) is designed to follow the patient across facilities, combining records from different providers.",
+          "In India, ABDM links records to a patient's ABHA so they can be shared between providers with consent, which makes a hospital's EMR part of a wider EHR network.",
+        ],
+      },
+      {
+        heading: "LIS, RIS and PACS: the diagnostic systems",
+        paragraphs: ["Diagnostics have their own specialised systems:"],
+        bullets: [
+          "LIS (laboratory information system): test orders, sample tracking, analyzer results, validation and reports.",
+          "RIS (radiology information system): imaging orders, scheduling, worklists and radiology reports.",
+          "PACS (picture archiving and communication system): storage and viewing of medical images in the DICOM standard.",
+        ],
+      },
+      {
+        heading: "Hospital ERP",
+        paragraphs: [
+          "Hospital ERP (enterprise resource planning) usually refers to the back-office side at scale: finance, procurement, inventory across stores, HR and payroll, and consolidated reporting for multi-facility groups. Large hospital groups often look for HMS and ERP capabilities together.",
+        ],
+      },
+      {
+        heading: "How they fit together",
+        paragraphs: [
+          "Think of the EMR as the patient record at the centre. The HMS or HIS runs the hospital around it, from registration to billing. LIS, RIS and PACS feed diagnostic results into the record. ERP handles the back office. The real question for a hospital is not which acronym to buy, but whether these pieces share one patient record or need to be stitched together.",
+        ],
+        bullets: [
+          "Integrated platform: one system, one patient record, one login. Easier to run and report on.",
+          "Best-of-breed: separate systems for each area, connected through interfaces such as HL7 and FHIR. More flexible, but more integration work and more points of failure.",
+        ],
+      },
+      {
+        heading: "Which one does your hospital need?",
+        paragraphs: ["The answer depends on size and scope:"],
+        bullets: [
+          "Clinic: appointments, EMR, prescriptions and billing, often called clinic management software.",
+          "Small or mid-sized hospital: an integrated HMS/HIS with EMR, pharmacy and laboratory, adding radiology as needed.",
+          "Large or multi-specialty hospital: a full HIS with LIS, RIS/PACS integration, insurance workflows and analytics.",
+          "Hospital group: HIS plus ERP capabilities for finance, procurement and multi-facility reporting.",
+        ],
+      },
+    ],
+    takeaways: [
+      "HMS focuses on hospital operations; HIS is broader and includes clinical information. Many vendors use the terms interchangeably.",
+      "EMR is the patient record inside a facility; EHR follows the patient across providers, as ABDM enables in India.",
+      "LIS, RIS and PACS handle laboratory and imaging; ERP handles the back office at scale.",
+      "The key decision is whether these share one patient record or need to be integrated.",
+    ],
+    faqs: [
+      {
+        q: "What is the difference between HMS and HIS?",
+        a: "HMS emphasises hospital operations such as registration, billing, pharmacy and inventory, while HIS is broader and includes clinical information. Many vendors in India use the terms for the same integrated platform.",
+      },
+      {
+        q: "What is the difference between EMR and EHR?",
+        a: "An EMR is the digital patient record kept by one facility. An EHR is designed to follow the patient across hospitals, labs and clinics.",
+      },
+      {
+        q: "Is EMR part of HMS?",
+        a: "In integrated platforms, yes. The EMR is the clinical record inside the HMS, shared by OPD, IPD, lab, pharmacy and billing.",
+      },
+      {
+        q: "Does MedicoreERP include HMS, HIS and EMR?",
+        a: "Yes. MedicoreERP combines hospital management, clinical information and electronic medical records on one patient record, with laboratory, radiology and pharmacy modules.",
+      },
+    ],
+    related: [
+      { href: "/solutions/hospital-management-software", label: "Hospital Management Software" },
+      { href: "/product/electronic-medical-records", label: "Electronic Medical Records" },
+      { href: "/solutions/enterprise-healthcare-erp", label: "Enterprise Healthcare ERP" },
+    ],
+  },
 };
 
 /** Word count across the article body, used to compute an honest read time. */

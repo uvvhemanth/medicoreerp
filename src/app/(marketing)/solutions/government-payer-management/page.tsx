@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GOVERNMENT_PAYER_LANDING } from "@/lib/content/marketing";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeading, CTABand, Eyebrow, Reveal, FAQ } from "@/components/marketing/blocks";
+import { RelatedGuides } from "@/components/marketing/related-guides";
 import { JsonLd } from "@/components/marketing/json-ld";
 import { breadcrumbJsonLd, faqJsonLd, DEFAULT_OG_IMAGES } from "@/lib/seo";
 import { HisDashboard } from "@/components/marketing/his-dashboard";
@@ -159,6 +160,8 @@ export default function GovernmentPayerManagementPage() {
         <SectionHeading center eyebrow="Government / Payer FAQs" title="Questions payer teams ask before they switch" className="mb-12" />
         <FAQ items={PAGE.faqs} />
       </Section>
+
+      <RelatedGuides muted slugs={["abdm-ready-hospital", "fhir-first-interoperability", "reducing-claim-denials-with-ai"]} />
 
       <CTABand
         title="Simplify Payer and Claims Management with MedicoreERP"
