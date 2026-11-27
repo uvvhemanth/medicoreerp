@@ -34,6 +34,7 @@ const columns = [
     title: "Resources",
     links: [
       ["Blog", "/resources/blog"],
+      ["Use Cases", "/use-cases"],
       ["HMS Price Guide", "/resources/blog/hospital-management-software-price-india"],
       ["How to Choose an HMS", "/resources/blog/how-to-choose-hospital-management-software"],
       ["HMS vs HIS vs EMR", "/resources/blog/hms-vs-his-vs-emr"],

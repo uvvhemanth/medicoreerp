@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/content/marketing";
 import { BLOG_ARTICLES } from "@/lib/content/blog-articles";
 import { CITY_PAGES } from "@/lib/content/local-landing";
+import { USE_CASES } from "@/lib/content/use-cases";
 
 const DEFAULT_LASTMOD = new Date("2026-09-19T16:04:15+01:00");
 const BLOG_LASTMOD = new Date("2026-09-19T16:04:22+01:00");
@@ -91,6 +92,8 @@ const ENTRIES: Entry[] = [
   { path: "/resources/blog/nabh-accreditation-software-documentation", priority: 0.8, lastModified: blogLastMod("/resources/blog/nabh-accreditation-software-documentation") },
   { path: "/resources/blog/hms-vs-his-vs-emr", priority: 0.8, lastModified: blogLastMod("/resources/blog/hms-vs-his-vs-emr") },
   ...CITY_PAGES.map((c) => ({ path: c.seo.canonical, priority: 0.8, lastModified: LOCAL_LANDING_LASTMOD })),
+  { path: "/use-cases", priority: 0.8, lastModified: LOCAL_LANDING_LASTMOD },
+  ...USE_CASES.map((u) => ({ path: `/use-cases/${u.slug}`, priority: 0.7, lastModified: LOCAL_LANDING_LASTMOD })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
