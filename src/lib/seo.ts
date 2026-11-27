@@ -45,12 +45,8 @@ export const BRAND_ALTERNATE_NAMES = ["MediCoreERP", "Medicore ERP", "MediCore E
 /** Office map pin, from the location shared by the owner (Madhapur, Hyderabad). */
 export const OFFICE_GEO = { latitude: 17.445256, longitude: 78.391354 };
 
-/**
- * Google Maps link to the exact office pin. When the Google Business Profile is
- * live, replace this with its place link (google.com/maps/place/MedicoreERP/...)
- * and add that link to the Organization sameAs.
- */
-export const OFFICE_MAP_URL = `https://www.google.com/maps/search/?api=1&query=${OFFICE_GEO.latitude},${OFFICE_GEO.longitude}`;
+/** Verified Google Business Profile listing for the Madhapur office. */
+export const OFFICE_MAP_URL = "https://maps.google.com/?cid=9758955786213521136";
 
 /**
  * Official social profiles. Used for the footer icons and the Organization
@@ -94,7 +90,7 @@ export function siteGraphJsonLd() {
         url: origin,
         logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
         ...(orgAddress() ? { address: orgAddress(), location: orgLocation() } : {}),
-        ...(SOCIAL_PROFILES.length ? { sameAs: SOCIAL_PROFILES.map((p) => p.url) } : {}),
+        sameAs: [...SOCIAL_PROFILES.map((p) => p.url), OFFICE_MAP_URL],
         description:
           "MedicoreERP provides integrated hospital management and hospital information system software for hospitals, clinics, and healthcare organizations.",
         email: "info@medicoreerp.com",
